@@ -1,5 +1,26 @@
 {
 	"name" : "Sur la route du travail",
-	"url_to_sprite" : "./scenarios/sprites/1.png",
-	"description" : "lorem ipsum dolor sit amet consectur apdicis..."
+	"url_to_image" : "./scenarios/images/1.png",
+	"url_to_background" : "./scenarios/images/1_background.png",
+	"description" : "lorem ipsum dolor sit amet consectur apdicis...",
+	"stops_list" : [
+		{
+			"name" : "Home",
+			"available_vehicles" : ["car", "train", "bus"],
+			"x" : 100,
+			"y" : 12
+		},
+		{
+			"name" : "Bus Stop",
+			"available_vehicles" : ["bike", "segway", "bus"],
+			"x" : 100,
+			"y" : 120
+		},
+		{
+			"name" : "Work",
+			"available_vehicles" : ["car", "train", "bus"],
+			"x" : 200,
+			"y" : 200
+		}
+	]
 }
