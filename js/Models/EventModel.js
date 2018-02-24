@@ -15,9 +15,10 @@ class Event{
             'url': path,
             'dataType': "json",
             'success': function (data){
-                this.event = data;
+                event = data;
             }
         });
+        this.event = event;
         
         console.log("Create instance of " + event_name + " event");
     }

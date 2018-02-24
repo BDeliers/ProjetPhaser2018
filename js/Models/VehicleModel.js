@@ -14,10 +14,11 @@ class Vehicle{
             'url': path,
             'dataType': "json",
             'success': function (data){
-                this.vehicle = data;
+                vehicle = data;
             }
         });
-
+        this.vehicle = vehicle;
+        
         this.events = [];
         for(let event of this.vehicle.available_events){
             this.events.push(new Event(event));
