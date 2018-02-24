@@ -2,36 +2,55 @@
 
 // Models interface for event JSON object
 
-var EventModel = function(event_json){
+class EventModel{
+    
+    constructor(event_name){
+        var path = "../events/" + event_name + ".json";
+        
+        var event;
+        $.ajax({
+            'async': false,
+            'global': false,
+            'url': path,
+            'dataType': "json",
+            'success': function (data){
+                event = data;
+            }
+        });
 
-    this.event = JSON.parse(event_json);
+        this.event = event;
+        
+        console.log("Create instance of " + event_name + " event");
+    }
+    
+    get name() {
+        return this.event.name;
+    }
 
-}
+    get urlToImage(){
+        return this.event.url_to_image;
+    }
 
-EventModel.prototype.getName = function(){
-    return this.event.name;
-}
+    get description(){
+        return this.event.description;
+    }
 
-Event.prototype.getUrlToImage = function(){
-    return this.event.url_to_image;
-}
+    get perturbativePollutionCoeff(){
+        return this.event.perturbative_pollution_coeff;
+    }
+    
+    get perturbativeMoneyCoeff(){
+        return this.event.perturbative_money_coeff;
+    }
+    
+    get perturbativeExhaustCoeff(){
+        return this.event.perturbative_exhaust_coeff;
+    }
+    
+    get perturbativeTimeCoeff(){
+        return this.event.perturbative_time_coeff;
+    }
+};
 
-Event.prototype.getDescription = function(){
-    return this.event.description;
-}
 
-Event.prototype.getPerturbativePollutionCoeff = function(){
-    return thiis.event.perturbative_pollution_coeff;
-}
 
-Event.prototype.getPerturbativeMoneyCoeff = function(){
-    return thiis.event.perturbative_money_coeff;
-}
-
-Event.prototype.getPerturbativeExhaustCoeff = function(){
-    return thiis.event.perturbative_exhaust_coeff;
-}
-
-Event.prototype.getPerturbativeTimeCoeff = function(){
-    return thiis.event.perturbative_time_coeff;
-}
