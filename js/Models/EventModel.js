@@ -2,7 +2,7 @@
 
 // Models Class interface for event JSON object
 
-class EventModel{
+class Event{
     
     constructor(event_name){
         var path = "../events/" + event_name + ".json";

@@ -1,5 +1,5 @@
 (function() {
-    var rain_event = new EventModel("rain");
+    var rain_event = new Event("rain");
 
     console.log("Enter main");
 
