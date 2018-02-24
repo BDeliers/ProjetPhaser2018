@@ -7,18 +7,15 @@ class Scenario{
     constructor(scenario_name){
         var path = "../scenarios/" + scenario_name + ".json";
         
-        var scenar;
         $.ajax({
             'async': false,
             'global': false,
             'url': path,
             'dataType': "json",
             'success': function (data){
-                scenar = data;
+                this.scenario = data;
             }
         });
-
-        this.scenario = scenar;
         
         console.log("Create instance of " + scenario_name + " scenarios");
     }

@@ -2,6 +2,7 @@
 
 // Models Class interface for event JSON object
 
+// Event is a JS word
 class Event{
     
     constructor(event_name){
@@ -14,11 +15,9 @@ class Event{
             'url': path,
             'dataType': "json",
             'success': function (data){
-                event = data;
+                this.event = data;
             }
         });
-
-        this.event = event;
         
         console.log("Create instance of " + event_name + " event");
     }
