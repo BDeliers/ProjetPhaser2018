@@ -1,65 +1,65 @@
 
 
-// Models Class interface for vehicule JSON object
+// Models Class interface for vehicle JSON object
 
-class Vehicule{
+class Vehicle{
     
-    constructor(vehicule_name){
-        var path = "../vehicules/" + vehicule_name + ".json";
+    constructor(vehicle_name){
+        var path = "../vehicles/" + vehicle_name + ".json";
         
-        var vehicule;
+        var vehicle;
         $.ajax({
             'async': false,
             'global': false,
             'url': path,
             'dataType': "json",
             'success': function (data){
-                vehicule = data;
+                vehicle = data;
             }
         });
 
-        this.vehicule = vehicule;
+        this.vehicle = vehicle;
         this.events = [];
 
-        for(let event of this.vehicule.available_events){
+        for(let event of this.vehicle.available_events){
             this.events.push(new Event(event));
         }
         
-        console.log(this.vehicule.available_events);
+        console.log(this.vehicle.available_events);
         
-        console.log("Create instance of " + vehicule_name + " vehicule");
+        console.log("Create instance of " + vehicle_name + " vehicle");
     }
     
     get name() {
-        return this.vehicule.name;
+        return this.vehicle.name;
     }
 
     get urlToImage(){
-        return this.vehicule.url_to_image;
+        return this.vehicle.url_to_image;
     }
 
     get urlToPathImage(){
-        return this.vehicule.url_to_path_image
+        return this.vehicle.url_to_path_image
     }
 
     get description(){
-        return this.vehicule.description;
+        return this.vehicle.description;
     }
 
     get pollutionCoeff(){
-        return this.vehicule.pollution_coeff;
+        return this.vehicle.pollution_coeff;
     }
     
     get moneyCoeff(){
-        return this.vehicule.money_coeff;
+        return this.vehicle.money_coeff;
     }
     
     get exhaustCoeff(){
-        return this.vehicule.exhaust_coeff;
+        return this.vehicle.exhaust_coeff;
     }
     
     get timeCoeff(){
-        return this.vehicule.time_coeff;
+        return this.vehicle.time_coeff;
     }
 
     get availableEvents(){
