@@ -1,6 +1,6 @@
 
 
-// Models interface for event JSON object
+// Models Class interface for event JSON object
 
 class EventModel{
     
