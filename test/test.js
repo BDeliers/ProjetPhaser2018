@@ -1,6 +1,7 @@
 (function() {
-    var car = new Vehicule("car");
+    var work = new Scenario("work");
 
     console.log("Enter main");
-    console.log(car.availableEvents);
+    console.log(work.stop(1));
+    console.log(work.description);
 })();

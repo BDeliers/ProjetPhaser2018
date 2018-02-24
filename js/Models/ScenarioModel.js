@@ -5,7 +5,7 @@
 class Scenario{
     
     constructor(scenario_name){
-        var path = "../scenarios/" + event_name + ".json";
+        var path = "../scenarios/" + scenario_name + ".json";
         
         var scenar;
         $.ajax({
@@ -41,6 +41,14 @@ class Scenario{
     
     get stopsList(){
         return this.scenario.stops_list;
+    }
+
+    get numberOfStops(){
+        return this.scenario.stops_list.length;
+    }
+
+    stop(index){
+            return this.scenario.stops_list[index];
     }
 };
 
