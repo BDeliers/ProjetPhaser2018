@@ -2,7 +2,7 @@
 
 // Models Class interface for Scenarios JSON object
 
-class Event{
+class Scenario{
     
     constructor(scenario_name){
         var path = "../scenarios/" + event_name + ".json";
