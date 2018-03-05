@@ -52,11 +52,6 @@ class Gauge{
         }
     }
 
-    previewGauges(vehicle, active_events){
-
-    }
-
-
     // a toi de jouer :) 
     displayPollutionGauge(){
 
