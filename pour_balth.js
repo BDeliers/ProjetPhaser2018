@@ -3,9 +3,7 @@
 
 
 class Gauge{
-    constructor(scenario){
-        // number of steps
-        var steps = scenario.numberOfStops();
+    constructor(){
         //percentage for starting game 
         var pollution_level = 0;
         var money_level = 100;
@@ -31,10 +29,10 @@ class Gauge{
         }
 
         // We update the level of each gauge
-        this.pollution_level += (100 / this.steps) * pollution_coeff;
-        this.money_level += (100 / this.steps) * money_coeff;
-        this.exhaust_level += (100 / this.steps) * exhaust_coeff;
-        this.time_level += (100 / this.steps) * time_coeff;
+        this.pollution_level += 100 * pollution_coeff;
+        this.money_level += 100 * money_coeff;
+        this.exhaust_level += 100 * exhaust_coeff;
+        this.time_level += 100 * time_coeff;
         
         // We check that each level is under 100 (max)
         // sinon de toute facon la partie est perdue non ? 
