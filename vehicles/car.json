@@ -1,7 +1,7 @@
 {
 	"name" : "Car",
-	"url_to_image" : "./vehicles/images/car.png",
-	"url_to_path_image" : "./vehicles/images/car_path.png",
+	"url_to_image" : "./vehicles/image/car.png",
+	"url_to_path_image" : "./vehicles/image/car_path.png",
 	"description" : "Lorem ipsum dolor sit amet consectur adipcis",
 	"pollution_coeff" : "0.6",
 	"money_coeff" : "0.1",

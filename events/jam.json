@@ -1,6 +1,6 @@
 {
 	"name" : "jam",
-	"url_to_image" : "./events/images/jam.png",
+	"url_to_image" : "./events/image/jam.png",
 	"description" : "Lorem ispum dolor sit amet consectur apdicis... jam",
 	"perturbative_pollution_coeff" : "0.2",
 	"perturbative_money_coeff" : "0.0",

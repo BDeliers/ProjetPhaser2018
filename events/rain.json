@@ -1,6 +1,6 @@
 {
 	"name" : "Rain",
-	"url_to_image" : "./events/images/rain.png",
+	"url_to_image" : "./events/image/rain.png",
 	"description" : "Lorem ispum dolor sit amet consectur apdicis...",
 	"perturbative_pollution_coeff" : "0.4",
 	"perturbative_money_coeff" : "0.2",
