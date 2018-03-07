@@ -7,6 +7,7 @@ var Levels = function() {
     this.time_level = 0;
 };
 
+//Updates the levels
 Levels.prototype.updateLevels = function(vehicle, active_events) {
     var pollution_coeff = vehicle.pollutionCoeff();
     var money_coeff = vehicle.moneyCoeff();
@@ -25,6 +26,8 @@ Levels.prototype.updateLevels = function(vehicle, active_events) {
     this.exhaust_level += 33 * exhaust_coeff;
     this.time_level += 33 * time_coeff;
 }
+
+//Getters
 
 Levels.prototype.getPollutionLevel = function() {
     return this.pollution_level % 101;
