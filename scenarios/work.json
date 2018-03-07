@@ -1,7 +1,7 @@
 {
 	"name" : "Sur la route du travail",
-	"url_to_image" : "./scenarios/image/1.png",
-	"url_to_background" : "./scenarios/image/1_background.png",
+	"url_to_image" : "./scenarios/images/1.png",
+	"url_to_background" : "./scenarios/images/1_background.png",
 	"description" : "lorem ipsum dolor sit amet consectur apdicis...",
 	"stops_list" : [
 		{
