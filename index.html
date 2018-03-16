@@ -40,12 +40,14 @@
     }
 
     function create (){
-      this.add.image(380, 21.5, 'top_bar');
-      this.add.image(380, 64.5, 'top_bar');
+    //fond du jeu
+      this.add.image(380, 43, 'top_bar');
       this.add.image(860, 43, 'clock');
-      this.add.image(380, 236, 'map');
-      this.add.image(860, 236, 'left_panel');
-      this.add.image(480, 493, 'bottom');
+      this.add.image(380, 286, 'map');
+      this.add.image(860, 286, 'left_panel');
+      this.add.image(480, 543, 'bottom');
+    //fin fond du jeu
+
       this.add.image(150, 450, 'car');
 
 	  Gauge(this, 1, {background_color:"0xFF3123", color:"0xC2C2C2", x:50, y:50, height:50, width:200, coeff:0.85});
