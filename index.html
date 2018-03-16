@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Transport</title>
     <script src="./js/phaser.min.js"></script>
+	<script src="./js/libs/PhaserGauge.js"></script>
     <style type="text/css">
         body {
             margin-left:  15%;
@@ -46,6 +47,8 @@
       this.add.image(860, 236, 'left_panel');
       this.add.image(480, 493, 'bottom');
       this.add.image(150, 450, 'car');
+
+	  Gauge(this, 1, {background_color:"0xFF3123", color:"0xC2C2C2", x:50, y:50, height:50, width:200, coeff:0.85});
     }
 
     function update (){
