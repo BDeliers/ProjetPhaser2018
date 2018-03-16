@@ -5,6 +5,7 @@
     <title>Transport</title>
     <script src="./js/phaser.min.js"></script>
 	<script src="./js/libs/PhaserGauge.js"></script>
+	<script src="./js/libs/Clock.js"></script>
     <style type="text/css">
         body {
             margin-left:  15%;
@@ -37,6 +38,10 @@
       this.load.image('left_panel', './image/assets/left_panel.png');
       this.load.image('bottom', './image/assets/bottom.png');
       this.load.image('car', './vehicles/images/car.png');
+	  this.load.spritesheet('clock_sprite',
+        './image/clock/sprite_clk.png',
+        { frameWidth: 100, frameHeight: 100 }
+    );
     }
 
     function create (){
@@ -51,6 +56,10 @@
       this.add.image(150, 450, 'car');
 
 	  Gauge(this, 1, {background_color:"0xFF3123", color:"0xC2C2C2", x:50, y:50, height:50, width:200, coeff:0.85});
+	  var clock = new Clock(this, 'clock_sprite');
+	  clock.create(200,200);
+	  clock.add_seconds(128);
+	  clock.update();
     }
 
     function update (){
