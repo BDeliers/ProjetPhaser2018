@@ -7,6 +7,8 @@
 	<script src="./js/libs/PhaserGauge.js"></script>
     <script src="./js/libs/Clock.js"></script>
     <script src="./js/libs/DrawLine.js"></script>
+    <script src="./js/libs/Button.js"></script>
+    <script src="./js/Tools/PathGenerator.js"></script>
     <style type="text/css">
         body {
             margin-left:  15%;
@@ -16,13 +18,13 @@
 </head>
 
 <body>
-
+    
 <script type="text/javascript">
 
     var config = {
         type: Phaser.AUTO,
-        width: 960,
-        height: 600,
+        width: 1920,
+        height: 1080,
         scene: {
             preload: preload,
             create: create,
@@ -35,7 +37,7 @@
     function preload (){
       this.load.image('top_bar', './image/assets/top_bar.png');
       this.load.image('clock', './image/assets/clock.png');
-      this.load.image('map', './image/assets/map.png');
+      this.load.image('map', './image/maps/1.png');
       this.load.image('left_panel', './image/assets/left_panel.png');
       this.load.image('bottom', './image/assets/bottom.png');
       this.load.image('car', './vehicles/images/car.png');
@@ -46,36 +48,9 @@
     }
 
     function create (){
-    //fond du jeu
-      this.add.image(380, 43, 'top_bar');
-      this.add.image(860, 43, 'clock');
-      this.add.image(380, 286, 'map');
-      this.add.image(860, 286, 'left_panel');
-      this.add.image(480, 543, 'bottom');
-    //fin fond du jeu
-
-      this.add.image(150, 450, 'car');
-
-	  Gauge(this, 1, {background_color:"0xFF3123", color:"0xC2C2C2", x:50, y:50, height:50, width:200, coeff:0.85});
-	  var clock = new Clock(this, 'clock_sprite');
-	  clock.create(100,100);
-	  clock.add_seconds(200);
-      clock.update();
-      
-      // test draw line
-      DrawLine(this, {color: "0xFFAA00", width:3, rounded_angles: true}, [[100, 100], [200, 400], [200, 200], [100, 200]]);
-        
-      var gra = this.add.graphics();
- 
-            // make it a red rectangle
-            gra.lineStyle(3, 0xff0000);
- 
-            // start by moving to a point
-            gra.moveTo(600, 400);
- 
-            // draw a line
-            gra.lineTo(100, 0);
     
+    pathsGenerator(this, "map", "test");
+
     }
     
     function update (){
