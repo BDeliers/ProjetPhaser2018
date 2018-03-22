@@ -1,5 +1,7 @@
 //Clock management class
 
+console.log("Load Clock");
+
 var Clock = function(phaser, sprite) {
     this.seconds = 0;
     this.minutes = 0;

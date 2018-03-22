@@ -1,14 +1,16 @@
 /**
  * Draw a line between the set of points 
  * @function DrawLine
- * 
  * @param {Phaser} phaser  a instance of a Phaser object
  * @param {json} options {color : "0xHEX", width: pixel_width, rounded_angles: boolean}
  * @param {array} points a 2D array with the coordonate of each point as : [[x0, y0], [x1, y1], [xn, yn]]
  */
   
+ console.log("Load DrawLine");
+ 
  function DrawLine(phaser, options, points){
      // add a new graphics object
+     console.log("line draw");
      var graphics = phaser.add.graphics({lineStyle: { width: options.width, color: options.color}, fillStyle: {color: options.color} });
 
      // draw the first circle (out of index for for loop)
@@ -23,4 +25,5 @@
             graphics.fillCircleShape( new Phaser.Geom.Circle(points[i][0], points[i][1], options.width / 2) );
         }
      }
+
  }
