@@ -3,7 +3,7 @@
  * ERROR : la fonction DrawLine ne se lance pas (ne se charge pas ?)
  * TODO : Utilitaire Node pour générer les fichiers Json
  */
-
+ 
  console.log("load pathsGenerator");
  
 function pathsGenerator(phaser, background_name, json_file_name){
