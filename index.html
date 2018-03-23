@@ -59,6 +59,11 @@
         './image/clock/sprite_clk.png',
         { frameWidth: 60, frameHeight: 100 }
     	);
+	var stops_sprite = this.load.spritesheet('stops_sprite',
+	  './image/assets/stops_sprite.png',
+	  { frameWidth: 30, frameHeight: 30 }
+	  );
+
     }
 
     function create (){
@@ -69,28 +74,9 @@
 		clock.add_seconds(349);
 		clock.update();
 
-        // Example DrawLine
-        DrawLine(this, {color: "0x55AA00", width: 10, rounded_angles: true}, [[100, 100], [200, 500], [600, 300], [100, 100]]);
+		var scenar = new Scenario("work");
 
-        // Example Button
-        var button_test = new Button(this, "car", 200, 400);
-        button_test.on("hover_on", ()=>{
-            console.log("hover in button");
-        });
-        button_test.on("hover_off", ()=>{
-            console.log("hover off button");
-        });
-        button_test.on("click_on", ()=>{
-            console.log("click on button");
-        });
-        button_test.on("click_off", ()=>{
-            console.log("click off button");
-        });
-        */
-
-        var path = new PathModel("work", "test2");
-        DrawLine(this, {color:"0xAAEE11", width: 3, rounded_angles: true}, path.getPath());        
-
+		scenar.plotStops(this, "stops_sprite");
     }
 
     function update (){
