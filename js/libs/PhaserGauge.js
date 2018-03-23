@@ -1,6 +1,8 @@
 //Draw a Gauge
 //config is a dictionnary {background_color, color, x, y, height, width, coeff}
 
+console.log("load PhaserGauge");
+
 function Gauge(phaser, percentage, config) {
     var graphics = phaser.add.graphics();
     var radius = config.height / 2;

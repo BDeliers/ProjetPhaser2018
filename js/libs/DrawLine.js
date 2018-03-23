@@ -10,7 +10,6 @@
  
  function DrawLine(phaser, options, points){
      // add a new graphics object
-     console.log("line draw");
      var graphics = phaser.add.graphics({lineStyle: { width: options.width, color: options.color}, fillStyle: {color: options.color} });
 
      // draw the first circle (out of index for for loop)

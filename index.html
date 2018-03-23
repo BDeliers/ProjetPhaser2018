@@ -49,11 +49,29 @@
 
     function create (){
 
-	    pathsGenerator(this, "map", "test");
+	    // Exemple Clock
 		var clock = new Clock(this, 'clock_sprite', [100,100]);
-		clock.add_seconds(347);
+		clock.add_seconds(3439);
 		clock.update();
 
+        // Example DrawLine
+        DrawLine(this, {color: "0x55AA00", width: 10, rounded_angles: true}, [[100, 100], [200, 500], [600, 300], [100, 100]]);
+
+        // Example Button
+        var button_test = new Button(this, "car", 200, 400);
+        button_test.on("hover_on", ()=>{
+            console.log("hover in button");
+        });
+        button_test.on("hover_off", ()=>{
+            console.log("hover off button");
+        });
+        button_test.on("click_on", ()=>{
+            console.log("click on button");
+        });
+        button_test.on("click_off", ()=>{
+            console.log("click off button");
+        });
+        
     }
 
     function update (){
