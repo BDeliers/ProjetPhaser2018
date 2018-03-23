@@ -18,13 +18,13 @@
 </head>
 
 <body>
-    
+
 <script type="text/javascript">
 
     var config = {
         type: Phaser.AUTO,
-        width: 1920,
-        height: 1080,
+        width: 960,
+        height: 600,
         scene: {
             preload: preload,
             create: create,
@@ -43,18 +43,21 @@
       this.load.image('car', './vehicles/images/car.png');
 	  this.load.spritesheet('clock_sprite',
         './image/clock/sprite_clk.png',
-        { frameWidth: 100, frameHeight: 100 }
+        { frameWidth: 60, frameHeight: 100 }
     );
     }
 
     function create (){
-    
-    pathsGenerator(this, "map", "test");
+
+	    pathsGenerator(this, "map", "test");
+		var clock = new Clock(this, 'clock_sprite', [100,100]);
+		clock.add_seconds(347);
+		clock.update();
 
     }
-    
+
     function update (){
-        
+
     }
 
 </script>

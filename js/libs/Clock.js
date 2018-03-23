@@ -2,11 +2,15 @@
 
 console.log("Load Clock");
 
-var Clock = function(phaser, sprite) {
+var Clock = function(phaser, sprite, origin) {
     this.seconds = 0;
     this.minutes = 0;
 	this.phaser = phaser;
 	this.sprite = sprite;
+	this.x = origin[0];
+	this.y = origin[1];
+
+	this.create();
 };
 
 Clock.prototype.add_seconds = function(value) {
@@ -24,12 +28,13 @@ Clock.prototype.increment_time = function() {
 	this.add_seconds(1);
 }
 
-Clock.prototype.create = function(x,y) {
+Clock.prototype.create = function() {
 	//Creating the clock tiles sprites
-	this.minutes_1 = this.phaser.add.sprite(x, y, this.sprite);
-	this.minutes_0 = this.phaser.add.sprite(this.minutes_1.x + 110, this.minutes_1.y, this.sprite);
-	this.seconds_1 = this.phaser.add.sprite(this.minutes_0.x + 110, this.minutes_0.y, this.sprite);
-	this.seconds_0 = this.phaser.add.sprite(this.seconds_1.x + 110, this.seconds_1.y, this.sprite);
+	this.minutes_1 = this.phaser.add.sprite(this.x, this.y, this.sprite);
+	this.minutes_0 = this.phaser.add.sprite(this.minutes_1.x + this.minutes_1.width, this.minutes_1.y, this.sprite);
+	this.dots = this.phaser.add.sprite(this.minutes_0.x + this.minutes_0.width, this.minutes_0.y, this.sprite);
+	this.seconds_1 = this.phaser.add.sprite(this.dots.x + this.dots.width, this.dots.y, this.sprite);
+	this.seconds_0 = this.phaser.add.sprite(this.seconds_1.x + this.minutes_1.width, this.seconds_1.y, this.sprite);
 
 	//Numbers animations
 	this.phaser.anims.create({
@@ -72,11 +77,20 @@ Clock.prototype.create = function(x,y) {
 		key:'9',
 		frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 8, end: 9})
 	});
+	this.phaser.anims.create({
+		key:'dots',
+		frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 9, end: 10})
+	});
+	this.phaser.anims.create({
+		key:'empty',
+		frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 10, end: 11})
+	});
 }
 
 Clock.prototype.update = function() {
 	this.minutes_1.anims.play(String((this.minutes-this.minutes%10)/10), true);
 	this.minutes_0.anims.play(String(this.minutes%10), true);
+	this.dots.anims.play('dots', true);
 	this.seconds_1.anims.play(String((this.seconds-this.seconds%10)/10), true);
 	this.seconds_0.anims.play(String(this.seconds%10), true);
 }
