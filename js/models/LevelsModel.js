@@ -16,7 +16,7 @@ Levels.prototype.updateLevels = function(vehicle, active_events) {
 
     for(event in active_events){
         pollution_coeff *= (1 + event.perturbativePollutionCoeff());
-        money_coeff *+= (1 + event.perturbativeMoneyCoeff());
+        money_coeff *= (1 + event.perturbativeMoneyCoeff());
         exhaust_coeff *= (1 + event.perturbativeExhaustCoeff());
         time_coeff *= (1 + event.perturbativeTimeCoeff());
     }
