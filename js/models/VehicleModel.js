@@ -5,7 +5,7 @@
 class Vehicle{
     
     constructor(vehicle_name){
-        var path = "../vehicles/" + vehicle_name + ".json";
+        var path = "./vehicles/" + vehicle_name + ".json";
         
         var vehicle;
         $.ajax({

@@ -6,7 +6,7 @@
 class Event{
     
     constructor(event_name){
-        var path = "../events/" + event_name + ".json";
+        var path = "./events/" + event_name + ".json";
         
         var event;
         $.ajax({
