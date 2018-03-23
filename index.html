@@ -41,10 +41,10 @@
       this.load.image('left_panel', './image/assets/left_panel.png');
       this.load.image('bottom', './image/assets/bottom.png');
       this.load.image('car', './vehicles/images/car.png');
-	  this.load.spritesheet('clock_sprite',
+	  var clock_sprite = this.load.spritesheet('clock_sprite',
         './image/clock/sprite_clk.png',
         { frameWidth: 60, frameHeight: 100 }
-    );
+    	);
     }
 
     function create (){
