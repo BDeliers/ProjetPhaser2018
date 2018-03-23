@@ -26,7 +26,7 @@ class Button{
     on(command, callback_function){
         switch (command){
             case 'hover_on':
-                this.sprite.on("pointerin", callback_function);
+                this.sprite.on("pointerover", callback_function);
                 break;
 
             case 'hover_off':

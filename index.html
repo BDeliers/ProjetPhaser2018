@@ -3,12 +3,26 @@
 <head>
     <meta charset="UTF-8" />
     <title>Transport</title>
+    <!-- load Phaser lib-->
     <script src="./js/phaser.min.js"></script>
+  
+    <!-- load Libs -->
+    <script src="./js/libs/jquery-3.3.1.js"></script>
 	<script src="./js/libs/PhaserGauge.js"></script>
     <script src="./js/libs/Clock.js"></script>
     <script src="./js/libs/DrawLine.js"></script>
     <script src="./js/libs/Button.js"></script>
+
+    <!-- load tools libs (remove from release)-->
     <script src="./js/Tools/PathGenerator.js"></script>
+
+    <!-- load models -->
+    <script src="./js/models/EventModel.js"></script>
+    <script src="./js/models/LevelsModel.js"></script>
+    <script src="./js/models/PathModel.js"></script>
+    <script src="./js/models/ScenarioModel.js"></script>
+    <script src="./js/models/VehicleModel.js"></script>
+
     <style type="text/css">
         body {
             margin-left:  15%;
@@ -50,8 +64,9 @@
     function create (){
 
 	    // Exemple Clock
-		var clock = new Clock(this, 'clock_sprite', [100,100]);
-		clock.add_seconds(3439);
+        /*
+        var clock = new Clock(this, 'clock_sprite', 100, 100);
+		clock.add_seconds(349);
 		clock.update();
 
         // Example DrawLine
@@ -71,7 +86,10 @@
         button_test.on("click_off", ()=>{
             console.log("click off button");
         });
-        
+        */
+
+       
+
     }
 
     function update (){

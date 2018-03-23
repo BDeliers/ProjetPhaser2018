@@ -12,17 +12,22 @@
      // add a new graphics object
      var graphics = phaser.add.graphics({lineStyle: { width: options.width, color: options.color}, fillStyle: {color: options.color} });
 
+     console.log("ok");
      // draw the first circle (out of index for for loop)
      if(options.rounded_angles === true){
          graphics.fillCircleShape(new Phaser.Geom.Circle(points[0][0], points[0][0], options.width / 2));
      }
-     for(var i = 1; i < points.length; i++){
-         // draw the line
-        graphics.strokeLineShape( new Phaser.Geom.Line(points[i - 1][0], points[i - 1][1], points[i][0], points[i][1]) );
-         // draw circle for rounded shape if needed 
-        if(options.rounded_angles === true){
-            graphics.fillCircleShape( new Phaser.Geom.Circle(points[i][0], points[i][1], options.width / 2) );
+     if(points.length >= 2){
+         console.log("ok2");
+        for(var i = 1; i < points.length; i++){
+            // draw the line
+           graphics.strokeLineShape( new Phaser.Geom.Line(points[i - 1][0], points[i - 1][1], points[i][0], points[i][1]) );
+            // draw circle for rounded shape if needed 
+           if(options.rounded_angles === true){
+               graphics.fillCircleShape( new Phaser.Geom.Circle(points[i][0], points[i][1], options.width / 2) );
+           }
         }
      }
+     
 
  }
