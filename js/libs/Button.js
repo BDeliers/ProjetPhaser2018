@@ -37,7 +37,7 @@ class Button{
                 this.sprite.on("pointerdown", callback_function);
                 break;
 
-            case 'clic_off':
+            case 'click_off':
                 this.sprite.on("pointerup", callback_function);
                 break;
 
