@@ -2,13 +2,13 @@
 
 console.log("Load Clock");
 
-var Clock = function(phaser, sprite, origin) {
+var Clock = function(phaser, sprite, x, y) {
     this.seconds = 0;
     this.minutes = 0;
 	this.phaser = phaser;
 	this.sprite = sprite;
-	this.x = origin[0];
-	this.y = origin[1];
+	this.x = x;
+	this.y = y;
 
 	this.create();
 };
@@ -35,6 +35,9 @@ Clock.prototype.create = function() {
 	this.dots = this.phaser.add.sprite(this.minutes_0.x + this.minutes_0.width, this.minutes_0.y, this.sprite);
 	this.seconds_1 = this.phaser.add.sprite(this.dots.x + this.dots.width, this.dots.y, this.sprite);
 	this.seconds_0 = this.phaser.add.sprite(this.seconds_1.x + this.minutes_1.width, this.seconds_1.y, this.sprite);
+
+	this.sprite_height = this.dots.height;
+	this.sprite_width = this.dots.width;
 
 	//Numbers animations
 	this.phaser.anims.create({
