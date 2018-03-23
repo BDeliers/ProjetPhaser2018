@@ -4,7 +4,7 @@
 
  class PathModel{
      constructor(scenario_name, path_name){
-        var path = "../scenario/" + scenario_name + "/paths/" + path_name + ".json";
+        var path = "./scenarios/" + scenario_name + "/paths/" + path_name + ".json";
 
         var path;
         $.ajax({
@@ -22,11 +22,11 @@
 
      }
 
-     get name(){
+     getName(){
          return this.path.name;
      }
 
-     get path(){
+     getPath(){
          return this.path.path;
      }
  }
