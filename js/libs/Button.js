@@ -1,8 +1,7 @@
 /**
  * @class Button Wrapper Phaser
  * create a new button on a Phaser asset and bind functions on mouse hover or mouse clic
- * TO DO : - bug on mouse hover in ?? phaser keyword is not "pointerin" ? 
- *         - annimate as a spritesheet 
+ * TO DO : - annimate as a spritesheet 
  */
 
  console.log("load Button");
