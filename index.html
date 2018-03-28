@@ -14,7 +14,7 @@
     <script src="./js/libs/Button.js"></script>
 
     <!-- load tools libs (remove from release)-->
-    <script src="./js/Tools/PathGenerator.js"></script>
+    <script src="./js/Tools/PathGeneratorClient.js"></script>
 
     <!-- load models -->
     <script src="./js/models/EventModel.js"></script>
@@ -75,7 +75,9 @@
 
 		var scenar = new Scenario("work");
 
-		scenar.plotStops(this, "stops_sprite");
+        scenar.plotStops(this, "stops_sprite");
+        
+        pathsGenerator(this, "map", "test4");
     }
 
     function update (){
