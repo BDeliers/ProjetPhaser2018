@@ -54,7 +54,7 @@ function(Phaser, Button, Clock, Gauge, Scenario) {
     }
 
     function create (){
-      this.add.image(480,300, 'home').setScale(1);
+      this.add.image(480,300, 'home').setDisplaySize(960,600);
 
       var button_start = new Button(this, "start_sprite", 480, 300);
       button_start.on("hover_on", ()=>{
