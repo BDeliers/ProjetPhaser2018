@@ -6,10 +6,16 @@
  
  console.log("load pathsGenerator");
  
-function pathsGenerator(phaser, background_name, json_file_name){
+function pathsGenerator(phaser, json_scenario_name){
+    var from = prompt("Nom de l'arret de départ");
+    var to = prompt("Nom de l'arret d'arrivé");
     var json = {
-        "name": json_file_name,
-        "path": []
+        "json_scenario_name": json_scenario_name,
+        "object": {
+            "from" : from,
+            "to" : to,
+            "path" : []
+        }
     }
     var isActive = false;
     
@@ -58,14 +64,10 @@ function pathsGenerator(phaser, background_name, json_file_name){
                 console.log("touche non assigné");
         }
     });
-
-    var image = phaser.sprite = phaser.add.sprite(380, 200, background_name).setInteractive();
-    image.setScale(0.5);
-
     
     image.on("pointerdown", (pointer)=>{
         if(isActive){
-            json.path.push([pointer.x, pointer.y]);
+            json.oject.path.push([pointer.x, pointer.y]);
             line.clean();
             line.draw(json.path);
             console.log("push : ", pointer.x, " ", pointer.y);

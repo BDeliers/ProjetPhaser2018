@@ -3,7 +3,7 @@ const fs = require('fs')
 
 console.log("Server created");
 http.createServer((request, response) => {
-    console.log("request recieved");
+  console.log("request recieved");
   const { headers, method, url } = request;
   let body = [];
   request.on('error', (err) => {
@@ -13,11 +13,15 @@ http.createServer((request, response) => {
   }).on('end', () => {
     body = Buffer.concat(body).toString();
     
-    
-    var json = JSON.parse(body);
+    var 
+    var path_json = JSON.parse(body);
     console.log(json);
-    var file_name = json.name + ".json";
-    fs.writeFile(file_name, JSON.stringify(json), function(){
+    var file_name = json.json_scenario_name + ".json";
+    fs.readFileSync(file_name, (err, data)=>{
+      var scenario_json = JSON.parse(data);
+      scenario_json.paths.push(path_json.object);
+    });
+    fs.writeFile(file_name, JSON.stringify(scenario_json), function(){
         console.log("file created");
     });
 

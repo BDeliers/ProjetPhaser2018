@@ -35,6 +35,8 @@
 
 <script type="text/javascript">
 
+    var Line = require("./libs/DrawLine.js");
+
     var config = {
         type: Phaser.AUTO,
         width: 960,
@@ -75,9 +77,11 @@
 
 		var scenar = new Scenario("work");
 
+        var my_line = new Line(this);
+
         scenar.plotStops(this, "stops_sprite");
         
-        pathsGenerator(this, "map", "test4");
+        pathsGenerator(this, "work");
     }
 
     function update (){
