@@ -4,7 +4,7 @@
 	"path_color" : "#f9070d",
 	"description" : "Lorem ipsum dolor sit amet consectur adipcis",
 	"pollution_coeff" : "0.6",
-	"money_coeff" : "0.1",
+	"money_coeff" : "0.7",
 	"exhaust_coeff" : "0",
 	"time_coeff" : "0.3",
 	"available_events" : ["rain", "jam"]
