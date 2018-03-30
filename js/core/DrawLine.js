@@ -58,7 +58,7 @@ define(["Phaser"], function() {
 	    setOptions(options){
 	        this.options = options;
 	    }
-	 };
+	 }
 
 	 return line_class;
 
