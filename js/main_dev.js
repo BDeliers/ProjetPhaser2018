@@ -19,17 +19,34 @@ require.config({
 });
 
 // Load Application
-require(["Phaser", "core/Button", "core/Clock", "core/PhaserGauge", "models/ScenarioModel", "scenes/Home", "scenes/ScenarioSelection", "scenes/Game", "scenes/Win"],
-function(Phaser, Button, Clock, Gauge, Scenario, Home, ScenarioSelection, Game, Win) {
+require(["Phaser", "core/Button", "core/Clock", "core/PhaserGauge", "models/ScenarioModel", "tools/PathGeneratorClient"],
+function(Phaser, Button, Clock, Gauge, Scenario, pathGenerator) {
 
 	var config = {
         type: Phaser.AUTO,
         width: 960,
         height: 600,
-        scene: Home
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        }
     };
 
     var game = new Phaser.Game(config);
+
+    function preload (){
+    }
+
+    function create (){
+        
+        var path = new pathGenerator(this, "work");
+
+    }
+
+    function update (){
+
+    }
 
     console.log('Load application');
 

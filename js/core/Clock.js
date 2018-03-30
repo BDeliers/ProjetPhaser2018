@@ -1,6 +1,6 @@
 //Clock management class
 
-define([], function() {
+define(["Phaser"], function() {
 
 	console.log("Load core/Clock");
 

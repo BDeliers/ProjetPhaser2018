@@ -1,7 +1,7 @@
 //Draw a Gauge
 //config is a dictionnary {background_color, color, x, y, height, width, coeff}
 
-define([], function() {
+define(["Phaser"], function() {
 
 console.log("Load core/PhaserGauge");
 

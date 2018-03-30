@@ -4,7 +4,7 @@
  * TO DO : - annimate as a spritesheet
  */
 
-define([], function() {
+define(["Phaser"], function() {
 
 	console.log("Load core/Button");
 
