@@ -1,0 +1,11 @@
+{
+	"name" : "bicycle",
+	"url_to_image" : "./vehicles/images/bicycle.png",
+	"path_color" : "#0a89c9",
+	"description" : "Lorem ipsum dolor sit amet consectur adipcis",
+	"pollution_coeff" : "0",
+	"money_coeff" : "0",
+	"exhaust_coeff" : "0.7",
+	"time_coeff" : "0.3",
+	"available_events" : ["rain"]
+}

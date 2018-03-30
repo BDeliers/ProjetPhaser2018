@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <title>Transport</title>
-    <script src="./js/phaser.min.js"></script>
-	  <script src="./js/libs/PhaserGauge.js"></script>
-    <script src="./js/libs/Clock.js"></script>
-    <script src="./js/libs/DrawLine.js"></script>
-    <script src="./js/libs/Button.js"></script>
+    <script src="./js/phaser.min.js" type="text/javascript"></script>
+	  <script src="./js/core/PhaserGauge.js" type="text/javascript" ></script>
+    <script src="./js/core/Clock.js" type="text/javascript" ></script>
+    <script src="./js/core/DrawLine.js" type="text/javascript"></script>
+    <script src="./js/core/Button.js" type="text/javascript"></script>
     <script src="./js/Tools/PathGenerator.js"></script>
     <style type="text/css">
         body {
@@ -35,11 +35,9 @@
     var game = new Phaser.Game(config);
 
     function preload (){
-      this.load.image('background', './image/background/accueil.png');
-      this.load.image('dame', './image/characters/full/0.png');
-      var start_sprite = this.load.spritesheet('start_sprite',
-          './image/buttons/commencer.png',
-          { frameWidth: 267, frameHeight: 134 }
+      this.load.image('background', './image/background/home.png');
+      var start_sprite = this.load.spritesheet('start_sprite','./image/buttons/earth.png',
+          { frameWidth: 300, frameHeight: 300 }
       	);
 
       this.anims.create({
@@ -53,14 +51,15 @@
     }
 
     function create (){
-      this.add.image(480,300, 'background');
-      this.add.image(280,300,'dame');
+      this.add.image(480,300, 'background').setScale(0.5);
 
-      var button_start = new Button(this, "start_sprite", 800, 500);
+      var button_start = new Button(this, "start_sprite", 480, 300);
       button_start.on("hover_on", ()=>{
+          console.log("hover_on");
           start_sprite.anims.play("commencer_1", true);
       });
       button_start.on("hover_off", ()=>{
+          console.log("hover_off");
           start_sprite.anims.play("commencer_0", true);
       });
       button_start.on("click_on", ()=>{
