@@ -19,8 +19,8 @@ require.config({
 });
 
 // Load Application
-require(["Phaser", "core/Button", "core/Clock", "core/PhaserGauge", "models/ScenarioModel", "scenes/Home"],
-function(Phaser, Button, Clock, Gauge, Scenario, Home) {
+require(["Phaser", "core/Button", "core/Clock", "core/PhaserGauge", "models/ScenarioModel", "scenes/Home", "scenes/ScenarioSelection", "scenes/Game", "scenes/Win"],
+function(Phaser, Button, Clock, Gauge, Scenario, Home, ScenarioSelection, Game, Win) {
 
 	var config = {
         type: Phaser.AUTO,

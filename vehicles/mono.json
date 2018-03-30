@@ -1,0 +1,11 @@
+{
+	"name" : "mono",
+	"url_to_image" : "./vehicles/images/mono.png",
+	"path_color" : "#50d22c",
+	"description" : "Lorem ipsum dolor sit amet consectur adipcis",
+	"pollution_coeff" : "0",
+	"money_coeff" : "0",
+	"exhaust_coeff" : "0.5",
+	"time_coeff" : "0.1",
+	"available_events" : ["rain", "jam"]
+}

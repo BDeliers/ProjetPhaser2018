@@ -1,0 +1,11 @@
+{
+	"name" : "autopartage",
+	"url_to_image" : "./vehicles/images/autopartage.png",
+	"path_color" : "#05a478",
+	"description" : "Lorem ipsum dolor sit amet consectur adipcis",
+	"pollution_coeff" : "0.4",
+	"money_coeff" : "0.2",
+	"exhaust_coeff" : "0",
+	"time_coeff" : "0.4",
+	"available_events" : ["jam", "raim"]
+}

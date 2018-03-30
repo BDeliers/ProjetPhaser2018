@@ -5,7 +5,7 @@
  * @param {array} points a 2D array with the coordonate of each point as : [[x0, y0], [x1, y1], [xn, yn]]
  */
 
-define([], function() {
+define(["Phaser"], function() {
 
 	console.log("Load core/DrawLine");
 
