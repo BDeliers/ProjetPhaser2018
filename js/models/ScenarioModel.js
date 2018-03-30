@@ -1,6 +1,6 @@
 // Models Class interface for Scenarios JSON object
 
-define(["jquery"], function() {
+define(["jquery", "Phaser"], function() {
 
 	console.log("Load models/ScenarioModel");
 

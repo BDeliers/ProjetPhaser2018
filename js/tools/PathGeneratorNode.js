@@ -13,7 +13,6 @@ http.createServer((request, response) => {
   }).on('end', () => {
     body = Buffer.concat(body).toString();
     
-    var 
     var path_json = JSON.parse(body);
     console.log(json);
     var file_name = json.json_scenario_name + ".json";
