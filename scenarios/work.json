@@ -8,22 +8,29 @@
 			"name" : "Home",
 			"available_vehicles" : ["car", "train", "bus"],
 			"x" : 100,
-			"y" : 90,
-			"paths": ["Home_to_Bus_Stop.json", "Home_to_Work.json"]
+			"y" : 90
 		},
 		{
 			"name" : "Bus Stop",
 			"available_vehicles" : ["bike", "segway", "bus"],
 			"x" : 400,
-			"y" : 300,
-			"paths": ["Bus_Stop_to_Work.json"]
-		},
+			"y" : 300		},
 		{
 			"name" : "Work",
 			"available_vehicles" : ["train", "car", "bus"],
 			"x" : 800,
-			"y" : 500,
-			"paths": ["Home_to_Bus_Stop.json"]
+			"y" : 500		}
+	], 
+	"paths_list" : [
+		{
+			"from" : "Home",
+			"to" : "Work", 
+			"path" : [[100, 200], [200, 300], [489, 264]]
+		},
+		{
+			"from" : "Bus Stop",
+			"to" : "Home", 
+			"path" : [[250, 649], [124, 540]]
 		}
 	]
 }
