@@ -1,26 +1,46 @@
 //Draw a Gauge
 //config is a dictionnary {background_color, color, x, y, height, width, coeff}
 
-console.log("load PhaserGauge");
+define([], function() {
 
-function Gauge(phaser, percentage, config) {
-    var graphics = phaser.add.graphics();
-    var radius = config.height / 2;
-    var rect_width = config.width - config.height;
-    var circle_center = config.x + radius;
-    var percentage = Math.abs(percentage) % 101;
+console.log("Load core/PhaserGauge");
 
-    //Drawing the gauge's background
-    graphics.fillStyle(config.background_color);
+	var Gauge = function(phaser, percentage, config) {
+	    this.set_percentage(percentage);
+		this.rect_width = config.width - config.height;
+		this.radius = config.height / 2;
+		this.graphics = phaser.add.graphics();
+		this.circle_center = config.x + this.radius;
+		this.background_color = config.background_color;
+		this.width = config.width;
+		this.height = config.height;
+		this.coeff = config.coeff;
+		this.x = config.x;
+		this.y = config.y;
+		this.color = config.color;
+	}
 
-    graphics.fillRect(circle_center, config.y, config.width - config.height, config.height);
-    graphics.fillCircle(circle_center, config.y + radius, radius);
-    graphics.fillCircle(circle_center + rect_width, config.y + radius, radius);
+	Gauge.prototype.set_percentage = function(percentage) {
+		this.percentage = Math.abs(percentage) % 101;
+	}
 
-    //Drawing the Gauge itself
-    graphics.fillStyle(config.color);
+	Gauge.prototype.draw = function(){
+		//Drawing the gauge's background
+		this.graphics.fillStyle(this.background_color);
 
-    graphics.fillRect(circle_center, config.y + (((1 - config.coeff) * config.height) / 2), (percentage/100) * (rect_width), config.coeff * config.height);
-    graphics.fillCircle(circle_center, config.y + radius, config.coeff * config.height / 2);
-    graphics.fillCircle(config.x + ((percentage/100) * rect_width) + radius, config.y + radius, config.coeff * config.height / 2);
-}
+		this.graphics.fillRect(this.circle_center, this.y, this.width - this.height, this.height);
+		this.graphics.fillCircle(this.circle_center, this.y + this.radius, this.radius);
+		this.graphics.fillCircle(this.circle_center + this.rect_width, this.y + this.radius, this.radius);
+
+		//Drawing the Gauge itself
+		this.graphics.fillStyle(this.color);
+
+		this.graphics.fillRect(this.circle_center, this.y + (((1 - this.coeff) * this.height) / 2), (this.percentage/100) * (this.rect_width), this.coeff * config.height);
+		this.graphics.fillCircle(this.circle_center, this.y + this.radius, this.coeff * this.height / 2);
+		this.graphics.fillCircle(this.x + ((this.percentage/100) * this.rect_width) + this.radius, this.y + this.radius, this.coeff * this.height / 2);
+	}
+
+
+	return Gauge;
+
+});
