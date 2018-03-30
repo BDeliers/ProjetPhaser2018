@@ -21,10 +21,12 @@
 	    	    	"path" : []
 	    		}
 	    	}
-	    		var isActive = false;
+	    	var isActive = false;
 
 			var line = new Line(phaser, {color: "0x333300", width: 4, rounded_angles: true});
-			console.log(line);
+
+			console.log(new Line());
+			
 	    	console.log(" -- Pour utiliser le path generator -- ");
 	    	console.log(" a) activer/desactiver le clic");
 	    	console.log(" q) Générer le JSON");
@@ -59,7 +61,7 @@
 	    	            });
 	    	            break;
 	    	        case 'z':
-	    	            if(json.path.length > 0){
+	    	            if(json.object.path.length > 0){
 	    	                console.log("suppression du point : ", json.path.pop());
 	    	                line.clean();
 	    	                line.draw(json.path);
