@@ -36,11 +36,11 @@ function(Phaser, Button, Clock, Gauge, Scenario) {
     var game = new Phaser.Game(config);
 
     function preload (){
-      this.load.image('background', './image/background/accueil.png');
-      this.load.image('dame', './image/characters/full/0.png');
+      this.load.image('home', 'image/background/home.png');
+
       var start_sprite = this.load.spritesheet('start_sprite',
-          './image/buttons/commencer.png',
-          { frameWidth: 267, frameHeight: 134 }
+          'image/buttons/earth.png',
+          { frameWidth: 300, frameHeight: 300 }
       	);
 
       this.anims.create({
@@ -54,10 +54,9 @@ function(Phaser, Button, Clock, Gauge, Scenario) {
     }
 
     function create (){
-      this.add.image(480,300, 'background');
-      this.add.image(280,300,'dame');
+      this.add.image(480,300, 'home').setScale(1);
 
-      var button_start = new Button(this, "start_sprite", 800, 500);
+      var button_start = new Button(this, "start_sprite", 480, 300);
       button_start.on("hover_on", ()=>{
           start_sprite.anims.play("commencer_1", true);
       });
