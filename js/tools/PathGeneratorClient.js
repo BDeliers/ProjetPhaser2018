@@ -19,8 +19,9 @@
 	        	"path" : []
 			}
 	   	}
-    	var isActive = false;
-		var myline = new Line(phaser, {color: "0x333300", width: 4, rounded_angles: false});
+		var isActive = false;
+		var test;
+		var line = new Line(phaser, {color: "0x333300", width: 4, rounded_angles: false});
 
     	console.log(" -- Pour utiliser le path generator -- ");
     	console.log(" a) activer/desactiver le clic");
@@ -39,7 +40,7 @@
     	            }
     	            break;
     	        case 'q':
-					console.log(json.path);
+					console.log(json.object.path);
 					$.ajax({
 	    	            url: 'http://localhost:8080',
 	    	            type: 'POST',
@@ -56,9 +57,9 @@
 	                break;
 		        case 'z':
     	            if(json.object.path.length > 0){
-	    	            console.log("suppression du point : ", json.path.pop());
+	    	            console.log("suppression du point : ", json.object.path.pop());
 	    	            line.clean();
-	    	            line.draw(json.path);
+	    	            line.draw(json.object.path);
 	                }
 		            break;
     	        default:
@@ -70,12 +71,12 @@
 		    if(isActive){
     	        json.object.path.push([pointer.x, pointer.y]);
 	    	    line.clean();
-	    	    line.draw(json.path);
+	    	    line.draw(json.object.path);
 	            console.log("push : ", pointer.x, " ", pointer.y);
 		    }else{
     	        console.log("Clic désactivé (appuyer sur A pour activer");
 			}
 		});
 	}	
-	return path_generator;
+	return pathGenerator;
  });	
