@@ -47,7 +47,13 @@ function(Phaser, Button, Clock, Gauge, Scenario, pathGenerator) {
         
         var work = new Scenario(this, "work");
         
+        work.plotStops("stops_sprites");
 
+        work.plotPath("Home", "Work", {width: 6, color: "0xFFFF00", rounded_angles: true});
+
+        setTimeout(() => {
+            work.unPlotPath("Home", "Work");
+        }, 10000);
     }
 
     function update (){
