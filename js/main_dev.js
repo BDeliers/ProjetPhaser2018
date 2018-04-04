@@ -36,11 +36,16 @@ function(Phaser, Button, Clock, Gauge, Scenario, pathGenerator) {
     var game = new Phaser.Game(config);
 
     function preload (){
+
+        this.load.spritesheet('stops_sprites',
+						'image/buttons/earth.png',
+						{ frameWidth: 30, frameHeight: 30}
+					);
     }
 
     function create (){
         
-        var path = new pathGenerator(this, "work");
+        var work = new Scenario(this, "work");
         
 
     }
