@@ -21,10 +21,7 @@ define(["Phaser"], function(phaser) {
      * @param {array} points a 2D array with the coordonate of each point as : [[x0, y0], [x1, y1], [xn, yn]]
      */
     Line.prototype.draw = function(points){
-        // draw the first circle (out of index for for loop)
-        if(this.options.rounded_angles === true){
-            this.graphics.fillCircleShape(new Phaser.Geom.Circle(points[0][0], points[0][0], this.options.width / 2));
-        }
+        this.graphics.fillCircleShape( new Phaser.Geom.Circle(points[0][0], points[0][1], this.options.width / 2) );
         if(points.length >= 2){
             for(var i = 1; i < points.length; i++){
                 // draw the line
