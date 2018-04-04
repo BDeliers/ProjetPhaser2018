@@ -7,6 +7,12 @@ define(["Phaser", "core/Button"], function(Phaser, Button) {
 		preload: function (){
 					this.load.image('home', 'image/background/home.png');
 
+					var vehicles = ["autopartage", "bicycle", "bus", "car", "covoiturage", "feet", "metro", "mono", "taxi", "moto", "train", "tram", "trotinet"];
+
+					for(elt of vehicles) {
+						this.load.image(elt, "vehicles/images/"+elt+".png");
+					}
+
 					this.load.spritesheet('start_sprite',
 						'image/buttons/earth.png',
 						{ frameWidth: 300, frameHeight: 300 }
@@ -44,6 +50,18 @@ define(["Phaser", "core/Button"], function(Phaser, Button) {
 				  start_text.x = start_text.x - start_text.width/2;
 				  start_text.y = start_text.y - start_text.height/2;
 				  start_text.fontWeight = "bold";
+
+				  var vehicles = ["autopartage", "bicycle", "bus", "car", "covoiturage", "feet", "metro", "mono", "taxi", "moto", "train", "tram", "trotinet"];
+				  var vehicles_sprites = [];
+				  for(elt of vehicles) {
+					  vehicles_sprites.push(this.add.sprite(0,530, elt));
+				  }
+				  var origin = 100;
+				  for(i in vehicles_sprites) {
+					  vehicles_sprites[i].setDisplaySize((vehicles_sprites[i].width/vehicles_sprites[i].height)*100,100);
+					  vehicles_sprites[i].x = origin;
+					  origin += vehicles_sprites[i].displayWidth*1.5;
+				  }
 
 				},
 		update: function (){
