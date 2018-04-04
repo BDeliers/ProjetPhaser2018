@@ -8,7 +8,8 @@ require.config({
     paths: {
         jquery:     'libs/jquery.min',
         text:       'libs/text',
-		Phaser:		'libs/phaser.min'
+		Phaser:		'libs/phaser.min',
+		WebFont: 	'libs/webfont'
     },
     // Encapsulation des bibliothèques externes dans des modules
     shim: {

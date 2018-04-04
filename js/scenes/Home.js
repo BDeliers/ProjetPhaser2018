@@ -1,4 +1,4 @@
-define(["Phaser", "core/Button", "core/Clock"], function(Phaser, Button, Clock) {
+define(["Phaser", "core/Button"], function(Phaser, Button) {
 
 	console.log("Load scenes/Home");
 
@@ -10,11 +10,6 @@ define(["Phaser", "core/Button", "core/Clock"], function(Phaser, Button, Clock) 
 					this.load.spritesheet('start_sprite',
 						'image/buttons/earth.png',
 						{ frameWidth: 300, frameHeight: 300 }
-					);
-
-					this.load.spritesheet('clock_sprite',
-						'image/clock/sprite_clk.png',
-						{ frameWidth: 60, frameHeight: 100 }
 					);
 				},
 		create: function (){
@@ -42,8 +37,13 @@ define(["Phaser", "core/Button", "core/Clock"], function(Phaser, Button, Clock) 
 				  });
 				  button_start.on("click_off", ()=>{
 					  this.scene.start("ScenarioSelection");
-
+					  this.scene.stop("Home");
 				  });
+
+				  var start_text = this.add.text(480, 300, "Démarrer", {font : "45px Roboto"});
+				  start_text.x = start_text.x - start_text.width/2;
+				  start_text.y = start_text.y - start_text.height/2;
+				  start_text.fontWeight = "bold";
 
 				},
 		update: function (){
