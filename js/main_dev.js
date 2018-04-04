@@ -41,6 +41,7 @@ function(Phaser, Button, Clock, Gauge, Scenario, pathGenerator) {
     function create (){
         
         var path = new pathGenerator(this, "work");
+        
 
     }
 
