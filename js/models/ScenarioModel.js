@@ -1,13 +1,15 @@
 // Models Class interface for Scenarios JSON object
 
-define(["jquery", "Phaser"], function() {
+define(["jquery", "Phaser", "core/DrawLine"], function(Line) {
 
 	console.log("Load models/ScenarioModel");
 
 	var scenario_class = class Scenario{
 
-	    constructor(scenario_name){
-	        var path = "./scenarios/" + scenario_name + "/" + scenario_name + ".json";
+	    constructor(phaser, scenario_name){
+	        var path = "./scenarios/" + scenario_name + ".json";
+
+			this.phaser = phaser;
 
 	        var scenario;
 	        $.ajax({
@@ -19,66 +21,91 @@ define(["jquery", "Phaser"], function() {
 	                scenario = data;
 	            }
 	        });
-	        this.scenario = scenario;
+	        this.scenario_json = scenario;
 
 	        console.log("Create instance of " + scenario_name + " scenarios");
 	    }
 
 	    get name() {
-	        return this.scenario.name;
+	        return this.scenario_json.name;
 	    }
 
 	    get urlToImage(){
-	        return this.scenario.url_to_image;
+	        return this.scenario_json.url_to_image;
 	    }
 
 	    get urlTobackground(){
-	        return this.scenario.url_to_background;
+	        return this.scenario_json.url_to_background;
 	    }
 
 	    get description(){
-	        return this.scenario.description;
+	        return this.scenario_json.description;
 	    }
 
 	    get stopsList(){
-	        return this.scenario.stops_list;
+	        return this.scenario_json.stops_list;
 	    }
 
 	    get numberOfStops(){
-	        return this.scenario.stops_list.length;
+	        return this.scenario_json.stops_list.length;
 	    }
 
 	    stop(index){
-	            return this.scenario.stops_list[index];
+	            return this.scenario_json.stops_list[index];
 	    }
 
-		plotStops(phaser, stops_sprite) {
+		plotStops(stops_sprite) {
 
-			phaser.anims.create({
+			this.phaser.anims.create({
 				key:'car',
-				frames: phaser.anims.generateFrameNumbers(stops_sprite, { start: -1, end: 0})
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: -1, end: 0})
 			});
-			phaser.anims.create({
+			this.phaser.anims.create({
 				key:'bike',
-				frames: phaser.anims.generateFrameNumbers(stops_sprite, { start: 0, end: 1})
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 0, end: 1})
 			});
-			phaser.anims.create({
+			this.phaser.anims.create({
 				key:'train',
-				frames: phaser.anims.generateFrameNumbers(stops_sprite, { start: 1, end: 2})
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 1, end: 2})
 			});
-			phaser.anims.create({
+			this.phaser.anims.create({
 				key:'bus',
-				frames: phaser.anims.generateFrameNumbers(stops_sprite, { start: 2, end: 3})
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 2, end: 3})
 			});
-			phaser.anims.create({
+			this.phaser.anims.create({
 				key:'subway',
-				frames: phaser.anims.generateFrameNumbers(stops_sprite, { start: 3, end: 4})
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 3, end: 4})
 			});
 
-			for (stop of this.scenario.stops_list) {
+			for (stop of this.scenario_json.stops_list) {
 				let curr = phaser.add.sprite(stop.x, stop.y, stops_sprite);
 				curr.anims.play(stop.available_vehicles[0], true);
 			}
+		}
+
+		getPathsFrom(origin_stop){
+			var return_list = [];
+			for(let path of this.scenario_json.paths_list){
+				if(path.from == origin_stop){
+					return_list.push(path);
+				}
+			}
+			return return_list;
+		}
+
+		get paths_list(){
+			return this.scenario_json.paths_list;
+		}
+
+		drawPath(origin_stop, arrival_stop, line_options){
+			for(let path of this.scenario_json.paths_list){
+				if(path.from == origin_stop && path.to == arrival_stop){
+					const line = new Line(this.phaser, line_options);
+					line.draw(path.path);
+					return true;
+				}
+			}
+			return false;
 		}
 	};
 
