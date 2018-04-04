@@ -25,11 +25,15 @@ function(Phaser, Button, Clock, Gauge, Scenario, Home, ScenarioSelection, Game, 
 	var config = {
         type: Phaser.AUTO,
         width: 960,
-        height: 600,
-        scene: Home
+        height: 600
     };
 
     var game = new Phaser.Game(config);
+	game.scene.add("Home", Home);
+	game.scene.add("ScenarioSelection", ScenarioSelection);
+	game.scene.add("Game", Game);
+	game.scene.add("Win", Win);
+	game.scene.start("Home");
 
     console.log('Load application');
 

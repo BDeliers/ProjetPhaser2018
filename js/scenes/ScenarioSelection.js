@@ -4,10 +4,10 @@ define(["Phaser"], function(Phaser) {
 
 	var sceneario_selection_scene = {
 		preload: function (){
-			this.load.image('home', 'image/background/home.png');
+			this.load.image('game', 'image/background/game.png');
 				},
 		create: function (){
- 			this.add.image(480,300, 'home').setDisplaySize(960,600);
+ 			this.add.image(480,300, 'game').setDisplaySize(960,600);
 				},
 		update: function (){
 
