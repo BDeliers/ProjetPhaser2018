@@ -2,10 +2,10 @@
 	"name" : "car",
 	"url_to_image" : "./vehicles/images/car.png",
 	"path_color" : "#f9070d",
-	"description" : "Lorem ipsum dolor sit amet consectur adipcis",
+	"description" : "La voiture est peut être un luxe pour vous, mais pas pour la planète, elle pollue énormément pour un seul passager",
 	"pollution_coeff" : "0.6",
 	"money_coeff" : "0.7",
 	"exhaust_coeff" : "0",
 	"time_coeff" : "0.3",
-	"available_events" : ["rain", "jam"]
+	"available_events" : ["rain", "jam", "fuel_tax"]
 }

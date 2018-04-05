@@ -2,10 +2,10 @@
 	"name" : "covoiturage",
 	"url_to_image" : "./vehicles/images/covoiturage.png",
 	"path_color" : "#88017d",
-	"description" : "Lorem ipsum dolor sit amet consectur adipcis",
+	"description" : "Le covoiturage est l'utilisation d'une seule voiture pour effectuer le même trajet avec plusieurs automobilistes et à tour de rôle",
 	"pollution_coeff" : "0.4",
 	"money_coeff" : "0.2",
 	"exhaust_coeff" : "0",
 	"time_coeff" : "0.4",
-	"available_events" : ["jam", "raim"]
+	"available_events" : ["jam", "raim", "fuel_tax"]
 }

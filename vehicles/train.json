@@ -2,10 +2,10 @@
 	"name" : "train",
 	"url_to_image" : "./vehicles/images/train.png",
 	"path_color" : "#000000",
-	"description" : "Lorem ipsum dolor sit amet consectur adipcis",
+	"description" : "Si votre devise est d'être jamais à l'heure, le train est fait pour vous! Cependant, transport pas polluant",
 	"pollution_coeff" : "0.4",
 	"money_coeff" : "0.6",
 	"exhaust_coeff" : "0",
 	"time_coeff" : "0.5",
-	"available_events" : ["rain", "jam", "strike"]
+	"available_events" : ["rain", "jam", "train_strike"]
 }

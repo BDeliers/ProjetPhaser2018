@@ -2,10 +2,10 @@
 	"name" : "bus",
 	"url_to_image" : "./vehicles/images/bus.png",
 	"path_color" : "#010c58",
-	"description" : "Lorem ipsum dolor sit amet consectur adipcis",
+	"description" : "Prendre le bus vous fera gagner du temps grâce à leurs voies spécialement réservées. De plus, il pollue peu : un seul moteur pour une trentaine de personnes",
 	"pollution_coeff" : "0.5",
 	"money_coeff" : "0.2",
 	"exhaust_coeff" : "0",
 	"time_coeff" : "0.4",
-	"available_events" : ["jam", "strike"]
+	"available_events" : ["jam", "free_public_transport"]
 }

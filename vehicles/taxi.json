@@ -2,10 +2,10 @@
 	"name" : "taxi",
 	"url_to_image" : "./vehicles/images/taxi.png",
 	"path_color" : "#ffff00",
-	"description" : "Lorem ipsum dolor sit amet consectur adipcis",
+	"description" : "Pas de tracas à chercher une place de parking, mais prévoyez de quoi payer",
 	"pollution_coeff" : "0.6",
 	"money_coeff" : "0.4",
 	"exhaust_coeff" : "0",
 	"time_coeff" : "0.5",
-	"available_events" : ["jam", "raim", "strike"]
+	"available_events" : ["jam", "raim", "taxi_strike]
 }
