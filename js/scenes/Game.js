@@ -4,7 +4,10 @@ define(["Phaser"], function(Phaser) {
 
 	var game_scene = {
 		preload: function (){
-
+					this.load.spritesheet('clock_sprite',
+						'image/clock/sprite_clk.png',
+						{ frameWidth: 60, frameHeight: 100 }
+					);
 				},
 		create: function (){
 
