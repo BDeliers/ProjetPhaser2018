@@ -1,9 +1,9 @@
 {
 	"name" : "Les transports publiques gratuits",
-	"apply_to": ["bus", "metro", "mono", "train", "tram"], 
+	"apply_to": ["bus", "metro", "mono", "train", "tram"],
 	"blocked_vehicles": [],
 	"url_to_image" : "../events/images/free_public_transport.png",
-	"description" : "Le gouvernement vient de voter une loi qui rend les transports publiques gratuits pour tous, le manque à gagne rsera compensé par des frais d'entretien de routes réduits",
+	"description" : "Le gouvernement vient de voter une loi qui rend les transports publics gratuits pour tous, le manque à gagner sera compensé par des frais d'entretien de routes réduits",
 	"perturbative_pollution_coeff" : "1",
 	"perturbative_money_coeff" : "0.0",
 	"perturbative_exhaust_coeff" : "1",

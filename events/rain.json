@@ -3,7 +3,7 @@
 	"apply_to": ["bicycle", "feet", "trotinet"],
 	"blocked_vehicles": [],
 	"url_to_image" : "../events/images/rain.png",
-	"description" : "La météo est capricieuse aujourd'hui. Vous risquer d'arriver trempé si trainer trop longtemps dehors",
+	"description" : "La météo est capricieuse aujourd'hui. Vous risquez d'arriver trempé si vous trainez trop longtemps dehors",
 	"perturbative_pollution_coeff" : "1.2",
 	"perturbative_money_coeff" : "1",
 	"perturbative_exhaust_coeff" : "1.5",

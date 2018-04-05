@@ -3,7 +3,7 @@
 	"apply_to": [],
 	"blocked_vehicles": ["metro"],
 	"url_to_image" : "../events/images/metro_roadworks.png",
-	"description" : "Les travaux d'aggrandissement de la ligne 2 du métro viennent de commencer, la ligne 2 est donc fermée pour 3 mois",
+	"description" : "Les travaux d'agrandissement de la ligne 2 du métro viennent de commencer, la ligne 2 est donc fermée pour 3 mois",
 	"perturbative_pollution_coeff" : "1",
 	"perturbative_money_coeff" : "1",
 	"perturbative_exhaust_coeff" : "1",
