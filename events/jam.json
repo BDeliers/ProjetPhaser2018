@@ -1,9 +1,11 @@
 {
 	"name" : "Bouchon sur la Rocade",
+	"apply_to": ["autopartage", "bus", "car", "covoiturage", "taxi"],
+	"blocked_vehicles": [],
 	"url_to_image" : "../events/images/jam.png",
 	"description" : "A cause du grand nombre de personnes qui prennent la voiture à cette heure, des bouchons se sont crées sur la route et ralentissent la circulation",
-	"perturbative_pollution_coeff" : "0.2",
-	"perturbative_money_coeff" : "0.0",
-	"perturbative_exhaust_coeff" : "0.1",
-	"perturbative_time_coeff" : "0.8"
+	"perturbative_pollution_coeff" : "1.5",
+	"perturbative_money_coeff" : "1",
+	"perturbative_exhaust_coeff" : "1",
+	"perturbative_time_coeff" : "2"
 }

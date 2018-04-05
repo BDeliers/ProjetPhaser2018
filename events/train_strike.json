@@ -1,9 +1,11 @@
 {
 	"name" : "Grève des cheminots",
+	"apply_to": [], 
+	"blocked_vehicles": ["train"],
 	"url_to_image" : "../events/images/train_strike.png",
 	"description" : "La SNCF à déclaré une grève générale, plus aucun train de circulent",
-	"perturbative_pollution_coeff" : "0.5",
-	"perturbative_money_coeff" : "0.1",
-	"perturbative_exhaust_coeff" : "0.5",
-	"perturbative_time_coeff" : "0.8"
+	"perturbative_pollution_coeff" : "1",
+	"perturbative_money_coeff" : "1",
+	"perturbative_exhaust_coeff" : "1",
+	"perturbative_time_coeff" : "1"
 }
