@@ -2,58 +2,70 @@
 
 // Event is a JS word
 
-define(["jquery"], function() {
+define(["jquery"], function($) {
 
 	console.log("Load models/EventModel");
 
-	var event_class = class Event{
+	var Events = function(events_list){
+		this.events_json_list = [];
+		this.active_events = []
 
-	    constructor(event_name){
-	        var path = "./events/" + event_name + ".json";
+		for(let event of events_list){
 
-	        var event;
-	        $.ajax({
-	            'async': false,
-	            'global': false,
-	            'url': path,
-	            'dataType': "json",
-	            'success': function (data){
-	                event = data;
-	            }
-	        });
-	        this.event = event;
-
-	        console.log("Create instance of " + event_name + " event");
-	    }
-
-	    get name() {
-	        return this.event.name;
-	    }
-
-	    get urlToImage(){
-	        return this.event.url_to_image;
-	    }
-
-	    get description(){
-	        return this.event.description;
-	    }
-
-	    get perturbativePollutionCoeff(){
-	        return this.event.perturbative_pollution_coeff;
-	    }
-
-	    get perturbativeMoneyCoeff(){
-	        return this.event.perturbative_money_coeff;
-	    }
-
-	    get perturbativeExhaustCoeff(){
-	        return this.event.perturbative_exhaust_coeff;
-	    }
-
-	    get perturbativeTimeCoeff(){
-	        return this.event.perturbative_time_coeff;
-	    }
+			const path = "./events" + event + ".json";
+			$.ajax({
+				'async': false,
+				'global': false,
+				'url': path,
+				'dataType': "json",
+				'success': data => this.events_json_list.push(JSON.parse(data))
+			});
+		}
 	};
 
-	return event_class;
+	Events.prototype.addEvent = function(event_name){
+		for(let event of this.events_json_list){
+			if(event_name == event.name && this.active_events.find(event) == undefined){
+				this.active_events.push(event);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	Events.prototype.addRandomEvent() = function(){
+		const choose_index = Math.floor( (Math.random() * (this.events_json_list.length - 1) + 1));
+
+		if(this.active_events(this.events_json_list[choose_index]) == undefined){
+			this.active_events.push(this.events_json_list[choose_index]);
+			return true;
+		}
+		return false;
+	}
+
+	Events.prototype.removeEvent = function(event_name){
+
+	}
+
+	Events.prototype.isBlocked = function(vehicle_name){
+
+	}
+
+	Events.prototype.getPolltionPertubativeCoeff = function(vehicle_name){
+
+	}
+
+	Events.prototype.getMoneyPerturbativeCoeff = function(vehicle_name){
+
+	}
+
+	Events.prototype.getTimePerturbativeCoeff = function(vehicle_name){
+
+	}
+
+	Events.prototype.getExhaustPerturbativeCoeff = function(vehicle_name){
+
+	}
+
+	return Events;
 })
