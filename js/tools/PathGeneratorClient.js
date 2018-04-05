@@ -4,7 +4,7 @@
  * TODO : Utilitaire Node pour générer les fichiers Json
  */
 
- define(["jquery", "core/DrawLine"], function(Line) {
+ define(["jquery", "core/DrawLine"], function($, Line) {
 
 	 console.log("load tools/pathsGenerator");
 

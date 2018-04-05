@@ -5,7 +5,7 @@
  * @param {array} points a 2D array with the coordonate of each point as : [[x0, y0], [x1, y1], [xn, yn]]
  */
 
-define(["Phaser"], function() {
+define([], function() {
 
 	console.log("Load core/DrawLine");
 
@@ -18,7 +18,9 @@ define(["Phaser"], function() {
 	    constructor(phaser, options){
 	        // add a new graphics object
 	        this.options = options;
-	        this.phaser = phaser;
+			this.phaser = phaser;
+			console.log(phaser);
+			console.log(options);
 	        this.graphics = this.phaser.add.graphics({lineStyle: { width: this.options.width, color: this.options.color}, fillStyle: {color: this.options.color} });
 	    }
 
