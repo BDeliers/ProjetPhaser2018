@@ -1,7 +1,7 @@
 {
-	"name" : "jam",
+	"name" : "Bouchon sur la Rocade",
 	"url_to_image" : "./events/images/jam.png",
-	"description" : "Lorem ispum dolor sit amet consectur apdicis... jam",
+	"description" : "A cause du grand nombre de personnes qui prennent la voiture à cette heure, des bouchons se sont crées sur la route et ralentissent la circulation",
 	"perturbative_pollution_coeff" : "0.2",
 	"perturbative_money_coeff" : "0.0",
 	"perturbative_exhaust_coeff" : "0.1",

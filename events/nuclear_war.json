@@ -1,0 +1,9 @@
+{
+	"name" : "Guerre nucléaire",
+	"url_to_image" : "./events/images/nuclear_war.png",
+	"description" : "La troisième guerre modiale est déclaré ! mieux vaut ne pas trop trainer dans les rues en ce moment ...",
+	"perturbative_pollution_coeff" : "0.0",
+	"perturbative_money_coeff" : "0.0",
+	"perturbative_exhaust_coeff" : "0.1",
+	"perturbative_time_coeff" : "0.8"
+}

@@ -1,7 +1,7 @@
 {
-	"name" : "Rain",
+	"name" : "Pluie",
 	"url_to_image" : "./events/images/rain.png",
-	"description" : "Lorem ispum dolor sit amet consectur apdicis...",
+	"description" : "La météo est capricieuse aujourd'hui. Vous risquer d'arriver trempé si trainer trop longtemps dehors",
 	"perturbative_pollution_coeff" : "0.4",
 	"perturbative_money_coeff" : "0.2",
 	"perturbative_exhaust_coeff" : "0.7",
