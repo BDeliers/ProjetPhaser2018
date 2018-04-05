@@ -1,6 +1,6 @@
 {
 	"name" : "Pluie",
-	"url_to_image" : "./events/images/rain.png",
+	"url_to_image" : "../events/images/rain.png",
 	"description" : "La météo est capricieuse aujourd'hui. Vous risquer d'arriver trempé si trainer trop longtemps dehors",
 	"perturbative_pollution_coeff" : "0.4",
 	"perturbative_money_coeff" : "0.2",

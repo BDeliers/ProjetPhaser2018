@@ -1,0 +1,9 @@
+{
+	"name" : "Travaux dans le métro",
+	"url_to_image" : "../events/images/metro_roadworks.png",
+	"description" : "Les travaux d'aggrandissement de la ligne 2 du métro viennent de commencer, la ligne 2 est donc fermée pour 3 mois",
+	"perturbative_pollution_coeff" : "0.2",
+	"perturbative_money_coeff" : "0.0",
+	"perturbative_exhaust_coeff" : "0.1",
+	"perturbative_time_coeff" : "0.8"
+}

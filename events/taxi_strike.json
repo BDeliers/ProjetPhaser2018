@@ -1,6 +1,6 @@
 {
 	"name" : "Grève des chauffeurs de taxi",
-	"url_to_image" : "./events/images/taxi_strike.png",
+	"url_to_image" : "../events/images/taxi_strike.png",
 	"description" : "Les chauffeurs de taxis ont organisés un mouvement de grève à l'echelle nationale, plus aucun taxi ne circulent en ville",
 	"perturbative_pollution_coeff" : "0.2",
 	"perturbative_money_coeff" : "0.0",
