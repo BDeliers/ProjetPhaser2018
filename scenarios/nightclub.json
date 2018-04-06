@@ -1,6 +1,6 @@
 {
     "name":"nightclub",
-    "url_to_image":"./image/scenario/scenar2.png",
+    "url_to_image":"./image/scenario/nightclub.png",
     "url_to_background":"./image/maps/paris_night.png",
     "description":"lorem ipsum dolor sit amet consectur apdicis...",
     "stops_list":[{"name":"Home","available_vehicles":["car","train","bus"],"x":100,"y":90},{"name":"Bus Stop","available_vehicles":["bike","segway","bus"],"x":400,"y":300},{"name":"Work","available_vehicles":["train","car","bus"],"x":800,"y":500}],
