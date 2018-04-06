@@ -1,7 +1,7 @@
 {
 	"name" : "autopartage",
 	"url_to_image" : "./vehicles/images/autopartage.png",
-	"path_color" : "#05a478",
+	"path_color" : "#51B6E0",
 	"description" : "L'autopartage est un système qui permet à des abonnés de louer de façon ponctuelle une voiture en libre-service",
 	"pollution_coeff" : "0.4",
 	"money_coeff" : "0.2",
