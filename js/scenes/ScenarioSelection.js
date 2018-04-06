@@ -1,7 +1,7 @@
 define(["Phaser"], function(Phaser) {
 
 	console.log("Load scenes/ScenarioSelection");
-	
+
 	var scenar_equivalencies = ["work", "nightclub", "shopping", "school", "cinema", "venice"];
 
 	var sceneario_selection_scene = {
@@ -42,8 +42,8 @@ define(["Phaser"], function(Phaser) {
 						scenar_sprites[i-1].on("pointerover", ()=>{scenar_sprites[i-1].anims.play("scenar"+i+"_1", true);});
 						scenar_sprites[i-1].on("pointerout", ()=>{scenar_sprites[i-1].anims.play("scenar"+i+"_0", true)});
 						scenar_sprites[i-1].on("pointerdown", ()=>{
+							document.cookie = "scenar="+scenar_equivalencies[i-1];
 							this.scene.start("Game");
-							scenar = scenar_equivalencies[i-1];
 	  					  	this.scene.stop("ScenarioSelection");
 						});
 

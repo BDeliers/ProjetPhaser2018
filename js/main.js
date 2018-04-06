@@ -8,8 +8,7 @@ require.config({
     paths: {
         jquery:     'libs/jquery.min',
         text:       'libs/text',
-		Phaser:		'libs/phaser.min',
-		WebFont: 	'libs/webfont'
+		Phaser:		'libs/phaser.min'
     },
     // Encapsulation des bibliothèques externes dans des modules
     shim: {
@@ -20,8 +19,8 @@ require.config({
 });
 
 // Load Application
-require(["Phaser", "core/PhaserGauge", "models/ScenarioModel", "scenes/Home", "scenes/ScenarioSelection", "scenes/Game", "scenes/Win"],
-function(Phaser, Gauge, Scenario, Home, ScenarioSelection, Game, Win) {
+require(["Phaser", "core/PhaserGauge", "scenes/Home", "scenes/ScenarioSelection", "scenes/Game", "scenes/Win"],
+function(Phaser, Gauge, Home, ScenarioSelection, Game, Win) {
 
 	var config = {
         type: Phaser.AUTO,
@@ -35,8 +34,6 @@ function(Phaser, Gauge, Scenario, Home, ScenarioSelection, Game, Win) {
 	game.scene.add("Game", Game);
 	game.scene.add("Win", Win);
 	game.scene.start("Home");
-
-	var scenar = "";
 
     console.log('Load application');
 

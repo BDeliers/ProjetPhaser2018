@@ -1,4 +1,4 @@
-define(["Phaser", "core/Clock"], function(Phaser, Clock) {
+define(["Phaser", "core/Clock", "models/ScenarioModel"], function(Phaser, Clock, Scenario) {
 
 	console.log("Load scenes/Game");
 
@@ -9,15 +9,18 @@ define(["Phaser", "core/Clock"], function(Phaser, Clock) {
 						{ frameWidth: 60, frameHeight: 100 }
 					);
 
-					this.load.image('game', 'image/background/game.png');
+					var scenario_model = new Scenario(this, document.cookie.split('=')[1]);
+
+					this.load.image('game', "image/background/game.png");
+					this.load.image('background', scenario_model.getUrlTobackground());
 				},
 		create: function (){
 					this.add.image(683,384, 'game').setDisplaySize(1366,768);
+					this.add.image(683,384, 'background').setDisplaySize(130,560);
 
 					var clock = new Clock(this, "clock_sprite", 100, 100);
 					clock.add_seconds(567);
 					clock.update();
-					console.log(scenar);
 				},
 		update: function (){
 
