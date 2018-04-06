@@ -22,6 +22,13 @@ define(["Phaser"], function() {
 		this.seconds %= 60;
 	}
 
+	Clock.prototype.set_seconds = function(value) {
+		this.seconds = value;
+
+		this.minutes = Math.trunc(this.seconds / 60);
+		this.seconds %= 60;
+	}
+
 	Clock.prototype.add_minutes = function(value) {
 		this.minutes += value;
 	}
