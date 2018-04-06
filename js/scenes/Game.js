@@ -16,7 +16,7 @@ define(["Phaser", "core/Clock", "models/ScenarioModel"], function(Phaser, Clock,
 				},
 		create: function (){
 					this.add.image(683,384, 'game').setDisplaySize(1366,768);
-					this.add.image(683,384, 'background').setDisplaySize(130,560);
+					this.add.image(500,350, 'background').setDisplaySize(1000,500);
 
 					var clock = new Clock(this, "clock_sprite", 100, 100);
 					clock.add_seconds(567);
