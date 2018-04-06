@@ -14,12 +14,12 @@ define(["Phaser", "core/Button"], function(Phaser, Button) {
 					}
 				},
 		create: function (){
-		 			this.add.image(480,300, 'game').setDisplaySize(960,600);
+		 			this.add.image(683,384, 'game').setDisplaySize(1366,768);
 					var scenar_sprites = [];
-					var origin = [225,225];
+					var origin = [256.5,232];
 
 					for (let i = 1; i < 7; i++) {
-						scenar_sprites.push(this.add.sprite(origin[0], origin[1], "scenar"+i+"_sprite").setDisplaySize(250, 166.6).setInteractive());
+						scenar_sprites.push(this.add.sprite(origin[0], origin[1], "scenar"+i+"_sprite").setInteractive());
 
 						this.anims.create({
 							key:'scenar'+i+'_0',
@@ -37,11 +37,11 @@ define(["Phaser", "core/Button"], function(Phaser, Button) {
 	  					  	this.scene.stop("ScenarioSelection");
 						});
 
-						origin[0] += 250;
+						origin[0] += 416.5;
 
 						if (i == 3) {
-							origin[1] = 391;
-							origin[0] = 225;
+							origin[1] = 568;
+							origin[0] = 256;
 						}
 					}
 				},
