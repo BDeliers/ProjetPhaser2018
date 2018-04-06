@@ -19,8 +19,8 @@ define(["Phaser", "core/Button"], function(Phaser, Button) {
 					);
 				},
 		create: function (){
-				  this.add.image(480,300, 'home').setDisplaySize(960,600);
-				  var start_sprite = this.add.sprite(480, 300, "start_sprite");
+				  this.add.image(683,384, 'home').setDisplaySize(1366,768);
+				  var start_sprite = this.add.sprite(683, 384, "start_sprite");
 
 				  this.anims.create({
 					  key:'commencer_0',
@@ -31,7 +31,7 @@ define(["Phaser", "core/Button"], function(Phaser, Button) {
 					  frames: this.anims.generateFrameNumbers("start_sprite", { start: 0, end: 1})
 				  });
 
-				  var button_start = new Button(this, "start_sprite", 480, 300);
+				  var button_start = new Button(this, "start_sprite", 683, 384);
 				  button_start.on("hover_on", ()=>{
 					  start_sprite.anims.play("commencer_1", true);
 				  });
@@ -46,7 +46,7 @@ define(["Phaser", "core/Button"], function(Phaser, Button) {
 					  this.scene.stop("Home");
 				  });
 
-				  var start_text = this.add.text(480, 300, "Démarrer", {font : "45px Roboto"});
+				  var start_text = this.add.text(683, 384, "Démarrer", {font : "45px Roboto"});
 				  start_text.x = start_text.x - start_text.width/2;
 				  start_text.y = start_text.y - start_text.height/2;
 				  start_text.fontWeight = "bold";
@@ -54,7 +54,7 @@ define(["Phaser", "core/Button"], function(Phaser, Button) {
 				  var vehicles = ["autopartage", "bicycle", "bus", "car", "covoiturage", "feet", "metro", "mono", "taxi", "moto", "train", "tram", "trotinet"];
 				  var vehicles_sprites = [];
 				  for(elt of vehicles) {
-					  vehicles_sprites.push(this.add.sprite(0,530, elt));
+					  vehicles_sprites.push(this.add.sprite(0,700, elt));
 				  }
 				  var origin = 100;
 				  for(i in vehicles_sprites) {
