@@ -19,8 +19,8 @@ require.config({
 });
 
 // Load Application
-require(["Phaser", "core/Button", "core/Clock", "core/PhaserGauge", "models/ScenarioModel", "tools/PathGeneratorClient"],
-function(Phaser, Button, Clock, Gauge, Scenario, pathGenerator) {
+require(["Phaser", "core/Clock", "core/PhaserGauge", "models/ScenarioModel", "models/EventsModel", "tools/PathGeneratorClient"],
+function(Phaser, Clock, Gauge, Scenario, Events, pathGenerator) {
 
 	var config = {
         type: Phaser.AUTO,
@@ -45,19 +45,28 @@ function(Phaser, Button, Clock, Gauge, Scenario, pathGenerator) {
 
     function create (){
         
-        var work = new Scenario(this, "work");
+        const event_list = [
+            "free_public_transport", 
+            "fuel_tax", 
+            "heat_wave", 
+            "jam", 
+            "metro_roadworks", 
+            "nuclear_war", 
+            "rain"
+        ];
+        var event = new Events(event_list);
         
-        work.plotStops("stops_sprites");
+        for(let i = 0; i < 2; i++){
+            console.log(event.addRandomEvent());
+        }
 
-        work.plotPath("Home", "Work", {width: 6, color: "0xFFFF00", rounded_angles: true});
-
-        setTimeout(() => {
-            work.unPlotPath("Home", "Work");
-        }, 10000);
+        console.log(event.getPollutionPerturbativeCoeff("car"));
+        console.log(event.addEvent("Bouchon sur la Rocade"));
+        console.log(event.getActivesEvents());
     }
 
     function update (){
-
+        
     }
 
     console.log('Load application');
