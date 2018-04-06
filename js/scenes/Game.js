@@ -1,4 +1,4 @@
-define(["Phaser"], function(Phaser) {
+define(["Phaser", "core/Clock"], function(Phaser, Clock) {
 
 	console.log("Load scenes/Game");
 
@@ -10,11 +10,13 @@ define(["Phaser"], function(Phaser) {
 					);
 
 					this.load.image('game', 'image/background/game.png');
-					this.load.image('map', image/maps/)
 				},
 		create: function (){
 					this.add.image(683,384, 'game').setDisplaySize(1366,768);
 
+					var clock = new Clock(this, "clock_sprite", 100, 100);
+					clock.add_seconds(567);
+					clock.update();
 				},
 		update: function (){
 

@@ -1,4 +1,4 @@
-define(["Phaser", "core/Button"], function(Phaser, Button) {
+define(["Phaser"], function(Phaser) {
 
 	console.log("Load scenes/ScenarioSelection");
 
@@ -15,8 +15,15 @@ define(["Phaser", "core/Button"], function(Phaser, Button) {
 				},
 		create: function (){
 		 			this.add.image(683,384, 'game').setDisplaySize(1366,768);
+
+					var title = this.add.text(683, 120, "Choisissez votre scénario", {font : "70px Roboto"});
+					title.x = title.x - title.width/2;
+					title.y = title.y - title.height/2;
+					title.fontWeight = "bold";
+					title.setColor("#000000");
+
 					var scenar_sprites = [];
-					var origin = [256.5,232];
+					var origin = [350,340];
 
 					for (let i = 1; i < 7; i++) {
 						scenar_sprites.push(this.add.sprite(origin[0], origin[1], "scenar"+i+"_sprite").setInteractive());
@@ -37,11 +44,11 @@ define(["Phaser", "core/Button"], function(Phaser, Button) {
 	  					  	this.scene.stop("ScenarioSelection");
 						});
 
-						origin[0] += 416.5;
+						origin[0] += 330;
 
 						if (i == 3) {
 							origin[1] = 568;
-							origin[0] = 256;
+							origin[0] = 350;
 						}
 					}
 				},

@@ -1,4 +1,4 @@
-define(["Phaser", "core/Button"], function(Phaser, Button) {
+define(["Phaser"], function(Phaser) {
 
 	console.log("Load scenes/Home");
 
@@ -20,7 +20,7 @@ define(["Phaser", "core/Button"], function(Phaser, Button) {
 				},
 		create: function (){
 				  this.add.image(683,384, 'home').setDisplaySize(1366,768);
-				  var start_sprite = this.add.sprite(683, 384, "start_sprite");
+				  var start_sprite = this.add.sprite(683, 384, "start_sprite").setInteractive();
 
 				  this.anims.create({
 					  key:'commencer_0',
@@ -31,17 +31,13 @@ define(["Phaser", "core/Button"], function(Phaser, Button) {
 					  frames: this.anims.generateFrameNumbers("start_sprite", { start: 0, end: 1})
 				  });
 
-				  var button_start = new Button(this, "start_sprite", 683, 384);
-				  button_start.on("hover_on", ()=>{
+				  start_sprite.on("pointerover", ()=>{
 					  start_sprite.anims.play("commencer_1", true);
 				  });
-				  button_start.on("hover_off", ()=>{
+				  start_sprite.on("pointerout", ()=>{
 					  start_sprite.anims.play("commencer_0", true);
 				  });
-				  button_start.on("click_on", ()=>{
-
-				  });
-				  button_start.on("click_off", ()=>{
+				  start_sprite.on("pointerdown", ()=>{
 					  this.scene.start("ScenarioSelection");
 					  this.scene.stop("Home");
 				  });
