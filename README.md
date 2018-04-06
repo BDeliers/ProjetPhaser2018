@@ -21,3 +21,10 @@ TODO:
 - Créer les images "arret". [OK]
 - Commencer à écrire les textes du jeu: descriptions des transports, message d'acceuil du jeu, etc [WORK IN PROGRESS]
 - Créer la page d'acceuil, la page "choix de scénario" et la page fin de partie. [OK ?] [WORK IN PROGRESS ?]
+- Intergrer des fondu entre chaques scenne 
+- Changer de scennes
+
+
+- Gestion des Events 
+- Redimmentionnage du jeu 
+- 
