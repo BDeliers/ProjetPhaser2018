@@ -1,6 +1,8 @@
 define(["Phaser"], function(Phaser) {
 
 	console.log("Load scenes/ScenarioSelection");
+	
+	var scenar_equivalencies = ["work", "nightclub", "shopping", "school", "cinema", "venice"];
 
 	var sceneario_selection_scene = {
 		preload: function (){
@@ -8,7 +10,7 @@ define(["Phaser"], function(Phaser) {
 
 					for (var i = 1; i < 7; i++) {
 						this.load.spritesheet('scenar'+i+'_sprite',
-							'image/scenario/scenar'+i+'.png',
+							'image/scenario/'+scenar_equivalencies[i-1]+'.png',
 							{ frameWidth: 300, frameHeight: 200 }
 						);
 					}
@@ -41,6 +43,7 @@ define(["Phaser"], function(Phaser) {
 						scenar_sprites[i-1].on("pointerout", ()=>{scenar_sprites[i-1].anims.play("scenar"+i+"_0", true)});
 						scenar_sprites[i-1].on("pointerdown", ()=>{
 							this.scene.start("Game");
+							scenar = scenar_equivalencies[i-1];
 	  					  	this.scene.stop("ScenarioSelection");
 						});
 

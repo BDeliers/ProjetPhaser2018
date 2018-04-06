@@ -17,6 +17,7 @@ define(["Phaser", "core/Clock"], function(Phaser, Clock) {
 					var clock = new Clock(this, "clock_sprite", 100, 100);
 					clock.add_seconds(567);
 					clock.update();
+					console.log(scenar);
 				},
 		update: function (){
 

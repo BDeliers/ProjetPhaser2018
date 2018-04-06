@@ -36,6 +36,8 @@ function(Phaser, Gauge, Scenario, Home, ScenarioSelection, Game, Win) {
 	game.scene.add("Win", Win);
 	game.scene.start("Home");
 
+	var scenar = "";
+
     console.log('Load application');
 
 });
