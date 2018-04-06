@@ -25,8 +25,8 @@ function(Phaser, Button, Clock, Gauge, Scenario, Home, ScenarioSelection, Game, 
 
 	var config = {
         type: Phaser.AUTO,
-        width: 960,
-        height: 600
+        width: 1366,
+        height: 768
     };
 
     var game = new Phaser.Game(config);
