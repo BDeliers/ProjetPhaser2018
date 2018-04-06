@@ -32,11 +32,11 @@ define(["Phaser"], function() {
 
 	Clock.prototype.create = function() {
 		//Creating the clock tiles sprites
-		this.minutes_1 = this.phaser.add.sprite(this.x, this.y, this.sprite);
-		this.minutes_0 = this.phaser.add.sprite(this.minutes_1.x + this.minutes_1.width, this.minutes_1.y, this.sprite);
-		this.dots = this.phaser.add.sprite(this.minutes_0.x + this.minutes_0.width, this.minutes_0.y, this.sprite);
-		this.seconds_1 = this.phaser.add.sprite(this.dots.x + this.dots.width, this.dots.y, this.sprite);
-		this.seconds_0 = this.phaser.add.sprite(this.seconds_1.x + this.minutes_1.width, this.seconds_1.y, this.sprite);
+		this.minutes_1 = this.phaser.add.sprite(this.x, this.y, this.sprite).setScale(0.4);
+		this.minutes_0 = this.phaser.add.sprite(this.minutes_1.x + this.minutes_1.width*0.4 + 2, this.minutes_1.y, this.sprite).setScale(0.4);
+		this.dots = this.phaser.add.sprite(this.minutes_0.x + this.minutes_0.width*0.4 + 2, this.minutes_0.y, this.sprite).setScale(0.4);
+		this.seconds_1 = this.phaser.add.sprite(this.dots.x + this.dots.width*0.4 + 2, this.dots.y, this.sprite).setScale(0.4);
+		this.seconds_0 = this.phaser.add.sprite(this.seconds_1.x + this.minutes_1.width*0.4 + 2, this.seconds_1.y, this.sprite).setScale(0.4);
 
 		this.sprite_height = this.dots.height;
 		this.sprite_width = this.dots.width;
