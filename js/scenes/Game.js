@@ -13,10 +13,14 @@ define(["Phaser", "core/Clock", "models/ScenarioModel"], function(Phaser, Clock,
 
 					this.load.image('game', "image/background/game.png");
 					this.load.image('background', scenario_model.getUrlTobackground());
+					this.load.image('bottom', "image/assets/bottom.png");
+					this.load.image('top', "image/assets/top_bar.png");
 				},
 		create: function (){
 					this.add.image(683,384, 'game').setDisplaySize(1366,768);
 					this.add.image(500,350, 'background').setDisplaySize(1000,500);
+					this.add.image(500,680, 'bottom').setDisplaySize(1012,150);
+					this.add.image(500,50, 'top').setDisplaySize(1012,100);
 
 					var clock = new Clock(this, "clock_sprite", 100, 100);
 
