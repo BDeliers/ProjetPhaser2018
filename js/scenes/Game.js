@@ -3,15 +3,21 @@ define(["Phaser", "core/Clock", "models/ScenarioModel"], function(Phaser, Clock,
 	console.log("Load scenes/Game");
 
 	var game_scene = {
+
 		preload: function (){
 					this.load.spritesheet('clock_sprite',
-						'image/clock/sprite_clk.png',
+					  'image/clock/sprite_clk.png',
 						{ frameWidth: 60, frameHeight: 100 }
 					);
 
 					this.load.spritesheet('bubble_sprite',
-						'image/characters/text_bubble/bubble_sprite.png',
-						{ frameWidth: 214, frameHeight: 216}
+					  'image/characters/text_bubble/bubble_sprite.png',
+						{ frameWidth: 214, frameHeight: 214 }
+					);
+
+					this.load.spritesheet('women_sprite',
+					'image/characters/top_sprite.png',
+						{ frameWidth : 398 , frameHeight : 398 }
 					);
 
 					var scenario_model = new Scenario(this, document.cookie.split('=')[1]);
@@ -23,13 +29,14 @@ define(["Phaser", "core/Clock", "models/ScenarioModel"], function(Phaser, Clock,
 				},
 		create: function (){
 					this.add.image(683,384, 'game').setDisplaySize(1366,768);
-					this.add.image(500,350, 'background').setDisplaySize(1000,500);
-					this.add.image(500,680, 'bottom').setDisplaySize(1012,150);
-					this.add.image(500,50, 'top').setDisplaySize(1012,100);
+					this.add.image(510,360, 'background').setDisplaySize(1000,500);
+					this.add.image(683,685, 'bottom').setDisplaySize(1405,145);
+					this.add.image(500,55, 'top').setDisplaySize(1030,105);
 
+					var bubble_sprite = this.add.sprite(1200, 220, "bubble_sprite");
+					var women_sprite = this.add.sprite(1200, 400, "women_sprite");
 					var clock = new Clock(this, "clock_sprite", 1100, 50);
 					var seconds = 0;
-					var bubble_sprite = this.add.sprite(1000, 300, "bubble_sprite");
 
 				 this.anims.create({
 					 key:'bubble_orange',
@@ -51,8 +58,6 @@ define(["Phaser", "core/Clock", "models/ScenarioModel"], function(Phaser, Clock,
 					 key:'bubble_blue',
 					 frames: this.anims.generateFrameNumbers("bubble_sprite", { start: 3, end: 4})
 				 });
-
-				 bubble_sprite.anims.play("bubble_orange", true);
 
 				 var schedule_task = setInterval(()=>{
 					 seconds += 1;
