@@ -11,20 +11,11 @@ DEBUT DE SEANCE:
 - DéBAT : taille du jeu 
 
 TODO:
-- Mettre à jour l'utilitaire de création de chemin [OK]
-- Mettre à jour le model Scenario (prise en compte des chemins) [OK]
-- Intégrer RequireJS [OK]
-- ?? Réorganisation du dossier JS: virer "Tools" et ajouter "Core" ?? [OK]  
-- Mettre en place la liste des events à implémenter [OK]
-- Créer les illustrations pour les events [URGENT]
-- Créer les minatures pour les transports [URGENT]
-- Créer les images "arret". [OK]
-- Commencer à écrire les textes du jeu: descriptions des transports, message d'acceuil du jeu, etc [WORK IN PROGRESS]
-- Créer la page d'acceuil, la page "choix de scénario" et la page fin de partie. [OK ?] [WORK IN PROGRESS ?]
-- Intergrer des fondu entre chaques scenne 
-- Changer de scennes
-
-
-- Gestion des Events 
-- Redimmentionnage du jeu 
-- 
+- ajouter les arrets et les chemins pour les 4 derniers scenario
+- ajouter de texte au dessus des arrets 
+- ajouter les boutons de selection des vehicules 
+- ajouter les events à l'écran 
+- ajouter une fonction random pour les events 
+- ajouter un gestionnaire de message avec la dame 
+- trouver un titre
+- ajouter les descriptions de scénario
