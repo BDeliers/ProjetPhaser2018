@@ -13,8 +13,6 @@ define(["Phaser"], function(phaser) {
 	        // add a new graphics object
 	        this.options = options;
 			this.phaser = phaser;
-			console.log(phaser);
-			console.log(options);
 	        this.graphics = this.phaser.add.graphics({lineStyle: { width: this.options.width, color: this.options.color}, fillStyle: {color: this.options.color} });
 	}
 

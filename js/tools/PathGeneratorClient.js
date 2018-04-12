@@ -21,7 +21,7 @@
 	   	}
 		var isActive = false;
 		var test;
-		var line = new Line(phaser, {color: "0x333300", width: 4, rounded_angles: false});
+		var line = new Line(phaser, {color: "0x333300", width: 1, rounded_angles: true});
 
     	console.log(" -- Pour utiliser le path generator -- ");
     	console.log(" a) activer/desactiver le clic");

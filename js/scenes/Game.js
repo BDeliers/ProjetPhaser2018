@@ -1,4 +1,4 @@
-define(["Phaser", "core/Clock", "models/ScenarioModel"], function(Phaser, Clock, Scenario) {
+define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClient"], function(Phaser, Clock, Scenario, PathGenerator) {
 
 	console.log("Load scenes/Game");
 
@@ -8,6 +8,11 @@ define(["Phaser", "core/Clock", "models/ScenarioModel"], function(Phaser, Clock,
 					this.load.spritesheet('clock_sprite',
 					  'image/clock/sprite_clk.png',
 						{ frameWidth: 60, frameHeight: 100 }
+					);
+
+					this.load.spritesheet('stops_sprite', 
+						'image/assets/stops_sprite.png',
+						{ frameWidth: 30, frameHeight: 30 }
 					);
 
 					this.load.spritesheet('bubble_sprite',
@@ -27,6 +32,8 @@ define(["Phaser", "core/Clock", "models/ScenarioModel"], function(Phaser, Clock,
 					this.load.image('bottom', "image/assets/bottom.png");
 					this.load.image('top', "image/assets/top_bar.png");
 				},
+
+
 		create: function (){
 					this.add.image(683,384, 'game').setDisplaySize(1366,768);
 					this.add.image(500,360, 'background').setDisplaySize(1000,500);
@@ -38,10 +45,10 @@ define(["Phaser", "core/Clock", "models/ScenarioModel"], function(Phaser, Clock,
 					var clock = new Clock(this, "clock_sprite", 1100, 50);
 					var seconds = 0;
 
-				 this.anims.create({
+				this.anims.create({
 					 key:'bubble_orange',
 					 frames: this.anims.generateFrameNumbers("bubble_sprite", { start: -1, end: 0})
-				 });
+				});
 				 this.anims.create({
 					 key:'bubble_green',
 					 frames: this.anims.generateFrameNumbers("bubble_sprite", { start: 0, end: 1})
@@ -59,12 +66,23 @@ define(["Phaser", "core/Clock", "models/ScenarioModel"], function(Phaser, Clock,
 					 frames: this.anims.generateFrameNumbers("bubble_sprite", { start: 3, end: 4})
 				 });
 
-				 var schedule_task = setInterval(()=>{
+				var schedule_task = setInterval(()=>{
 					 seconds += 1;
 					 clock.set_seconds(seconds);
 					 clock.update();
-				 }, 1000);
+				}, 1000);
 
+
+				// -- create path and stops for 4 maps-- tmp
+				const name_of_the_scenario = "nightclub";
+				var allready_created_path = new Scenario(this, name_of_the_scenario);
+				for(let start of allready_created_path.getStopsList()){
+					for(let end of allready_created_path.getStopsList()){
+						allready_created_path.plotPath(start.name, end.name, {color: randomColor(), width: 3, rounded_angles: true});
+						allready_created_path.plotStops('stops_sprite');
+					 }
+				 }
+				var path_g = PathGenerator(this, name_of_the_scenario);
 				},
 
 		update: function (){

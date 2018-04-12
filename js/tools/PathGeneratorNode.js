@@ -19,7 +19,7 @@ http.createServer((request, response) => {
     
     var received_json = JSON.parse(body);
 
-    var file_name = "./" + received_json.json_scenario_name + ".json";
+    var file_name = "../../scenarios/" + received_json.json_scenario_name + ".json";
     console.log(file_name);
     var scenario_json;
 
