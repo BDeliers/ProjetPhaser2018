@@ -29,12 +29,12 @@ define(["Phaser", "core/Clock", "models/ScenarioModel"], function(Phaser, Clock,
 				},
 		create: function (){
 					this.add.image(683,384, 'game').setDisplaySize(1366,768);
-					this.add.image(510,360, 'background').setDisplaySize(1000,500);
-					this.add.image(683,685, 'bottom').setDisplaySize(1405,145);
-					this.add.image(500,55, 'top').setDisplaySize(1030,105);
+					this.add.image(500,360, 'background').setDisplaySize(1000,500);
+					this.add.image(500,55, 'top').setDisplaySize(1020,105);
+					this.add.image(683,688, 'bottom').setDisplaySize(1470,150);
 
-					var bubble_sprite = this.add.sprite(1200, 220, "bubble_sprite");
-					var women_sprite = this.add.sprite(1200, 400, "women_sprite");
+					var bubble_sprite = this.add.sprite(1175, 220, "bubble_sprite");
+					var women_sprite = this.add.sprite(1175, 400, "women_sprite");
 					var clock = new Clock(this, "clock_sprite", 1100, 50);
 					var seconds = 0;
 
