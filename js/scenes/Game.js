@@ -1,8 +1,10 @@
 define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClient"], function(Phaser, Clock, Scenario, PathGenerator) {
-
+	
 	console.log("Load scenes/Game");
 	//var scenario_model = new Scenario(this, document.cookie.split('=')[1]);
-
+	
+	const name_of_the_scenario = "cinema";
+	var scenario_model = new Scenario(this, name_of_the_scenario);
 	var game_scene = {
 
 		preload: function (){
@@ -72,12 +74,11 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClie
 				}, 1000);
 
 
-				const name_of_the_scenario = "cinema";
-				var allready_created_path = new Scenario(this, name_of_the_scenario);
-				for(let start of allready_created_path.getStopsList()){
-					for(let end of allready_created_path.getStopsList()){
-						allready_created_path.plotPath(start.name, end.name, {color: "0x000000", width: 3, rounded_angles: true});
-						allready_created_path.plotStops('stops_sprite');
+				
+				for(let start of scenario_model.getStopsList()){
+					for(let end of scenario_model.getStopsList()){
+						scenario_model.plotPath(start.name, end.name, {color: "0x000000", width: 3, rounded_angles: true});
+						scenario_model.plotStops('stops_sprite');
 					 }
 				 }
 				var path_g = PathGenerator(this, name_of_the_scenario);
