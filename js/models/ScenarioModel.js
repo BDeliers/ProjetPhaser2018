@@ -71,7 +71,7 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 
 	/**
 	 * get stop specified by index return undefined if index is out of range
-	 * @param {JSON} index 
+	 * @param {JSON} index
 	 */
 	ScenarioModel.prototype.stop = function(index){
 		if(index < this.scenario_json.stops_list.length){
@@ -82,7 +82,7 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 	}
 
 	/**
-	 * @description plots all stops in the map 
+	 * @description plots all stops in the map
 	 * @param {Phaser sprite} stops_sprite the stop sprite (in the assets folder)
 	 */
 	ScenarioModel.prototype.plotStops = function(stops_sprite) {
@@ -113,6 +113,9 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 		for (stop of this.scenario_json.stops_list) {
 			let curr = this.phaser.add.sprite(stop.x, stop.y -15, stops_sprite);
 			curr.anims.play(keys[key_index++ % 5], true);
+
+			let text = this.add.text(curr.x, curr.y-20, curr.name, {font : "10px Roboto"});
+			text.x = text.x - text.width/2;
 		}
 	}
 
@@ -126,7 +129,7 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 			if(path.from == origin_stop){
 				return_list.push(path);
 			}
-		}			
+		}
 		return return_list;
 	}
 
@@ -149,7 +152,7 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 				var line = new Line(this.phaser, line_options);
 				line.draw(path.path);
 				this.drawed_paths.set({
-					from: origin_stop, 
+					from: origin_stop,
 					to: arrival_stop
 				}, line);
 				return true;
@@ -157,11 +160,11 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 		}
 		return false;
 	}
-		
+
 	/**
 	 * @description
-	 * @param {String} origin_stop 
-	 * @param {String} arrival_stop 
+	 * @param {String} origin_stop
+	 * @param {String} arrival_stop
 	 */
 	ScenarioModel.prototype.unPlotPath = function(origin_stop, arrival_stop){
 		for(let key of this.drawed_paths.keys()){
