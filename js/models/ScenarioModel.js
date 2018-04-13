@@ -114,7 +114,7 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 			let curr = this.phaser.add.sprite(stop.x, stop.y -15, stops_sprite);
 			curr.anims.play(keys[key_index++ % 5], true);
 
-			let text = this.phaser.add.text(curr.x, curr.y-20, stop.name, {font : "11px Roboto", fill:"#000"});
+			let text = this.phaser.add.text(curr.x, curr.y-30, stop.name, {font : "12px Roboto", fill:"#000"});
 			text.x = text.x - text.width/2;
 		}
 	}
