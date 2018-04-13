@@ -2,8 +2,7 @@
   "name": "cinema",
   "url_to_image": "./image/scenario/cinema.png",
   "url_to_background": "./image/maps/martinique.png",
-  "description": "Mercredi après midi, le temps est mossade, vous décidez de profiter de cet après-midi pour aller au cinéma avec des amis.
-Vous devez partir de chez vous, rejoindre vos amis et vous rendre au cinéma !",
+  "description": "Mercredi après midi, le temps est mossade, vous décidez de profiter de cet après-midi pour aller au cinéma avec des amis. Vous devez partir de chez vous, rejoindre vos amis et vous rendre au cinéma!",
   "stops_list": [{
     "name": "Villa",
     "available_vehicles": ["car", "covoiturage", "train"],
