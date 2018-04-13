@@ -10,7 +10,7 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClie
 						{ frameWidth: 60, frameHeight: 100 }
 					);
 
-					this.load.spritesheet('stops_sprite', 
+					this.load.spritesheet('stops_sprite',
 						'image/assets/stops_sprite.png',
 						{ frameWidth: 30, frameHeight: 30 }
 					);
@@ -74,7 +74,7 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClie
 
 
 				// -- create path and stops for 4 maps-- tmp
-				const name_of_the_scenario = "nightclub";
+				/*const name_of_the_scenario = "nightclub";
 				var allready_created_path = new Scenario(this, name_of_the_scenario);
 				for(let start of allready_created_path.getStopsList()){
 					for(let end of allready_created_path.getStopsList()){
@@ -82,7 +82,7 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClie
 						allready_created_path.plotStops('stops_sprite');
 					 }
 				 }
-				var path_g = PathGenerator(this, name_of_the_scenario);
+				var path_g = PathGenerator(this, name_of_the_scenario);*/
 				},
 
 		update: function (){

@@ -1,7 +1,7 @@
 {
-    "name": "Retour de boite de nuit",
-    "url_to_image": "./image/scenario/nightclub.png",
-    "url_to_background": "./image/maps/paris_night.png",
+    "name": "cinema",
+    "url_to_image": "./image/scenario/cinema.png",
+    "url_to_background": "./image/maps/martinique.png",
     "description": "lorem ipsum dolor sit amet consectur apdicis...",
     "stops_list": [
         {
