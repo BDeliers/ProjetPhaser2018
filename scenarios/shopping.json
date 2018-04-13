@@ -2,7 +2,7 @@
     "name":"shopping",
     "url_to_image":"./image/scenario/shopping.png",
     "url_to_background":"./image/maps/bruxelles.png",
-    "description":"lorem ipsum dolor sit amet consectur apdicis...",
+    "description":"Le réfrégirateur est vide, il ne reste plus qu'une boite de lentilles et un paquet de petits gâteaux, il est grand temps d'aller faire les courses !",
     "stops_list":[],
     "paths_list":[]
 }
