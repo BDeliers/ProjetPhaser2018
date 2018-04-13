@@ -2,6 +2,8 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClie
 
 	console.log("Load scenes/Game");
 	var scenario_model = undefined;
+	const vehicles_names = ["autopartage", "bicycle", "bus", "car", "covoiturage", "feet", "metro", "mono", "taxi", "train", "tram", "trotinet"];
+	for(let vehicles_name of vehicles_names)
 
 	var game_scene = {
 
@@ -32,8 +34,8 @@ this.load.image('game', "image/background/game.png");
 this.load.image('background', scenario_model.getUrlTobackground());
 this.load.image('bottom', "image/assets/bottom.png");
 this.load.image('top', "image/assets/top_bar.png");
-},
 
+},
 
 create: function (){
 	this.add.image(683,384, 'game').setDisplaySize(1366,768);
@@ -75,9 +77,12 @@ create: function (){
 
 
 
+
+
 	for(let start of scenario_model.getStopsList()){
 		for(let end of scenario_model.getStopsList()){
 			scenario_model.plotPath(start.name, end.name, {color: "0x00FF00", width: 3, rounded_angles: true});
+
 		}
 	}
 	scenario_model.plotStops('stops_sprite');
