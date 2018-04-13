@@ -2,7 +2,7 @@
     "name":"Venice",
     "url_to_image":"./image/scenario/venice.png",
     "url_to_background":"./image/maps/venise.png",
-    "description":"lorem ipsum dolor sit amet consectur apdicis...",
+    "description":"En week end Rome Antique avec votre moitié, vous décidez d'aller visiter __ en partant de _____ ! c'est le temps de découvrir cette magnifique ville Italienne !",
     "stops_list":[],
     "paths_list":[]
 }

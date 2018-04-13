@@ -2,7 +2,7 @@
   "name": "work",
   "url_to_image": "./image/scenario/work.png",
   "url_to_background": "./image/maps/paris.png",
-  "description": "lorem ipsum dolor sit amet consectur apdicis...",
+  "description": "Il est 7 heures, votre patron et vos collègues avez une réunion à 8h30. Rendez vous au travail.",
   "stops_list": [],
   "paths_list": []
 }
