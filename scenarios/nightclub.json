@@ -3,7 +3,6 @@
     "url_to_image": "./image/scenario/nightclub.png",
     "url_to_background": "./image/maps/paris_night.png",
     "description": "lorem ipsum dolor sit amet consectur apdicis...",
-<<<<<<< HEAD
     "stops_list": [{
       "name": "Le Macumba",
       "available_vehicles": ["feet", "trotinet", "bicycle"],
@@ -45,9 +44,5 @@
       "x": 0,
       "y": 0
     }],
-=======
-    "stops_list": [
-    ],
->>>>>>> 7b46040ac4e6912df2530ba59405df053ed93390
     "paths_list": []
 }
