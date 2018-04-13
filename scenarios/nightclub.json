@@ -10,12 +10,12 @@
       "y": 0
     }, {
       "name": "Allée des peupliers",
-      "available_vehicles": ["", "", "tram"],
+      "available_vehicles": ["feet", "mono", "tram"],
       "x": 0,
       "y": 0
     }, {
       "name": "Métro monarchie",
-      "available_vehicles": ["tram", "car", "trotinet"],
+      "available_vehicles": ["metro", "tram", "autopartage"],
       "x": 0,
       "y": 0
     }, {
@@ -25,17 +25,17 @@
       "y": 0
     }, {
       "name": "Rue de la Paix",
-      "available_vehicles": ["feet", "bicycle", "autopartage"],
+      "available_vehicles": ["tram", "train", "autopartage"],
       "x": 0,
       "y": 0
     }, {
       "name": "Jardin public",
-      "available_vehicles": [],
+      "available_vehicles": ["covoiturage", "taxi", "bus"],
       "x": 0,
       "y": 0
     },{
-      "name": "Impasse Decoster ",
-      "available_vehicles": [],
+      "name": "Impasse Decoster",
+      "available_vehicles": ["feet", "bicycle", "trotinet"],
       "x": 0,
       "y": 0
     }, {
