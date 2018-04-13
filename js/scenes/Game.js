@@ -78,9 +78,9 @@ create: function (){
 	for(let start of scenario_model.getStopsList()){
 		for(let end of scenario_model.getStopsList()){
 			scenario_model.plotPath(start.name, end.name, {color: "0x00FF00", width: 3, rounded_angles: true});
-			scenario_model.plotStops('stops_sprite');
 		}
 	}
+	scenario_model.plotStops('stops_sprite');
 	var path_g = PathGenerator(this, scenario_model.getName());
 
 },
