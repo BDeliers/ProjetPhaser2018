@@ -1,8 +1,8 @@
 {
-    "name":"work",
-    "url_to_image":"./image/scenario/work.png",
-    "url_to_background":"./image/maps/paris.png",
-    "description":"lorem ipsum dolor sit amet consectur apdicis...",
-    "stops_list":[{"name":"Home","available_vehicles":["car","train","bus"],"x":100,"y":90},{"name":"Bus Stop","available_vehicles":["bike","segway","bus"],"x":400,"y":300},{"name":"Work","available_vehicles":["train","car","bus"],"x":800,"y":500}],
-    "paths_list":[{"from":"Home","to":"Work","path":[[100,200],[200,300],[489,264]]},{"from":"Bus Stop","to":"Home","path":[[250,649],[124,540]]},{"from":"test1","to":"test2","path":[[346,243],[517,319],[764,54],[382,129],[599,444],[851,382],[204,416],[745,245],[272,285],[189,192],[403,564],[3,1]]}]
+  "name": "work",
+  "url_to_image": "./image/scenario/work.png",
+  "url_to_background": "./image/maps/paris.png",
+  "description": "lorem ipsum dolor sit amet consectur apdicis...",
+  "stops_list": [],
+  "paths_list": []
 }
