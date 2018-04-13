@@ -51,58 +51,59 @@ define(["Phaser"], function() {
 		//Numbers animations
 		this.phaser.anims.create({
 			key:'0',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: -1, end: 0})
-		});
-		this.phaser.anims.create({
-			key:'1',
 			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 0, end: 1})
 		});
 		this.phaser.anims.create({
-			key:'2',
+			key:'1',
 			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 1, end: 2})
 		});
 		this.phaser.anims.create({
-			key:'3',
+			key:'2',
 			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 2, end: 3})
 		});
 		this.phaser.anims.create({
-			key:'4',
+			key:'3',
 			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 3, end: 4})
 		});
 		this.phaser.anims.create({
-			key:'5',
+			key:'4',
 			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 4, end: 5})
 		});
 		this.phaser.anims.create({
-			key:'6',
+			key:'5',
 			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 5, end: 6})
 		});
 		this.phaser.anims.create({
-			key:'7',
+			key:'6',
 			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 6, end: 7})
 		});
 		this.phaser.anims.create({
-			key:'8',
+			key:'7',
 			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 7, end: 8})
 		});
 		this.phaser.anims.create({
-			key:'9',
+			key:'8',
 			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 8, end: 9})
 		});
 		this.phaser.anims.create({
-			key:'dots',
+			key:'9',
 			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 9, end: 10})
 		});
 		this.phaser.anims.create({
-			key:'empty',
+			key:'dots',
 			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 10, end: 11})
 		});
+		this.phaser.anims.create({
+			key:'empty',
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 11, end: 12})
+		});
+
+		this.dots.anims.play('dots', true);
 	}
 
 	Clock.prototype.update = function() {
 		this.minutes_1.anims.play(String((this.minutes-this.minutes%10)/10), true);
 		this.minutes_0.anims.play(String(this.minutes%10), true);
-		this.dots.anims.play('dots', true);
 		this.seconds_1.anims.play(String((this.seconds-this.seconds%10)/10), true);
 		this.seconds_0.anims.play(String(this.seconds%10), true);
 	}
