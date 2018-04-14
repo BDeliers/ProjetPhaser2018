@@ -11,7 +11,7 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClie
 			// Load the model of the Scenario
 			scenario_model = new Scenario(this, document.cookie.split('=')[1]);
 
-			// Load Sprite of the Clock 
+			// Load Sprite of the Clock
 			this.load.spritesheet('clock_sprite',
 				'image/clock/sprite_clk.png', {
 					frameWidth: 60,
@@ -42,30 +42,30 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClie
 					frameHeight: 398
 				}
 			);
-			
+
 			// Load statics images for background
 			this.load.image('game', "image/background/game.png");
 			this.load.image('background', scenario_model.getUrlTobackground());
 			this.load.image('bottom', "image/assets/bottom.png");
 			this.load.image('top', "image/assets/top_bar.png");
-			
+
 			// Load images of vehicles
 			var vehicles = ["autopartage", "bicycle", "bus", "car", "covoiturage", "feet", "metro", "mono", "taxi", "moto", "train", "tram", "trotinet"];
 			for (elt of vehicles) {
 				this.load.image(elt, "vehicles/images/" + elt + ".png");
 			}
 		},
-		
+
 		create: function () {
-			// Crete an instance of Clock in the game  
+			// Crete an instance of Clock in the game
 			var clock = new Clock(this, "clock_sprite", 1100, 50);
 			var schedule_task = setInterval(() => {
 				seconds += 1;
 				clock.set_seconds(seconds);
 				clock.update();
 			}, 1000);
-			
-			// Blit statics image for background 
+
+			// Blit statics image for background
 			this.add.image(683, 384, 'game').setDisplaySize(1366, 768);
 			this.add.image(500, 360, 'background').setDisplaySize(1000, 500);
 			this.add.image(500, 55, 'top').setDisplaySize(1020, 105);
@@ -74,8 +74,8 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClie
 			// Blit Sprite of the woman on the Game
 			var women_sprite = this.add.sprite(1175, 400, "women_sprite");
 			var seconds = 0;
-			
-			//Create annimations for the buble 
+
+			//Create annimations for the buble
 			var bubble_sprite = this.add.sprite(1175, 220, "bubble_sprite");
 			this.anims.create({
 				key: 'bubble_orange',
@@ -122,7 +122,7 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClie
 			for (let start of scenario_model.getStopsList()) {
 				for (let end of scenario_model.getStopsList()) {
 					scenario_model.plotPath(start.name, end.name, {
-						color: "0x000000",
+						color: "0xFFFFFF",
 						width: 3,
 						rounded_angles: true
 					});
