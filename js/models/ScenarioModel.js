@@ -23,7 +23,9 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 	            scenario = data;
 	        }
 	    });
-	    this.scenario_json = scenario;
+		this.scenario_json = scenario;
+		
+		this.already_plot = false;
 	    console.log("Create instance of " + scenario_name + " scenarios");
 	}
 
@@ -86,36 +88,39 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 	 * @param {Phaser sprite} stops_sprite the stop sprite (in the assets folder)
 	 */
 	ScenarioModel.prototype.plotStops = function(stops_sprite) {
+		if(!this.already_plot){
+			this.already_plot = true;
 
-		this.phaser.anims.create({
-			key:'car',
-			frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: -1, end: 0})
-		});
-		this.phaser.anims.create({
-			key:'bike',
-			frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 0, end: 1})
-		});
-		this.phaser.anims.create({
-			key:'train',
-			frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 1, end: 2})
-		});
-		this.phaser.anims.create({
-			key:'bus',
-			frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 2, end: 3})
-		});
-		this.phaser.anims.create({
-			key:'subway',
-			frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 3, end: 4})
-		});
-
-		const keys = ['car', 'bike', 'train', 'bus', 'subway'];
-		var key_index = 0;
-		for (stop of this.scenario_json.stops_list) {
-			let curr = this.phaser.add.sprite(stop.x, stop.y -15, stops_sprite);
-			curr.anims.play(keys[key_index++ % 5], true);
-
-			let text = this.phaser.add.text(curr.x, curr.y-30, stop.name, {font : "12px Roboto", fill:"#36E800"});
-			text.x = text.x - text.width/2;
+			this.phaser.anims.create({
+				key:'car',
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: -1, end: 0})
+			});
+			this.phaser.anims.create({
+				key:'bike',
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 0, end: 1})
+			});
+			this.phaser.anims.create({
+				key:'train',
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 1, end: 2})
+			});
+			this.phaser.anims.create({
+				key:'bus',
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 2, end: 3})
+			});
+			this.phaser.anims.create({
+				key:'subway',
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 3, end: 4})
+			});
+	
+			const keys = ['car', 'bike', 'train', 'bus', 'subway'];
+			var key_index = 0;
+			for (stop of this.scenario_json.stops_list) {
+				let curr = this.phaser.add.sprite(stop.x, stop.y -15, stops_sprite);
+				curr.anims.play(keys[key_index++ % 5], true);
+	
+				let text = this.phaser.add.text(curr.x, curr.y-30, stop.name, {font : "12px Roboto", fill:"#36E800"});
+				text.x = text.x - text.width/2;
+			}
 		}
 	}
 
