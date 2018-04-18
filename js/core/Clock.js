@@ -51,51 +51,51 @@ define(["Phaser"], function() {
 		//Numbers animations
 		this.phaser.anims.create({
 			key:'0',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 0, end: 1})
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: -1, end: 0})
 		});
 		this.phaser.anims.create({
 			key:'1',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 1, end: 2})
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 0, end: 1})
 		});
 		this.phaser.anims.create({
 			key:'2',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 2, end: 3})
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 1, end: 2})
 		});
 		this.phaser.anims.create({
 			key:'3',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 3, end: 4})
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 2, end: 3})
 		});
 		this.phaser.anims.create({
 			key:'4',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 4, end: 5})
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 3, end: 4})
 		});
 		this.phaser.anims.create({
 			key:'5',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 5, end: 6})
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 4, end: 5})
 		});
 		this.phaser.anims.create({
 			key:'6',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 6, end: 7})
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 5, end: 6})
 		});
 		this.phaser.anims.create({
 			key:'7',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 7, end: 8})
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 6, end: 7})
 		});
 		this.phaser.anims.create({
 			key:'8',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 8, end: 9})
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 7, end: 8})
 		});
 		this.phaser.anims.create({
 			key:'9',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 9, end: 10})
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 8, end: 9})
 		});
 		this.phaser.anims.create({
 			key:'dots',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 10, end: 11})
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 9, end: 10})
 		});
 		this.phaser.anims.create({
 			key:'empty',
-			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 11, end: 12})
+			frames: this.phaser.anims.generateFrameNumbers(this.sprite, { start: 10, end: 11})
 		});
 
 		this.dots.anims.play('dots', true);

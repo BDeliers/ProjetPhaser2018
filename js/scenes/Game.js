@@ -1,4 +1,4 @@
-define(["Phaser", "core/Clock", "models/ScenarioModel", "models/VehicleModel", "tools/PathGeneratorClient"], function (Phaser, Clock, Scenario, Vehicle, PathGenerator) {
+define(["Phaser", "core/Clock", "core/MessagesManager", "models/ScenarioModel", "models/VehicleModel", "tools/PathGeneratorClient"], function (Phaser, Clock, MessagesManager, Scenario, Vehicle, PathGenerator) {
 
 	console.log("Load scenes/Game");
 
@@ -57,61 +57,26 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "models/VehicleModel", "
 		},
 
 		create: function () {
-			// Crete an instance of Clock in the game
-			var clock = new Clock(this, "clock_sprite", 1100, 50);
-			var schedule_task = setInterval(() => {
-				seconds += 1;
-				clock.set_seconds(seconds);
-				clock.update();
-			}, 1000);
-
 			// Blit statics image for background
 			this.add.image(683, 384, 'game').setDisplaySize(1366, 768);
 			this.add.image(500, 360, 'background').setDisplaySize(1000, 500);
 			this.add.image(500, 55, 'top').setDisplaySize(1020, 105);
 			this.add.image(683, 688, 'bottom').setDisplaySize(1470, 150);
 
-			// Blit Sprite of the woman on the Game
-			var women_sprite = this.add.sprite(1175, 400, "women_sprite");
-			var seconds = 0;
+			// Crete an instance of Clock in the game
+			var clock = new Clock(this, "clock_sprite", 1100, 50);
+			var messages_manager = new MessagesManager(this, "bubble_sprite", "women_sprite", 1175, 220);
 
-			//Create annimations for the buble
-			var bubble_sprite = this.add.sprite(1175, 220, "bubble_sprite");
-			this.anims.create({
-				key: 'bubble_orange',
-				frames: this.anims.generateFrameNumbers("bubble_sprite", {
-					start: -1,
-					end: 0
-				})
-			});
-			this.anims.create({
-				key: 'bubble_green',
-				frames: this.anims.generateFrameNumbers("bubble_sprite", {
-					start: 0,
-					end: 1
-				})
-			});
-			this.anims.create({
-				key: 'bubble_red',
-				frames: this.anims.generateFrameNumbers("bubble_sprite", {
-					start: 1,
-					end: 2
-				})
-			});
-			this.anims.create({
-				key: 'bubble_gray',
-				frames: this.anims.generateFrameNumbers("bubble_sprite", {
-					start: 2,
-					end: 3
-				})
-			});
-			this.anims.create({
-				key: 'bubble_blue',
-				frames: this.anims.generateFrameNumbers("bubble_sprite", {
-					start: 3,
-					end: 4
-				})
-			});
+			messages_manager.animate_bubble("green");
+			messages_manager.animate_women("super");
+			messages_manager.display_text("Se se duis occaecat, si tamen excepteur despicationes te illum in appellat ita noster, quem mentitum sed aliquip de consequat dolor est ullamco arbitrantur de non veniam incurreret vidisse,", "#FF6600");
+
+			var seconds = 0;
+			var schedule_task = setInterval(() => {
+				seconds += 1;
+				clock.set_seconds(seconds);
+				clock.update();
+			}, 1000);
 
 
 			// --- Build Start ---
@@ -151,7 +116,7 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "models/VehicleModel", "
 						image: phaser.add.image(vehicles_images_positions[index][0], vehicles_images_positions[index][1], vehicle_name).setDisplaySize(200, 100).setInteractive(),
 						associated_stop_name: connected_stops[Math.floor(Math.random() * Math.floor(connected_stops.length))]
 					}
-					
+
 					// callback function for hover-in the vehicle image
 					vehicle_object.image.on('pointerover', () => {
 						scenario_model.plotPath(current_stop.name, vehicle_object.associated_stop_name, {
@@ -162,13 +127,13 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "models/VehicleModel", "
 						console.log(vehicle_object.vehicle.PathColor);
 						console.log(`mouse over ${vehicle_object.vehicle.name}`);
 					});
-					
+
 					// callback function for hover-out the vehicle image
 					vehicle_object.image.on('pointerout', () => {
 						scenario_model.unPlotPath(current_stop.name, vehicle_object.associated_stop_name);
 						console.log(`mouse out ${vehicle_object.vehicle.name}`);
 					});
-					
+
 					// callback function triggered when the image is clicked
 					vehicle_object.image.on('pointerdown', () => {
 						console.log(`clicked on ${vehicle_object.vehicle.name}`);
@@ -177,23 +142,23 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "models/VehicleModel", "
 							width: 3,
 							rounded_angles: true
 						});
-						
-						// remove images 
+
+						// remove images
 						for(let vehicle of current_vehicles){
 							vehicle.image.destroy();
 						}
-						
+
 						// launch the routine for the next stop
 						gameRoutine(phaser, vehicle_object.associated_stop_name);
 					});
-					
+
 					// store all three vehicles
 					var current_vehicles = [];
 					current_vehicles.push(vehicle_object);
 					index++;
 				}
 			}
-			
+
 			// --- Game routine here
 			//gameRoutine(this, scenario_model.stop(0).name);
 
