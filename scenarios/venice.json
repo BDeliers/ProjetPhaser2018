@@ -3,6 +3,56 @@
     "url_to_image":"./image/scenario/venice.png",
     "url_to_background":"./image/maps/venise.png",
     "description":"En week end Rome Antique avec votre moitié, vous décidez d'aller visiter __ en partant de _____ ! c'est le temps de découvrir cette magnifique ville Italienne !",
-    "stops_list":[],
+    "stops_list":[{
+      "name": "Hôtel",
+      "available_vehicles": ["", "", ""],
+      "x": 0,
+      "y": 0
+    }, {
+      "name": "",
+      "available_vehicles": ["", "", ""],
+      "x": 0,
+      "y": 0
+    }, {
+      "name": "",
+      "available_vehicles": ["", "", ""],
+      "x": 0,
+      "y": 0
+    }, {
+      "name": "",
+      "available_vehicles": ["", "", ""],
+      "x": 0,
+      "y": 0
+    }, {
+      "name": "",
+      "available_vehicles": ["", "", ""],
+      "x": 0,
+      "y": 0
+    }, {
+      "name": "",
+      "available_vehicles": ["", "", ""],
+      "x": 0,
+      "y": 0
+    }, {
+      "name": "",
+      "available_vehicles": ["", "", ""],
+      "x": 0,
+      "y": 0
+    }, {
+      "name": "",
+      "available_vehicles": ["", "", ""],
+      "x": 0,
+      "y": 0
+    }, {
+      "name": "",
+      "available_vehicles": ["", "", ""],
+      "x": 0,
+      "y": 0
+    }, {
+      "name": "Restaurant",
+      "available_vehicles": ["", "", ""],
+      "x": 0,
+      "y": 0
+    }],
     "paths_list":[]
 }
