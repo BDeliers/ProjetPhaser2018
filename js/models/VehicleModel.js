@@ -37,8 +37,8 @@ define(["jquery"], function() {
 	        return this.vehicle.url_to_image;
 	    }
 
-	    get urlToPathImage(){
-	        return this.vehicle.url_to_path_image
+	    get PathColor(){
+	        return this.vehicle.path_color;
 	    }
 
 	    get description(){
