@@ -10,7 +10,7 @@
     "y": 148
   }, {
     "name": "Rue des pommiers",
-    "available_vehicles": ["bus", "autopartage", "taxi"],
+    "available_vehicles": ["bus", "autopartage", "trotinet"],
     "x": 387,
     "y": 280
   }, {
