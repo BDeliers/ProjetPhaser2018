@@ -131,7 +131,8 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "models/VehicleModel", "
 					console.log(`erreur Main loop : nom du stop ${stop_name} introuvable`);
 					return;
 				}
-
+				
+				var current_vehicles = [];
 				// get the connected stops list form the current stop
 				var connected_stops = []
 				const vehicles_images_positions = [[340, 690], [682, 690], [1023, 690]];
@@ -188,17 +189,16 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "models/VehicleModel", "
 					});
 					
 					// store all three vehicles
-					var current_vehicles = [];
 					current_vehicles.push(vehicle_object);
 					index++;
 				}
 			}
 			
 			// --- Game routine here
-			//gameRoutine(this, scenario_model.stop(0).name);
+			gameRoutine(this, scenario_model.stop(0).name);
 
 			// ---- TEMPORAIRE ------
-			for (let start of scenario_model.getStopsList()) {
+			/*for (let start of scenario_model.getStopsList()) {
 				for (let end of scenario_model.getStopsList()) {
 					scenario_model.plotPath(start.name, end.name, {
 						color: "0x36E800",
@@ -208,7 +208,7 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "models/VehicleModel", "
 				}
 			}
 			scenario_model.plotStops('stops_sprite');
-			var path_g = PathGenerator(this, scenario_model.getName());
+			var path_g = PathGenerator(this, scenario_model.getName());*/
 
 		},
 
