@@ -1,4 +1,4 @@
-define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClient"], function (Phaser, Clock, Scenario, PathGenerator) {
+define(["Phaser", "core/Clock", "models/ScenarioModel", "models/VehicleModel", "tools/PathGeneratorClient"], function (Phaser, Clock, Scenario, Vehicle, PathGenerator) {
 
 	console.log("Load scenes/Game");
 
@@ -114,12 +114,91 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClie
 			});
 
 
+			// --- Build Start ---
+			scenario_model.plotStops('stops_sprite');
 
+			// -- def of the main game function
+			var gameRoutine = function(phaser, stop_name){
+				// get the object of the current stop for this turn
+				var current_stop = undefined;
+				for(let stop of scenario_model.getStopsList()){
+					if(stop.name === stop_name){
+						current_stop = stop;
+						break;
+					}
+				}
+				if(current_stop === undefined){
+					console.log(`erreur Main loop : nom du stop ${stop_name} introuvable`);
+					return;
+				}
 
+				// get the connected stops list form the current stop
+				var connected_stops = []
+				const vehicles_images_positions = [[340, 690], [682, 690], [1023, 690]];
+				for(let path of scenario_model.getPathsFrom(current_stop.name)){
+					connected_stops.push(path.to);
+				}
 
+				// add callback functions for hover and click on the 3 vehicles
+				var index = 0;
+				if(current_stop.available_vehicles.length != 3){
+					console.log(`erreur Main loop : mauvais nombre de vehicles pour l'arrêt ${current_stop.name}`)
+				}
+				for(let vehicle_name of current_stop.available_vehicles){
+					// create object for the current vehicle
+					let vehicle_object = {
+						vehicle: new Vehicle(vehicle_name),
+						image: phaser.add.image(vehicles_images_positions[index][0], vehicles_images_positions[index][1], vehicle_name).setDisplaySize(200, 100).setInteractive(),
+						associated_stop_name: connected_stops[Math.floor(Math.random() * Math.floor(connected_stops.length))]
+					}
+					
+					// callback function for hover-in the vehicle image
+					vehicle_object.image.on('pointerover', () => {
+						scenario_model.plotPath(current_stop.name, vehicle_object.associated_stop_name, {
+							color: vehicle_object.vehicle.PathColor,
+							width: 4,
+							rounded_angles: true
+						});
+						console.log(vehicle_object.vehicle.PathColor);
+						console.log(`mouse over ${vehicle_object.vehicle.name}`);
+					});
+					
+					// callback function for hover-out the vehicle image
+					vehicle_object.image.on('pointerout', () => {
+						scenario_model.unPlotPath(current_stop.name, vehicle_object.associated_stop_name);
+						console.log(`mouse out ${vehicle_object.vehicle.name}`);
+					});
+					
+					// callback function triggered when the image is clicked
+					vehicle_object.image.on('pointerdown', () => {
+						console.log(`clicked on ${vehicle_object.vehicle.name}`);
+						scenario_model.plotPath(current_stop.name, vehicle_object.associated_stop_name, {
+							color: vehicle_object.vehicle.PathColor,
+							width: 3,
+							rounded_angles: true
+						});
+						
+						// remove images 
+						for(let vehicle of current_vehicles){
+							vehicle.image.destroy();
+						}
+						
+						// launch the routine for the next stop
+						gameRoutine(phaser, vehicle_object.associated_stop_name);
+					});
+					
+					// store all three vehicles
+					var current_vehicles = [];
+					current_vehicles.push(vehicle_object);
+					index++;
+				}
+			}
+			
+			// --- Game routine here
+			gameRoutine(this, scenario_model.stop(0).name);
 
 			// ---- TEMPORAIRE ------
-			for (let start of scenario_model.getStopsList()) {
+			/*for (let start of scenario_model.getStopsList()) {
 				for (let end of scenario_model.getStopsList()) {
 					scenario_model.plotPath(start.name, end.name, {
 						color: "0x36E800",
@@ -129,7 +208,7 @@ define(["Phaser", "core/Clock", "models/ScenarioModel", "tools/PathGeneratorClie
 				}
 			}
 			scenario_model.plotStops('stops_sprite');
-			var path_g = PathGenerator(this, scenario_model.getName());
+			var path_g = PathGenerator(this, scenario_model.getName());*/
 
 		},
 
