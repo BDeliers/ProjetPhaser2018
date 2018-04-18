@@ -2,7 +2,7 @@
   "name": "school",
   "url_to_image": "./image/scenario/school.png",
   "url_to_background": "./image/maps/lille.png",
-  "description": "Vous avez quitté le lycée et êtes maintenant nouveau sur le campus, c'est votre premier jour, vous devez vous rendre en cours !",
+  "description": "Vous avez quitté le lycée et êtes maintenant nouveau sur le campus, c'est votre premier jour, vous devez vous rendre en cours !!",
   "stops_list": [{
     "name": "Domicile familial",
     "available_vehicles": ["", "", ""],
