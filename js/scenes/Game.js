@@ -160,10 +160,10 @@ define(["Phaser", "core/Clock", "core/MessagesManager", "models/ScenarioModel", 
 			}
 
 			// --- Game routine here
-			gameRoutine(this, scenario_model.stop(0).name);
+			//gameRoutine(this, scenario_model.stop(0).name);
 
 			// ---- TEMPORAIRE ------
-			/*for (let start of scenario_model.getStopsList()) {
+			for (let start of scenario_model.getStopsList()) {
 				for (let end of scenario_model.getStopsList()) {
 					scenario_model.plotPath(start.name, end.name, {
 						color: "0x36E800",
@@ -173,7 +173,7 @@ define(["Phaser", "core/Clock", "core/MessagesManager", "models/ScenarioModel", 
 				}
 			}
 			scenario_model.plotStops('stops_sprite');
-			var path_g = PathGenerator(this, scenario_model.getName());*/
+			var path_g = PathGenerator(this, scenario_model.getName());
 
 		},
 
