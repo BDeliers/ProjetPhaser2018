@@ -5,52 +5,52 @@
   "description": "Vous avez quitté le lycée et êtes maintenant nouveau sur le campus, c'est votre premier jour, vous devez vous rendre en cours !!",
   "stops_list": [{
     "name": "Domicile familial",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["car", "trotinet", "autopartage"],
     "x": 923,
     "y": 203
   }, {
     "name": "Tri-postal",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["bus", "tram", "taxi"],
     "x": 624,
     "y": 128
   }, {
     "name": "Arrêt Lomme",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["bus", "tram", "feet"],
     "x": 871,
     "y": 409
   }, {
     "name": "Rue du Molinel",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["bus", "tram", "feet"],
     "x": 667,
     "y": 355
   }, {
     "name": "Gare Lille Flandres",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["train", "metro", "covoiturage"],
     "x": 630,
     "y": 550
   }, {
     "name": "Porte des Postes",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["train", "metro", "covoiturage"],
     "x": 504,
     "y": 254
   }, {
     "name": "Gambetta",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["mono", "bicycle", "taxi"],
     "x": 331,
     "y": 400
   }, {
     "name": "République Beaux Arts",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["mono", "bicycle", "taxi"],
     "x": 264,
     "y": 507
   }, {
     "name": "Cormontaigne",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["mono", "bicycle", "taxi"],
     "x": 139,
     "y": 276
   }, {
     "name": "Gare de Porte de Douai",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["train", "metro", "covoiturage"],
     "x": 398,
     "y": 121
   }, {

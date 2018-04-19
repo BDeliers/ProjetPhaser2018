@@ -5,57 +5,57 @@
   "description": "Le réfrégirateur est vide, il ne reste plus qu'une boite de lentilles et un paquet de petits gâteaux, il est grand temps d'aller faire les courses !",
   "stops_list": [{
     "name": "Maison de mamie",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["train", "metro", "covoiturage"],
     "x": 71,
     "y": 553
   }, {
     "name": "Arrêt de bus",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["bus", "metro", "mono"],
     "x": 109,
     "y": 247
   }, {
     "name": "Galerie du roi",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["bus", "metro", "mono"],
     "x": 393,
     "y": 337
   }, {
     "name": "Place de la Monnaie",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["bicycle", "mono", "autopartage"],
     "x": 550,
     "y": 271
   }, {
     "name": "Mannekenpis",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["bicycle", "mono", "autopartage"],
     "x": 369,
     "y": 140
   }, {
     "name": "Parc",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["feet", "trotinet", "tram"],
     "x": 520,
     "y": 173
   }, {
     "name": "Place dorée",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["feet", "trotinet", "tram"],
     "x": 694,
     "y": 198
   }, {
     "name": "Commission Européenne",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["feet", "trotinet", "tram"],
     "x": 966,
     "y": 313
   }, {
     "name": "Cathédrale",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["bicycle", "mono", "autopartage"],
     "x": 836,
     "y": 416
   }, {
     "name": "Musée de la BD",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["bicycle", "mono", "autopartage"],
     "x": 637,
     "y": 363
   }, {
     "name": "Place Hergé",
-    "available_vehicles": ["", "", ""],
+    "available_vehicles": ["bus", "metro", "autopartage"],
     "x": 528,
     "y": 520
   }, {
