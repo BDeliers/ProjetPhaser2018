@@ -13,19 +13,19 @@ define([], function() {
 
 	//Updates the levels
 	Levels.prototype.updateLevels = function(vehicle, active_events) {
-	    var pollution_coeff = vehicle.pollutionCoeff();
-	    var money_coeff = vehicle.moneyCoeff();
-	    var exhaust_coeff = vehicle.exhaustCoeff();
-	    var time_coeff = vehicle.timeCoeff();
+	    var pollution_coeff = vehicle.pollutionCoeff;
+	    var money_coeff = vehicle.moneyCoeff;
+	    var exhaust_coeff = vehicle.exhaustCoeff;
+	    var time_coeff = vehicle.timeCoeff;
 
 	    for(event in active_events){
-	        pollution_coeff *= (1 + event.perturbativePollutionCoeff());
-	        money_coeff *= (1 + event.perturbativeMoneyCoeff());
-	        exhaust_coeff *= (1 + event.perturbativeExhaustCoeff());
-	        time_coeff *= (1 + event.perturbativeTimeCoeff());
+	        pollution_coeff *= (1 + event.getPollutionCoeffPerturbative());
+	        money_coeff *= (1 + event.getMoneyCoeffPerturbative());
+	        exhaust_coeff *= (1 + event.getExhaustCoeffPerturbative());
+	        time_coeff *= (1 + event.getTimeCoeffPerturbative());
 	    }
 
-	    this.pollution_level += 33 * pollutionCoeff;
+	    this.pollution_level += 33 * pollution_coeff;
 	    this.money_level -= 33 * money_coeff;
 	    this.exhaust_level += 33 * exhaust_coeff;
 	    this.time_level += 33 * time_coeff;

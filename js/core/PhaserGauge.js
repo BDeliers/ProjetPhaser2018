@@ -24,6 +24,8 @@ console.log("Load core/PhaserGauge");
 
 	Gauge.prototype.set_percentage = function(percentage) {
 		this.percentage = Math.abs(percentage) % 101;
+
+		return this;
 	}
 
 	Gauge.prototype.draw = function(){

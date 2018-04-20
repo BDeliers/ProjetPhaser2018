@@ -75,7 +75,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 
 			messages_manager.animate_bubble("green");
 			messages_manager.animate_women("super");
-			messages_manager.display_text("Se se duis occaecat, si tamen excepteur despicationes te illum in appellat ita noster, quem mentitum sed aliquip de consequat dolor est ullamco arbitrantur de non veniam incurreret vidisse,", "#FF6600");
+			messages_manager.display_text("Bienvenue petit chenapan", "#FF6600");
 
 			var seconds = 0;
 			var schedule_task = setInterval(() => {
@@ -83,6 +83,12 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 				clock.set_seconds(seconds);
 				clock.update();
 			}, 1000);
+
+			// -- Plot Gauges
+			var pollution_gauge = new Gauge(this, 30, {background_color:"0xFF6600", color:"0xFE3123", x:1050, y:630, height:30, width:250, coeff:0.85});
+			var exhaust_gauge = new Gauge(this, 70, {background_color:"0xFF6600", color:"0xFE3123", x:1050, y:670, height:30, width:250, coeff:0.85});
+			var money_gauge = new Gauge(this, 50, {background_color:"0xFF6600", color:"0xFE3123", x:1050, y:710, height:30, width:250, coeff:0.85});
+			var levels = new LevelsModel();
 
 
 			// --- Plot stops ---
@@ -135,12 +141,20 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 						});
 						console.log(vehicle_object.vehicle.PathColor);
 						console.log(`mouse over ${vehicle_object.vehicle.name}`);
+
+						messages_manager.animate_bubble("blue");
+						messages_manager.animate_women("brain");
+						messages_manager.display_text(vehicle_object.vehicle.description, "#000000");
 					});
 
 					// callback function for hover-out the vehicle image
 					vehicle_object.image.on('pointerout', () => {
 						scenario_model.unPlotPath(current_stop.name, vehicle_object.associated_stop_name);
 						console.log(`mouse out ${vehicle_object.vehicle.name}`);
+
+						messages_manager.animate_bubble("green");
+						messages_manager.animate_women("super");
+						messages_manager.destroy_text();
 					});
 
 					// callback function triggered when the image is clicked
@@ -158,6 +172,13 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 						}
 
 						scenario_model.plotStops('stops_sprite');
+
+						levels.updateLevels(vehicle_object.vehicle, undefined);
+
+						pollution_gauge.set_percentage(levels.getPollutionLevel()).draw();
+						exhaust_gauge.set_percentage(levels.getExhaustLevel()).draw();
+						money_gauge.set_percentage(levels.getMoneyLevel()).draw();
+
 
 						// launch the routine for the next stop
 						gameRoutine(phaser, vehicle_object.associated_stop_name);

@@ -10,6 +10,7 @@ define(["Phaser"], function() {
 		this.bubble_sprite = bubble_sprite;
 		this.x = x;
 		this.y = y;
+		this.last_text = undefined;
 
 		this.create();
 	};
@@ -170,6 +171,14 @@ define(["Phaser"], function() {
 		this.women_sprite_obj.anims.play(feeling, true);
 	};
 
+	MessagesManager.prototype.destroy_text = function() {
+		if (this.last_text != undefined) {
+			this.last_text.destroy();
+		}
+
+		this.last_text = undefined;
+	};
+
 	MessagesManager.prototype.display_text = function(msg, color) {
 		var msg = msg.split(' ');
 		var new_msg = "";
@@ -186,8 +195,12 @@ define(["Phaser"], function() {
 			}
 		}
 
+		this.destroy_text();
+
 		let text = this.phaser.add.text(this.x+5, this.y-100, new_msg, {font : "16px Roboto", fill:color});
 		text.x = text.x - text.width/2;
+
+		this.last_text = text;
 	};
 
 	return MessagesManager;
