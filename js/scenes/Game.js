@@ -1,4 +1,4 @@
-define(["Phaser", "core/Clock", "core/MessagesManager", "models/ScenarioModel", "models/VehicleModel", "tools/PathGeneratorClient"], function (Phaser, Clock, MessagesManager, Scenario, Vehicle, PathGenerator) {
+define(["Phaser", "core/Clock", "core/MessagesManager", "core/PhaserGauge", "models/ScenarioModel", "models/VehicleModel", "models/EventsModel", "tools/PathGeneratorClient"], function (Phaser, Clock, MessagesManager, Gauge, Scenario, Vehicle, Event, PathGenerator) {
 
 	console.log("Load scenes/Game");
 
@@ -79,7 +79,7 @@ define(["Phaser", "core/Clock", "core/MessagesManager", "models/ScenarioModel", 
 			}, 1000);
 
 
-			// --- Build Start ---
+			// --- Plot stops ---
 			scenario_model.plotStops('stops_sprite');
 
 			// -- def of the main game function
@@ -110,12 +110,14 @@ define(["Phaser", "core/Clock", "core/MessagesManager", "models/ScenarioModel", 
 				if(current_stop.available_vehicles.length != 3){
 					console.log(`erreur Main loop : mauvais nombre de vehicles pour l'arrêt ${current_stop.name}`)
 				}
+				var selection_index = 0
 				for(let vehicle_name of current_stop.available_vehicles){
 					// create object for the current vehicle
+					selection_index = ++selection_index % connected_stops.length;
 					let vehicle_object = {
 						vehicle: new Vehicle(vehicle_name),
 						image: phaser.add.image(vehicles_images_positions[index][0], vehicles_images_positions[index][1], vehicle_name).setDisplaySize(200, 100).setInteractive(),
-						associated_stop_name: connected_stops[Math.floor(Math.random() * Math.floor(connected_stops.length))]
+						associated_stop_name: connected_stops[selection_index]
 					}
 
 					// callback function for hover-in the vehicle image
@@ -148,6 +150,7 @@ define(["Phaser", "core/Clock", "core/MessagesManager", "models/ScenarioModel", 
 						for(let vehicle of current_vehicles){
 							vehicle.image.destroy();
 						}
+
 
 						// launch the routine for the next stop
 						gameRoutine(phaser, vehicle_object.associated_stop_name);
