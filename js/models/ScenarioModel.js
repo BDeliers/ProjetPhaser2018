@@ -112,15 +112,15 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 3, end: 4})
 			});
 	
-			const keys = ['car', 'bike', 'train', 'bus', 'subway'];
-			var key_index = 0;
-			for (stop of this.scenario_json.stops_list) {
-				let curr = this.phaser.add.sprite(stop.x, stop.y -15, stops_sprite);
-				curr.anims.play(keys[key_index++ % 5], true);
-	
-				let text = this.phaser.add.text(curr.x, curr.y-30, stop.name, {font : "12px Roboto", fill:"#36E800"});
-				text.x = text.x - text.width/2;
-			}
+		}
+		const keys = ['car', 'bike', 'train', 'bus', 'subway'];
+		var key_index = 0;
+		for (stop of this.scenario_json.stops_list) {
+			let curr = this.phaser.add.sprite(stop.x, stop.y -15, stops_sprite);
+			curr.anims.play(keys[key_index++ % 5], true);
+
+			let text = this.phaser.add.text(curr.x, curr.y-30, stop.name, {font : "12px Roboto", fill:"#36E800"});
+			text.x = text.x - text.width/2;
 		}
 	}
 
