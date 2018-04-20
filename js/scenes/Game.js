@@ -1,4 +1,4 @@
-define(["Phaser", "core/Clock", "core/MessagesManager", "core/PhaserGauge", "models/ScenarioModel", "models/VehicleModel", "models/EventsModel", "tools/PathGeneratorClient"], function (Phaser, Clock, MessagesManager, Gauge, Scenario, Vehicle, Event, PathGenerator) {
+define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "core/PhaserGauge", "models/ScenarioModel", "models/VehicleModel", "models/EventsModel", "tools/PathGeneratorClient"], function (Phaser, Clock, DetailsPlot, MessagesManager, Gauge, Scenario, Vehicle, Event, PathGenerator) {
 
 	console.log("Load scenes/Game");
 
@@ -51,8 +51,14 @@ define(["Phaser", "core/Clock", "core/MessagesManager", "core/PhaserGauge", "mod
 
 			// Load images of vehicles
 			var vehicles = ["autopartage", "bicycle", "bus", "car", "covoiturage", "feet", "metro", "mono", "taxi", "moto", "train", "tram", "trotinet"];
-			for (elt of vehicles) {
+			for (let elt of vehicles) {
 				this.load.image(elt, "vehicles/images/" + elt + ".png");
+			}
+
+			// Load images of events
+			var events = ["free_public_transport", "fuel_taxi", "heat_wave", "jam", "metro_roadworks", "nuclear_war", "rain", "taxi_strike", "train_strike"];
+			for (let elt of events){
+				this.load.image(elt, "events/images" + elt + ".png");
 			}
 		},
 
@@ -151,6 +157,7 @@ define(["Phaser", "core/Clock", "core/MessagesManager", "core/PhaserGauge", "mod
 							vehicle.image.destroy();
 						}
 
+						scenario_model.plotStops('stops_sprite');
 
 						// launch the routine for the next stop
 						gameRoutine(phaser, vehicle_object.associated_stop_name);
