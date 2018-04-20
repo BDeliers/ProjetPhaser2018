@@ -6,7 +6,7 @@ define(["Phaser"], function(Phaser) {
 
 	var sceneario_selection_scene = {
 		preload: function (){
-					this.load.image('game', 'image/background/game.png');
+					this.load.image('selection', 'image/background/selection.png');
 
 					for (var i = 1; i < 7; i++) {
 						this.load.spritesheet('scenar'+i+'_sprite',
@@ -16,13 +16,13 @@ define(["Phaser"], function(Phaser) {
 					}
 				},
 		create: function (){
-		 			this.add.image(683,384, 'game').setDisplaySize(1366,768);
+		 			this.add.image(683,384, 'selection').setDisplaySize(1366,768);
 
 					var title = this.add.text(683, 120, "Choisissez votre scénario", {font : "70px Roboto"});
 					title.x = title.x - title.width/2;
 					title.y = title.y - title.height/2;
 					title.fontWeight = "bold";
-					title.setColor("#000000");
+					title.setColor("#FFFFFF");
 
 					var scenar_sprites = [];
 					var origin = [350,340];
