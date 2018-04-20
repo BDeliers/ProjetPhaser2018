@@ -17,7 +17,7 @@ define(["Phaser"], function() {
 
 	MessagesManager.prototype.create = function() {
 		// Blit Sprite of the woman on the Game and create animations
-		this.women_sprite_obj = this.phaser.add.sprite(this.x, this.y+250, this.women_sprite).setDisplaySize(250,250);
+		this.women_sprite_obj = this.phaser.add.sprite(this.x, this.y+250, this.women_sprite).setDisplaySize(220,220);
 		this.phaser.anims.create({
 			key: 'no_care',
 			frames: this.phaser.anims.generateFrameNumbers(this.women_sprite, {

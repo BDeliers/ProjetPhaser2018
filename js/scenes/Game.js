@@ -97,6 +97,12 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			// -- def of the main game function
 			var gameRoutine = function(phaser, stop_name){
 				// get the object of the current stop for this turn
+
+				if(stop_name === scenario_model.getStopsList()[scenario_model.getStopsList().length - 1].name){
+					phaser.scene.start("Win");
+					phaser.scene.stop("Game");
+				}
+
 				var current_stop = undefined;
 				for(let stop of scenario_model.getStopsList()){
 					if(stop.name === stop_name){
@@ -112,7 +118,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 				var current_vehicles = [];
 				// get the connected stops list form the current stop
 				var connected_stops = []
-				const vehicles_images_positions = [[340, 690], [682, 690], [1023, 690]];
+				const vehicles_images_positions = [[250, 690], [500, 690], [750, 690]];
 				for(let path of scenario_model.getPathsFrom(current_stop.name)){
 					connected_stops.push(path.to);
 				}
