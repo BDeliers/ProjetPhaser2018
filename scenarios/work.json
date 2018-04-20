@@ -20,7 +20,7 @@
     "y": 366
   }, {
     "name": "Porte de la Vilette",
-    "available_vehicles": ["car", "covoiturage", "covoiturage"],
+    "available_vehicles": ["car", "covoiturage", "train"],
     "x": 228,
     "y": 528
   }, {
