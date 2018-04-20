@@ -152,7 +152,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 						scenario_model.unPlotPath(current_stop.name, vehicle_object.associated_stop_name);
 						console.log(`mouse out ${vehicle_object.vehicle.name}`);
 
-						messages_manager.animate_bubble("orange");
+						messages_manager.animate_bubble("green");
 						messages_manager.animate_women("super");
 						messages_manager.display_text(scenario_model.getDescription(), "#000000");
 					});
