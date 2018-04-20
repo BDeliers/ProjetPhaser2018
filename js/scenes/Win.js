@@ -1,4 +1,4 @@
-define(["Phaser", "core/Clock" , "core/MessagesManager", "core/PhaserGauge"], function(Phaser, Clock, MessagesManager, Gauge) {
+define(["Phaser", "core/Clock" , "core/PhaserGauge"], function(Phaser, Clock, Gauge) {
 
 	console.log("Load scenes/Win");
 
@@ -14,18 +14,13 @@ define(["Phaser", "core/Clock" , "core/MessagesManager", "core/PhaserGauge"], fu
 				);
 
 				this.load.spritesheet('women_sprite',
-					'image/characters/top_sprite.png', {
+					'image/characters/end_mood.png', {
 						frameWidth: 398,
 						frameHeight: 398
 					}
 				);
 
-				this.load.spritesheet('transparent_sprite',
-					'image/characters/text_bubble/transparent.png', {
-						frameWidth: 214,
-						frameHeight: 214
-					}
-				);
+
 
 				},
 		create: function (){
@@ -39,9 +34,20 @@ define(["Phaser", "core/Clock" , "core/MessagesManager", "core/PhaserGauge"], fu
 				clock.set_seconds(document.cookie.split(',')[4].split('=')[1]);
 				clock.update();
 
-				var messages_manager = new MessagesManager(this, "transparent_sprite", "women_sprite", 1100, 220);
+				var women_sprite = this.add.sprite(1000, 384, "women_sprite");
 
-				messages_manager.animate_women("super");
+			  this.anims.create({
+				  key:'sad',
+				  frames: this.anims.generateFrameNumbers("women_sprite", { start: -1, end: 0})
+			  });
+			  this.anims.create({
+				  key:'mid',
+				  frames: this.anims.generateFrameNumbers("women_sprite", { start: 0, end: 1})
+			  });
+				this.anims.create({
+				 key:'fine',
+				 frames: this.anims.generateFrameNumbers("women_sprite", { start: 1, end: 2})
+			 });
 
 
 				},
