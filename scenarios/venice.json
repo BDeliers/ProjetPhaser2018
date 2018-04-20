@@ -2,7 +2,7 @@
   "name": "venice",
   "url_to_image": "./image/scenario/venice.png",
   "url_to_background": "./image/maps/venise.png",
-  "description": "En week end Rome Antique avec votre moitié, vous décidez d'aller visiter __ en partant de _____ ! c'est le temps de découvrir cette magnifique ville Italienne !",
+  "description": "En week end Rome Antique avec votre moitié, vous décidez d'aller manger au restaurant en partant de votre hôtel! C'est le temps de découvrir cette magnifique ville Italienne !",
   "stops_list": [{
     "name": "Hôtel",
     "available_vehicles": ["car", "taxi", "bus"],
@@ -316,7 +316,7 @@
     "from": "Palais des Doges",
     "to": "Restaurant",
     "path": [
-      [578, 363],
+      [576, 361],
       [566, 363],
       [566, 351],
       [571, 341],
