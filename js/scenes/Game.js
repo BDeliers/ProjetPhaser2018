@@ -69,7 +69,7 @@ define(["Phaser", "core/Clock", "core/MessagesManager", "core/PhaserGauge", "mod
 
 			messages_manager.animate_bubble("green");
 			messages_manager.animate_women("super");
-			messages_manager.display_text("Bienvenue petit chenapan", "#FF6600");
+			messages_manager.display_text(scenario_model.getDescription(), "#FF6600");
 
 			var seconds = 0;
 			var schedule_task = setInterval(() => {
@@ -146,9 +146,9 @@ define(["Phaser", "core/Clock", "core/MessagesManager", "core/PhaserGauge", "mod
 						scenario_model.unPlotPath(current_stop.name, vehicle_object.associated_stop_name);
 						console.log(`mouse out ${vehicle_object.vehicle.name}`);
 
-						messages_manager.animate_bubble("green");
+						messages_manager.animate_bubble("orange");
 						messages_manager.animate_women("super");
-						messages_manager.destroy_text();
+						messages_manager.display_text(scenario_model.getDescription(), "#000000");
 					});
 
 					// callback function triggered when the image is clicked
