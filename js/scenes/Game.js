@@ -48,6 +48,9 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			this.load.image('background', scenario_model.getUrlTobackground());
 			this.load.image('bottom', "image/assets/bottom.png");
 			this.load.image('top', "image/assets/top_bar.png");
+			this.load.image('sante', "image/assets/heart.png");
+			this.load.image('pollution', "image/assets/earth.png");
+			this.load.image('money', "image/assets/money.png");
 
 			// Load images of vehicles
 			var vehicles = ["autopartage", "bicycle", "bus", "car", "covoiturage", "feet", "metro", "mono", "taxi", "moto", "train", "tram", "trotinet"];
@@ -68,6 +71,9 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			this.add.image(500, 360, 'background').setDisplaySize(1000, 500);
 			this.add.image(500, 55, 'top').setDisplaySize(1020, 105);
 			this.add.image(683, 688, 'bottom').setDisplaySize(1470, 150);
+			this.add.image(1020, 650, 'sante').setDisplaySize(30, 30);
+			this.add.image(1020, 690, 'pollution').setDisplaySize(30, 30);
+			this.add.image(1020, 730, 'money').setDisplaySize(30, 30);
 
 			// Crete an instance of Clock in the game
 			var clock = new Clock(this, "clock_sprite", 1100, 50);
@@ -85,9 +91,9 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			}, 1000);
 
 			// -- Plot Gauges
-			var pollution_gauge = new Gauge(this, 30, {background_color:"0xFF6600", color:"0xFE3123", x:1050, y:630, height:30, width:250, coeff:0.85});
-			var exhaust_gauge = new Gauge(this, 70, {background_color:"0xFF6600", color:"0xFE3123", x:1050, y:670, height:30, width:250, coeff:0.85});
-			var money_gauge = new Gauge(this, 50, {background_color:"0xFF6600", color:"0xFE3123", x:1050, y:710, height:30, width:250, coeff:0.85});
+			var exhaust_gauge = new Gauge(this, 70, {background_color:"0xe74c3c", color:"0xc0392b", x:1050, y:635, height:30, width:250, coeff:0.85});
+			var pollution_gauge = new Gauge(this, 30, {background_color:"0x2ecc71", color:"0x27ae60", x:1050, y:675, height:30, width:250, coeff:0.85});
+			var money_gauge = new Gauge(this, 50, {background_color:"0xf1c40f", color:"0xf39c12", x:1050, y:715, height:30, width:250, coeff:0.85});
 			var levels = new LevelsModel();
 
 
