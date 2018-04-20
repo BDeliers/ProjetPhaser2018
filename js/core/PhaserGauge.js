@@ -18,6 +18,8 @@ console.log("Load core/PhaserGauge");
 		this.x = config.x;
 		this.y = config.y;
 		this.color = config.color;
+
+		this.draw();
 	}
 
 	Gauge.prototype.set_percentage = function(percentage) {
@@ -35,7 +37,7 @@ console.log("Load core/PhaserGauge");
 		//Drawing the Gauge itself
 		this.graphics.fillStyle(this.color);
 
-		this.graphics.fillRect(this.circle_center, this.y + (((1 - this.coeff) * this.height) / 2), (this.percentage/100) * (this.rect_width), this.coeff * config.height);
+		this.graphics.fillRect(this.circle_center, this.y + (((1 - this.coeff) * this.height) / 2), (this.percentage/100) * (this.rect_width), this.coeff * this.height);
 		this.graphics.fillCircle(this.circle_center, this.y + this.radius, this.coeff * this.height / 2);
 		this.graphics.fillCircle(this.x + ((this.percentage/100) * this.rect_width) + this.radius, this.y + this.radius, this.coeff * this.height / 2);
 	}
