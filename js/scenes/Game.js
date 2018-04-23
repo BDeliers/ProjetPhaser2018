@@ -105,6 +105,11 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 				// get the object of the current stop for this turn
 
 				if(stop_name === scenario_model.getStopsList()[scenario_model.getStopsList().length - 1].name){
+					document.cookie += ",exhaust="+levels.getExhaustLevel();
+					document.cookie += ",pollution="+levels.getPollutionLevel();
+					document.cookie += ",money="+levels.getMoneyLevel();
+					document.cookie += ",time="+clock.get_total_seconds();
+
 					phaser.scene.start("Win");
 					phaser.scene.stop("Game");
 				}

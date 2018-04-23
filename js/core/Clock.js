@@ -37,6 +37,10 @@ define(["Phaser"], function() {
 		this.add_seconds(1);
 	}
 
+	Clock.prototype.get_total_seconds = function() {
+		return this.seconds + 60*this.minutes;
+	}
+
 	Clock.prototype.create = function() {
 		//Creating the clock tiles sprites
 		this.minutes_1 = this.phaser.add.sprite(this.x, this.y, this.sprite).setScale(0.4);
