@@ -151,6 +151,27 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 	 * @param {String} arrival_stop name of the 2nd stop
 	 * @param {JSON} line_options options of the line to draw ( {colors: "HEX", width: NUMBER, rounded_angles: BOOLEAN} )
 	 */
+	ScenarioModel.prototype.slow_plotPath = function(origin_stop, arrival_stop, line_options, delta_t){
+		for(let path of this.scenario_json.paths_list){
+			if(path.from == origin_stop && path.to == arrival_stop){
+				var line = new Line(this.phaser, line_options);
+				line.slow_draw(path.path, delta_t);
+				this.drawed_paths.set({
+					from: origin_stop,
+					to: arrival_stop
+				}, line);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * @description plot the path on the map specified by 2 stops
+	 * @param {String} origin_stop name of the 1st stop
+	 * @param {String} arrival_stop name of the 2nd stop
+	 * @param {JSON} line_options options of the line to draw ( {colors: "HEX", width: NUMBER, rounded_angles: BOOLEAN} )
+	 */
 	ScenarioModel.prototype.plotPath = function(origin_stop, arrival_stop, line_options){
 		for(let path of this.scenario_json.paths_list){
 			if(path.from == origin_stop && path.to == arrival_stop){

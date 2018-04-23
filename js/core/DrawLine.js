@@ -34,6 +34,23 @@ define(["Phaser"], function(phaser) {
         }
     }
 
+    Line.prototype.slow_draw = function(points, delta_t){
+        this.graphics.fillCircleShape( new Phaser.Geom.Circle(points[0][0], points[0][1], this.options.width / 2) );
+        if(points.length >= 2){
+            for(var n = 1; n < points.length; n++){
+                // draw the line
+                let i = n;
+                setTimeout( () => {
+                    this.graphics.strokeLineShape( new Phaser.Geom.Line(points[i - 1][0], points[i - 1][1], points[i][0], points[i][1]) );
+
+                    if(this.options.rounded_angles === true){
+                        this.graphics.fillCircleShape( new Phaser.Geom.Circle(points[i][0], points[i][1], this.options.width / 2) );
+                    }
+                }, (n-1)*delta_t);
+            }
+        }
+    }
+
     /**
      * @method clean remove the current line of the Phaser Canvas and re-initialize a Phaser graphics object
      */

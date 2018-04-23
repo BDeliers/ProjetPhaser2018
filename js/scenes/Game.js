@@ -172,11 +172,12 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 					// callback function triggered when the image is clicked
 					vehicle_object.image.on('pointerdown', () => {
 						console.log(`clicked on ${vehicle_object.vehicle.name}`);
-						scenario_model.plotPath(current_stop.name, vehicle_object.associated_stop_name, {
+						scenario_model.unPlotPath(current_stop.name, vehicle_object.associated_stop_name)
+						scenario_model.slow_plotPath(current_stop.name, vehicle_object.associated_stop_name, {
 							color: vehicle_object.vehicle.PathColor,
 							width: 3,
 							rounded_angles: true
-						});
+						}, 200);
 
 						// remove images
 						for(let vehicle of current_vehicles){
