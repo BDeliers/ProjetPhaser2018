@@ -1,5 +1,5 @@
 {
-	"name" : "Bouchon sur la Rocade",
+	"name" : "jam",
 	"apply_to": ["autopartage", "bus", "car", "covoiturage", "taxi"],
 	"blocked_vehicles": [],
 	"url_to_image" : "../events/images/jam.png",

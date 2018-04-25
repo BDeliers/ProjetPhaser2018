@@ -1,5 +1,5 @@
 {
-	"name" : "Travaux dans le métro",
+	"name" : "metro_roadworks",
 	"apply_to": [],
 	"blocked_vehicles": ["metro"],
 	"url_to_image" : "../events/images/metro_roadworks.png",

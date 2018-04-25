@@ -1,5 +1,5 @@
 {
-	"name" : "Grève des chauffeurs de taxi",
+	"name" : "taxi_strike",
 	"apply_to": [],
 	"blocked_vehicles": ["taxi"],
 	"url_to_image" : "../events/images/taxi_strike.png",

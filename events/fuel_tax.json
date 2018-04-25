@@ -1,5 +1,5 @@
 {
-	"name" : "Taxe sur les énergies fossiles",
+	"name" : "fuel_tax",
 	"apply_to": ["autopartage", "bus", "car", "covoiturage"],
 	"blocked_vehicles": [],
 	"url_to_image" : "../events/images/fuel_tax.png",

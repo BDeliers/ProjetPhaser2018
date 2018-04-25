@@ -1,5 +1,5 @@
 {
-	"name" : "Guerre nucléaire",
+	"name" : "nuclear_war",
 	"apply_to": ["bicycle", "feet", "trotinet"],
 	"blocked_vehicles": [],
 	"url_to_image" : "../events/images/nuclear_war.png",

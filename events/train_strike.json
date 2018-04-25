@@ -1,5 +1,5 @@
 {
-	"name" : "Grève des cheminots",
+	"name" : "train_strike",
 	"apply_to": [],
 	"blocked_vehicles": ["train"],
 	"url_to_image" : "../events/images/train_strike.png",

@@ -1,5 +1,5 @@
 {
-	"name": "Canicule",
+	"name": "heat_wave",
 	"apply_to": ["bicycle", "feet", "trotinet"],
 	"blocked_vehicles": [],
 	"url_to_image": "../events/images/heat_wave.png",
