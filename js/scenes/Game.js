@@ -91,9 +91,9 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			}, 1000);
 
 			// -- Plot Gauges
-			var exhaust_gauge = new Gauge(this, 70, {background_color:"0xe74c3c", color:"0xc0392b", x:1050, y:635, height:30, width:250, coeff:0.85});
-			var pollution_gauge = new Gauge(this, 30, {background_color:"0x2ecc71", color:"0x27ae60", x:1050, y:675, height:30, width:250, coeff:0.85});
-			var money_gauge = new Gauge(this, 50, {background_color:"0xf1c40f", color:"0xf39c12", x:1050, y:715, height:30, width:250, coeff:0.85});
+			var exhaust_gauge = new Gauge(this, 70, {background_color:"0xe74c3c", preview_color:"0x333333", color:"0xc0392b", x:1050, y:635, height:30, width:250, coeff:0.85});
+			var pollution_gauge = new Gauge(this, 30, {background_color:"0x2ecc71", preview_color:"0x333333", color:"0x27ae60", x:1050, y:675, height:30, width:250, coeff:0.85});
+			var money_gauge = new Gauge(this, 50, {background_color:"0xf1c40f", preview_color:"0x333333", color:"0xf39c12", x:1050, y:715, height:30, width:250, coeff:0.85});
 			var levels = new LevelsModel();
 
 
@@ -149,57 +149,69 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 						associated_stop_name: connected_stops[selection_index]
 					}
 
+					var vehicle_selected = false;
+
+					
+
 					// callback function for hover-in the vehicle image
 					vehicle_object.image.on('pointerover', () => {
-						scenario_model.plotPath(current_stop.name, vehicle_object.associated_stop_name, {
-							color: vehicle_object.vehicle.PathColor,
-							width: 4,
-							rounded_angles: true
-						});
+						if(!vehicle_selected){
+							scenario_model.plotPath(current_stop.name, vehicle_object.associated_stop_name, {
+								color: vehicle_object.vehicle.PathColor,
+								width: 4,
+								rounded_angles: true
+							});
+						}
 						console.log(vehicle_object.vehicle.PathColor);
 						console.log(`mouse over ${vehicle_object.vehicle.name}`);
 
 						messages_manager.animate_bubble("blue");
-						messages_manager.animate_women("brain");
+						messages_manager.animate_women("good");
 						messages_manager.display_text(vehicle_object.vehicle.description, "#000000");
 					});
 
 					// callback function for hover-out the vehicle image
 					vehicle_object.image.on('pointerout', () => {
-						scenario_model.unPlotPath(current_stop.name, vehicle_object.associated_stop_name);
-						console.log(`mouse out ${vehicle_object.vehicle.name}`);
-
-						messages_manager.animate_bubble("green");
-						messages_manager.animate_women("super");
-						messages_manager.display_text(scenario_model.getDescription(), "#000000");
+						if(!vehicle_selected){
+							scenario_model.unPlotPath(current_stop.name, vehicle_object.associated_stop_name);
+							console.log(`mouse out ${vehicle_object.vehicle.name}`);
+	
+							messages_manager.animate_bubble("green");
+							messages_manager.display_text(scenario_model.getDescription(), "#000000");
+						}
 					});
 
+					var delay_ms = 200;
 					// callback function triggered when the image is clicked
 					vehicle_object.image.on('pointerdown', () => {
-						console.log(`clicked on ${vehicle_object.vehicle.name}`);
-						scenario_model.unPlotPath(current_stop.name, vehicle_object.associated_stop_name)
-						scenario_model.slow_plotPath(current_stop.name, vehicle_object.associated_stop_name, {
-							color: vehicle_object.vehicle.PathColor,
-							width: 3,
-							rounded_angles: true
-						}, 200);
-
-						// remove images
-						for(let vehicle of current_vehicles){
-							vehicle.image.destroy();
+						if(!vehicle_selected){
+							vehicle_selected = true;
+							console.log(`clicked on ${vehicle_object.vehicle.name}`);
+							scenario_model.unPlotPath(current_stop.name, vehicle_object.associated_stop_name)
+							
+							const wait_time = scenario_model.slow_plotPath(current_stop.name, vehicle_object.associated_stop_name, {
+								color: vehicle_object.vehicle.PathColor,
+								width: 3,
+								rounded_angles: true
+							}, delay_ms);
+	
+							levels.updateLevels(vehicle_object.vehicle, undefined);
+							pollution_gauge.set_percentage(levels.getPollutionLevel()).draw();
+							exhaust_gauge.set_percentage(levels.getExhaustLevel()).draw();
+							money_gauge.set_percentage(levels.getMoneyLevel()).draw();
+							
+							setTimeout( () => {
+								// remove images
+								for(let vehicle of current_vehicles){
+									vehicle.image.destroy();
+								}
+								scenario_model.plotStops('stops_sprite');
+	
+								// launch the routine for the next stop
+								gameRoutine(phaser, vehicle_object.associated_stop_name);
+							}, wait_time);
 						}
 
-						scenario_model.plotStops('stops_sprite');
-
-						levels.updateLevels(vehicle_object.vehicle, undefined);
-
-						pollution_gauge.set_percentage(levels.getPollutionLevel()).draw();
-						exhaust_gauge.set_percentage(levels.getExhaustLevel()).draw();
-						money_gauge.set_percentage(levels.getMoneyLevel()).draw();
-
-
-						// launch the routine for the next stop
-						gameRoutine(phaser, vehicle_object.associated_stop_name);
 					});
 
 					// store all three vehicles

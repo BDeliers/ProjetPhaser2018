@@ -18,6 +18,7 @@ console.log("Load core/PhaserGauge");
 		this.x = config.x;
 		this.y = config.y;
 		this.color = config.color;
+		this.preview_color = config.preview_color;
 
 		this.draw();
 	}
@@ -45,6 +46,38 @@ console.log("Load core/PhaserGauge");
 	}
 
 
+	Gauge.prototype.preview_draw = function(pre_percentage){
+		const preview_percentage = Math.abs(pre_percentage) % 101;
+
+		//Drawing the gauge's background
+		this.graphics.fillStyle(this.background_color)
+		this.graphics.fillRect(this.circle_center, this.y, this.width - this.height, this.height);
+		this.graphics.fillCircle(this.circle_center, this.y + this.radius, this.radius);
+		this.graphics.fillCircle(this.circle_center + this.rect_width, this.y + this.radius, this.radius);
+		
+		if(preview_percentage > this.percentage){
+			
+			this.graphics.fillStyle(this.preview_color);
+			this.graphics.fillRect(this.circle_center, this.y + (((1 - this.coeff) * this.height) / 2), (preview_percentage/100) * (this.rect_width), this.coeff * this.height);
+			this.graphics.fillCircle(this.circle_center, this.y + this.radius, this.coeff * this.height / 2);
+			this.graphics.fillCircle(this.x + ((preview_percentage/100) * this.rect_width) + this.radius, this.y + this.radius, this.coeff * this.height / 2);
+
+			this.graphics.fillStyle(this.color);
+			this.graphics.fillRect(this.circle_center, this.y + (((1 - this.coeff) * this.height) / 2), (this.percentage/100) * (this.rect_width), this.coeff * this.height);
+			this.graphics.fillCircle(this.circle_center, this.y + this.radius, this.coeff * this.height / 2);
+			this.graphics.fillCircle(this.x + ((this.percentage/100) * this.rect_width) + this.radius, this.y + this.radius, this.coeff * this.height / 2);
+		}else{
+			this.graphics.fillStyle(this.color);
+			this.graphics.fillRect(this.circle_center, this.y + (((1 - this.coeff) * this.height) / 2), (this.percentage/100) * (this.rect_width), this.coeff * this.height);
+			this.graphics.fillCircle(this.circle_center, this.y + this.radius, this.coeff * this.height / 2);
+			this.graphics.fillCircle(this.x + ((this.percentage/100) * this.rect_width) + this.radius, this.y + this.radius, this.coeff * this.height / 2);
+
+			this.graphics.fillStyle(this.preview_color);
+			this.graphics.fillRect(this.circle_center, this.y + (((1 - this.coeff) * this.height) / 2), (preview_percentage/100) * (this.rect_width), this.coeff * this.height);
+			this.graphics.fillCircle(this.circle_center, this.y + this.radius, this.coeff * this.height / 2);
+			this.graphics.fillCircle(this.x + ((preview_percentage/100) * this.rect_width) + this.radius, this.y + this.radius, this.coeff * this.height / 2);
+		}
+	}
 	return Gauge;
 
 });

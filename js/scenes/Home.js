@@ -42,7 +42,7 @@ define(["Phaser"], function(Phaser) {
 					  this.scene.stop("Home");
 				  });
 
-				  var start_text = this.add.text(683, 384, "Démarrer", {font : "45px Roboto"});
+				  var start_text = this.add.text(683, 384, "Démarrer", {fontSize : "45px"});
 				  start_text.x = start_text.x - start_text.width/2;
 				  start_text.y = start_text.y - start_text.height/2;
 				  start_text.fontWeight = "bold";

@@ -119,7 +119,10 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 			let curr = this.phaser.add.sprite(stop.x, stop.y -15, stops_sprite);
 			curr.anims.play(keys[key_index++ % 5], true);
 
-			let text = this.phaser.add.text(curr.x, curr.y-30, stop.name, {font : "12px Roboto", fill:"#36E800"});
+			const graphics = this.phaser.add.graphics({ fillStyle: { color: 0xFFFFFF } });
+			const char_width = 8;
+			const box = graphics.fillRectShape(new Phaser.Geom.Rectangle(curr.x - stop.name.length * char_width /2, curr.y - 30, stop.name.length * char_width, 15));
+			const text = this.phaser.add.text(curr.x, curr.y-30, stop.name, {fontSize : "12px", fill:"#000000"});
 			text.x = text.x - text.width/2;
 		}
 	}
@@ -155,15 +158,16 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 		for(let path of this.scenario_json.paths_list){
 			if(path.from == origin_stop && path.to == arrival_stop){
 				var line = new Line(this.phaser, line_options);
+				const time = path.path.length * delta_t;
 				line.slow_draw(path.path, delta_t);
 				this.drawed_paths.set({
 					from: origin_stop,
 					to: arrival_stop
 				}, line);
-				return true;
+				return time;
 			}
 		}
-		return false;
+		return -1;
 	}
 
 	/**

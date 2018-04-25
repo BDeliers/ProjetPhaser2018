@@ -12,6 +12,8 @@ define(["Phaser"], function() {
 		this.y = y;
 		this.last_text = undefined;
 
+		this.last_update = 0;
+
 		this.create();
 	};
 
@@ -168,7 +170,28 @@ define(["Phaser"], function() {
 	};
 
 	MessagesManager.prototype.animate_women = function(feeling) {
-		this.women_sprite_obj.anims.play(feeling, true);
+		const good_woman_feeling = ["koala", "super", "super_2", "super_3", "clap", "first"];
+		const bad_woman_feeling = ["no_care", "angry", "glasses"];
+		const other_woman_feeling = ["map", "brain", "thinking_2", "wtf", "no"];
+		
+		const time = new Date();
+		if( (time.getTime() - this.last_update) > 4000){
+			this.last_update = time.getTime();
+			switch (feeling){
+				case "good":
+					this.women_sprite_obj.anims.play(good_woman_feeling[Math.floor(Math.random() * Math.floor(good_woman_feeling.length))], true);
+					break;
+				case "bad":
+					this.women_sprite_obj.anims.play(bad_woman_feeling[Math.floor(Math.random() * Math.floor(bad_woman_feeling.length))], true);
+					break;
+				case "even":
+					this.women_sprite_obj.anims.play(even_woman_feeling[Math.floor(Math.random() * Math.floor(even_woman_feeling.length))], true);
+					break;
+				default:
+					return false;
+			}
+			return true;
+		}
 	};
 
 	MessagesManager.prototype.destroy_text = function() {
@@ -185,19 +208,19 @@ define(["Phaser"], function() {
 
 		var lsize = 0;
 		for (let w of msg) {
-			if (lsize + w.length <= 19) {
+			if (lsize + w.length <= 18) {
 				new_msg += w + ' ';
-				lsize += w.length;
+				lsize += w.length + 1;
 			}
 			else {
 				new_msg += "\n" + w + ' ';
-				lsize = w.length;
+				lsize = w.length + 1;
 			}
 		}
 
 		this.destroy_text();
 
-		let text = this.phaser.add.text(this.x+5, this.y-100, new_msg, {font : "16px Roboto", fill:color});
+		let text = this.phaser.add.text(this.x+20, this.y-100, new_msg, {fontSize : "16px", fill:color});
 		text.x = text.x - text.width/2;
 
 		this.last_text = text;

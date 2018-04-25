@@ -18,7 +18,7 @@ define(["Phaser"], function(Phaser) {
 		create: function (){
 		 			this.add.image(683,384, 'selection').setDisplaySize(1366,768);
 
-					var title = this.add.text(683, 120, "Choisissez votre scénario", {font : "70px Roboto"});
+					var title = this.add.text(683, 120, "Choisissez votre scénario", {fontSize : "70px"});
 					title.x = title.x - title.width/2;
 					title.y = title.y - title.height/2;
 					title.fontWeight = "bold";
