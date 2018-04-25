@@ -100,20 +100,23 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			// --- Plot stops ---
 			scenario_model.plotStops('stops_sprite');
 
-			// -- def of the main game function
+			// main game function
 			var gameRoutine = function(phaser, stop_name){
-				// get the object of the current stop for this turn
-
+				
+				// check if the game is finished
 				if(stop_name === scenario_model.getStopsList()[scenario_model.getStopsList().length - 1].name){
+					// store data for next scene
 					document.cookie += ",exhaust="+levels.getExhaustLevel();
 					document.cookie += ",pollution="+levels.getPollutionLevel();
 					document.cookie += ",money="+levels.getMoneyLevel();
 					document.cookie += ",time="+clock.get_total_seconds();
 
+					// launch end scenne 
 					phaser.scene.start("Win");
 					phaser.scene.stop("Game");
 				}
 
+				// get the stop object of the current stop
 				var current_stop = undefined;
 				for(let stop of scenario_model.getStopsList()){
 					if(stop.name === stop_name){
@@ -126,16 +129,17 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 					return;
 				}
 
-				var current_vehicles = [];
 				// get the connected stops list form the current stop
+				var current_vehicles = [];
 				var connected_stops = []
-				const vehicles_images_positions = [[250, 690], [500, 690], [750, 690]];
 				for(let path of scenario_model.getPathsFrom(current_stop.name)){
 					connected_stops.push(path.to);
 				}
-
+				
 				// add callback functions for hover and click on the 3 vehicles
+				const vehicles_images_positions = [[250, 690], [500, 690], [750, 690]];
 				var index = 0;
+				// check if we have 3 vehicles at the stop
 				if(current_stop.available_vehicles.length != 3){
 					console.log(`erreur Main loop : mauvais nombre de vehicles pour l'arrêt ${current_stop.name}`)
 				}
