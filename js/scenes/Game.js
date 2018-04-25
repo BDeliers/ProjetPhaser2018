@@ -61,7 +61,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			// Load images of events
 			var events = ["free_public_transport", "fuel_taxi", "heat_wave", "jam", "metro_roadworks", "nuclear_war", "rain", "taxi_strike", "train_strike"];
 			for (let elt of events){
-				this.load.image(elt, "events/images" + elt + ".png");
+				this.load.image(elt, "events/images/" + elt + ".png");
 			}
 		},
 
@@ -91,10 +91,12 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			}, 1000);
 
 			// -- Plot Gauges
-			var exhaust_gauge = new Gauge(this, 70, {background_color:"0xe74c3c", preview_color:"0x333333", color:"0xc0392b", x:1050, y:635, height:30, width:250, coeff:0.85});
-			var pollution_gauge = new Gauge(this, 30, {background_color:"0x2ecc71", preview_color:"0x333333", color:"0x27ae60", x:1050, y:675, height:30, width:250, coeff:0.85});
-			var money_gauge = new Gauge(this, 50, {background_color:"0xf1c40f", preview_color:"0x333333", color:"0xf39c12", x:1050, y:715, height:30, width:250, coeff:0.85});
-			var levels = new LevelsModel();
+			var pollution_level = 40;
+			var exausth_level = 0;
+			var money_level = 70;
+			var pollution_gauge = new Gauge(this, pollution_level, {background_color:"0x2ecc71", preview_color:"0x333333", color:"0x27ae60", x:1050, y:675, height:30, width:250, coeff:0.85});
+			var exhaust_gauge = new Gauge(this, exausth_level, {background_color:"0xe74c3c", preview_color:"0x333333", color:"0xc0392b", x:1050, y:635, height:30, width:250, coeff:0.85});
+			var money_gauge = new Gauge(this, money_level, {background_color:"0xf1c40f", preview_color:"0x333333", color:"0xf39c12", x:1050, y:715, height:30, width:250, coeff:0.85});
 
 
 			// --- Plot stops ---
@@ -155,8 +157,6 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 
 					var vehicle_selected = false;
 
-					
-
 					// callback function for hover-in the vehicle image
 					vehicle_object.image.on('pointerover', () => {
 						if(!vehicle_selected){
@@ -169,6 +169,16 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 						console.log(vehicle_object.vehicle.PathColor);
 						console.log(`mouse over ${vehicle_object.vehicle.name}`);
 
+						const preview_pollution_level = pollution_level + 25 * vehicle_object.vehicle.pollutionCoeff * events.getPollutionPerturbativeCoeff();
+						const preview_exausth_level = exausth_level + 25 * vehicle_object.vehicle.exhaustCoeff * events.getExhaustPerturbativeCoeff();
+						const preview_money_level = money_level + 25 * vehicle_object.vehicle.moneyCoeff * events.getMoneyPerturbativeCoeff();
+
+						console.log(vehicle_object.vehicle.pollutionCoeff);
+
+						pollution_gauge.preview_draw(preview_pollution_level);
+						exhaust_gauge.preview_draw(preview_exausth_level);
+						money_gauge.preview_draw(preview_money_level);
+
 						messages_manager.animate_bubble("blue");
 						messages_manager.animate_women("good");
 						messages_manager.display_text(vehicle_object.vehicle.description, "#000000");
@@ -180,6 +190,10 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 							scenario_model.unPlotPath(current_stop.name, vehicle_object.associated_stop_name);
 							console.log(`mouse out ${vehicle_object.vehicle.name}`);
 	
+							pollution_gauge.draw();
+							exhaust_gauge.draw();
+							money_gauge.draw();
+
 							messages_manager.animate_bubble("green");
 							messages_manager.display_text(scenario_model.getDescription(), "#000000");
 						}
@@ -199,10 +213,13 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 								rounded_angles: true
 							}, delay_ms);
 	
-							levels.updateLevels(vehicle_object.vehicle, undefined);
-							pollution_gauge.set_percentage(levels.getPollutionLevel()).draw();
-							exhaust_gauge.set_percentage(levels.getExhaustLevel()).draw();
-							money_gauge.set_percentage(levels.getMoneyLevel()).draw();
+							pollution_level += 25 * vehicle_object.vehicle.pollutionCoeff * events.getPollutionPerturbativeCoeff();
+							exausth_level += 25 * vehicle_object.vehicle.exhaustCoeff * events.getExhaustPerturbativeCoeff();
+							money_level += 25 * vehicle_object.vehicle.moneyCoeff * events.getMoneyPerturbativeCoeff();
+
+							pollution_gauge.set_percentage(pollution_level).draw();
+							exhaust_gauge.set_percentage(exausth_level).draw();
+							money_gauge.set_percentage(exausth_level).draw();
 							
 							setTimeout( () => {
 								// remove images
@@ -223,6 +240,25 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 					index++;
 				}
 			}
+
+			// add Events
+			const events = new Event(["free_public_transport", "fuel_taxi", "heat_wave", "jam", "metro_roadworks", "nuclear_war", "rain", "taxi_strike", "train_strike"]);
+			var x_axis = 100;
+			var y_axis = 55;
+			setInterval( () => {
+				if(events.getActivesEvents().length < 6){
+					const new_event = events.addRandomEvent();
+					console.log(new_event);
+					if(new_event){
+						console.log(new_event.name);
+						const event_image = this.add.image(x_axis, y_axis, new_event.name).setDisplaySize(80, 80).setInteractive();
+						event_image.on("pointerover", () => {
+							messages_manager.display_text(new_event.description, "#000000");
+						});
+						x_axis += 150;
+					}
+				}
+			}, 1000);
 
 			// --- Game routine here
 			gameRoutine(this, scenario_model.stop(0).name);

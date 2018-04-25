@@ -55,7 +55,7 @@ console.log("Load core/PhaserGauge");
 		this.graphics.fillCircle(this.circle_center, this.y + this.radius, this.radius);
 		this.graphics.fillCircle(this.circle_center + this.rect_width, this.y + this.radius, this.radius);
 		
-		if(preview_percentage > this.percentage){
+		if(preview_percentage >= this.percentage){
 			
 			this.graphics.fillStyle(this.preview_color);
 			this.graphics.fillRect(this.circle_center, this.y + (((1 - this.coeff) * this.height) / 2), (preview_percentage/100) * (this.rect_width), this.coeff * this.height);
