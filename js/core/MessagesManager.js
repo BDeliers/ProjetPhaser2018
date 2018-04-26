@@ -222,10 +222,24 @@ define(["Phaser"], function() {
 			}
 		}
 
+		const title_words = title_msg.split(' ');
+		var new_title = "";
+		var nb_line_title = 1;
+		for(let word of title_words){
+			if(new_title.length + word.length < 20){
+				new_title += " " + word ;
+			}else{
+				new_title += "\n" + " " + word;
+				nb_line_title++;
+			}
+		}
+
 		this.destroy_text();
 		
-		this.last_title = this.phaser.add.text(this.x - 140, this.y - 90, title_msg, {fontSize: "25px", fill:color});
-		this.last_body = this.phaser.add.text(this.x - 140, this.y - 60, new_msg, {fontSize : "16px", fill:color});
+		const y_axis_offset_body = 60 - 20 * nb_line_title;
+
+		this.last_title = this.phaser.add.text(this.x - 140, this.y - 90, new_title, {fontSize: "25px", fill:color});
+		this.last_body = this.phaser.add.text(this.x - 140, this.y - y_axis_offset_body, new_msg, {fontSize : "16px", fill:color});
 	};
 
 	return MessagesManager;
