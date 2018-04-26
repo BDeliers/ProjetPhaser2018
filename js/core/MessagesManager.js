@@ -10,7 +10,7 @@ define(["Phaser"], function() {
 		this.bubble_sprite = bubble_sprite;
 		this.x = x;
 		this.y = y;
-		this.last_text = undefined;
+		this.last_body = undefined;
 
 		this.last_update = 0;
 
@@ -19,7 +19,7 @@ define(["Phaser"], function() {
 
 	MessagesManager.prototype.create = function() {
 		// Blit Sprite of the woman on the Game and create animations
-		this.women_sprite_obj = this.phaser.add.sprite(this.x, this.y+250, this.women_sprite).setDisplaySize(220,220);
+		this.women_sprite_obj = this.phaser.add.sprite(this.x, this.y+250, this.women_sprite).setDisplaySize(280,280);
 		this.phaser.anims.create({
 			key: 'no_care',
 			frames: this.phaser.anims.generateFrameNumbers(this.women_sprite, {
@@ -195,20 +195,24 @@ define(["Phaser"], function() {
 	};
 
 	MessagesManager.prototype.destroy_text = function() {
-		if (this.last_text != undefined) {
-			this.last_text.destroy();
+		if (this.last_body != undefined) {
+			this.last_body.destroy();
 		}
+		this.last_body = undefined;
+		if(this.last_title != undefined){
+			this.last_title.destroy();
+		}
+		this.last_title = undefined;
 
-		this.last_text = undefined;
 	};
 
-	MessagesManager.prototype.display_text = function(msg, color) {
-		var msg = msg.split(' ');
+	MessagesManager.prototype.display_text = function(title_msg, body_msg, color) {
+		var msg = body_msg.split(' ');
 		var new_msg = "";
 
 		var lsize = 0;
 		for (let w of msg) {
-			if (lsize + w.length <= 18) {
+			if (lsize + w.length <= 30) {
 				new_msg += w + ' ';
 				lsize += w.length + 1;
 			}
@@ -219,11 +223,9 @@ define(["Phaser"], function() {
 		}
 
 		this.destroy_text();
-
-		let text = this.phaser.add.text(this.x+20, this.y-100, new_msg, {fontSize : "16px", fill:color});
-		text.x = text.x - text.width/2;
-
-		this.last_text = text;
+		
+		this.last_title = this.phaser.add.text(this.x - 140, this.y - 90, title_msg, {fontSize: "25px", fill:color});
+		this.last_body = this.phaser.add.text(this.x - 140, this.y - 60, new_msg, {fontSize : "16px", fill:color});
 	};
 
 	return MessagesManager;
