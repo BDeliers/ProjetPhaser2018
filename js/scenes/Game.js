@@ -221,14 +221,11 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 									rounded_angles: true
 								});
 							}
-							console.log(vehicle_object.vehicle.PathColor);
 							console.log(`mouse over ${vehicle_object.vehicle.name}`);
 
 							const preview_pollution_level = pollution_level + 25 * vehicle_object.vehicle.pollutionCoeff * events.getPollutionPerturbativeCoeff();
 							const preview_exausth_level = exausth_level + 25 * vehicle_object.vehicle.exhaustCoeff * events.getExhaustPerturbativeCoeff();
 							const preview_money_level = money_level + 25 * vehicle_object.vehicle.moneyCoeff * events.getMoneyPerturbativeCoeff();
-
-							console.log(vehicle_object.vehicle.pollutionCoeff);
 
 							pollution_gauge.preview_draw(preview_pollution_level);
 							exhaust_gauge.preview_draw(preview_exausth_level);
@@ -303,9 +300,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			setInterval(() => {
 				if (events.getActivesEvents().length < 6) {
 					const new_event = events.addRandomEvent();
-					console.log(new_event);
 					if (new_event) {
-						console.log(new_event.name);
 						const event_image = this.add.image(x_axis, y_axis, new_event.name).setDisplaySize(80, 80).setInteractive();
 						event_image.on("pointerover", () => {
 							messages_manager.display_text(new_event.display_name, new_event.description, "#000000");
