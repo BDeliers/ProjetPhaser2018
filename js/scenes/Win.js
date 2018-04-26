@@ -26,9 +26,9 @@ define(["Phaser", "core/Clock" , "core/PhaserGauge"], function(Phaser, Clock, Ga
 		create: function (){
 
 				this.add.image(683, 384, 'end').setDisplaySize(1366, 768);
-				var exhaust_gauge = new Gauge(this, document.cookie.split(',')[1].split('=')[1], {background_color:"0xe74c3c", color:"0xc0392b", x:250, y:230, height:40, width:200, coeff:0.85});
-				var pollution_gauge = new Gauge(this, document.cookie.split(',')[2].split('=')[1], {background_color:"0x2ecc71", color:"0x27ae60", x:250, y:340, height:40, width:200, coeff:0.85});
-				var money_gauge = new Gauge(this, document.cookie.split(',')[3].split('=')[1], {background_color:"0xf1c40f", color:"0xf39c12", x:250, y:450, height:40, width:200, coeff:0.85});
+				var pollution_gauge = new Gauge(this, Number(document.cookie.split(',')[2].split('=')[1]), {background_color:"0x2ecc71", color:"0x27ae60", x:250, y:340, height:40, width:200, coeff:0.85});
+				var exhaust_gauge = new Gauge(this, Number(document.cookie.split(',')[1].split('=')[1]), {background_color:"0xe74c3c", color:"0xc0392b", x:250, y:230, height:40, width:200, coeff:0.85});
+				var money_gauge = new Gauge(this, Number(document.cookie.split(',')[3].split('=')[1]), {background_color:"0xf1c40f", color:"0xf39c12", x:250, y:450, height:40, width:200, coeff:0.85});
 
 				var clock = new Clock(this, "clock_sprite", 270, 580);
 				clock.set_seconds(document.cookie.split(',')[4].split('=')[1]);
