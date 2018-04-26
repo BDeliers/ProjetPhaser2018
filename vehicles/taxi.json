@@ -1,5 +1,6 @@
 {
 	"name" : "taxi",
+	"display_name": "Taxi",
 	"url_to_image" : "./vehicles/images/taxi.png",
 	"path_color" : "0xf6ba02",
 	"description" : "Pas de tracas à chercher une place de parking, mais prévoyez de quoi payer",

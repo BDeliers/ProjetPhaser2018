@@ -1,5 +1,6 @@
 {
 	"name" : "bicycle",
+	"display_name": "Vélo",
 	"url_to_image" : "./vehicles/images/bicycle.png",
 	"path_color" : "0xfd603c",
 	"description" : "Utiliser votre vélo vous fera gagner en temps ainsi qu'un joli fessier pour l'été",

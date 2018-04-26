@@ -1,5 +1,6 @@
 {
 	"name" : "rain",
+	"display_name": "Averse",
 	"apply_to": ["bicycle", "feet", "trotinet"],
 	"blocked_vehicles": [],
 	"url_to_image" : "../events/images/rain.png",

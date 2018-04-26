@@ -1,5 +1,6 @@
 {
 	"name" : "tram",
+	"display_name": "Tramway",
 	"url_to_image" : "./vehicles/images/tram.png",
 	"path_color" : "0x3eb72c",
 	"description" : "Visiter la ville dans un transport sans la polluer grâce au tramway électrique!",

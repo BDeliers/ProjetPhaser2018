@@ -1,5 +1,6 @@
 {
 	"name" : "nuclear_war",
+	"display_name": "La troisème Guerre Mondiale",
 	"apply_to": ["bicycle", "feet", "trotinet"],
 	"blocked_vehicles": [],
 	"url_to_image" : "../events/images/nuclear_war.png",

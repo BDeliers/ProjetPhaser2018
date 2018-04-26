@@ -1,5 +1,6 @@
 {
 	"name" : "feet",
+	"display_name": "Marcher",
 	"url_to_image" : "./vehicles/images/feet.png",
 	"path_color" : "0xcc040f",
 	"description" : "Marcher donc, profiter des beaux jours pour vous sculter un corps de rêve",

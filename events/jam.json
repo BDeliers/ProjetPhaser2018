@@ -1,5 +1,6 @@
 {
 	"name" : "jam",
+	"display_name": "Embouteillages",
 	"apply_to": ["autopartage", "bus", "car", "covoiturage", "taxi"],
 	"blocked_vehicles": [],
 	"url_to_image" : "../events/images/jam.png",

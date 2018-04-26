@@ -1,5 +1,6 @@
 {
 	"name" : "mono",
+	"display_name": "Monorail",
 	"url_to_image" : "./vehicles/images/mono.png",
 	"path_color" : "0x3e3f44",
 	"description" : "Plus rapide que la marche, parcourez la ville en quelques coups de pédales",

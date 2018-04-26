@@ -1,5 +1,6 @@
 {
 	"name" : "bus",
+	"display_name": "Bus",
 	"url_to_image" : "./vehicles/images/bus.png",
 	"path_color" : "0xbddf48",
 	"description" : "Prendre le bus vous fera gagner du temps grâce à leurs voies spécialement réservées. De plus, il pollue peu : un seul moteur pour une trentaine de personnes",

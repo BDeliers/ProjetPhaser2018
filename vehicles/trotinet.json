@@ -1,5 +1,6 @@
 {
 	"name" : "trotinet",
+	"display_name": "Trotinette",
 	"url_to_image" : "./vehicles/images/trotinet.png",
 	"path_color" : "0x482e2d",
 	"description" : "Moyen de transport simple, pratique, et pliant, vous permettra de vous ballader dans la ville",

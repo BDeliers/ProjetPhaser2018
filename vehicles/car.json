@@ -1,5 +1,6 @@
 {
 	"name" : "car",
+	"display_name": "Voiture",
 	"url_to_image" : "./vehicles/images/car.png",
 	"path_color" : "0xc2272d",
 	"description" : "La voiture est peut être un luxe pour vous, mais pas pour la planète, elle pollue énormément pour un seul passager, en effet ce sont, en moyenne, 205 g CO2 qui sont rejetés par km",

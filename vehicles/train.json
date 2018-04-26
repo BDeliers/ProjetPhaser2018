@@ -1,5 +1,6 @@
 {
 	"name" : "train",
+	"display_name": "Train",
 	"url_to_image" : "./vehicles/images/train.png",
 	"path_color" : "0xccc8c7",
 	"description" : "Si votre devise est d'être jamais à l'heure, le train est fait pour vous! Cependant, transport pas polluant",
