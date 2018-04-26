@@ -1,4 +1,4 @@
-define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "core/PhaserGauge", "models/ScenarioModel", "models/VehicleModel", "models/EventsModel", "models/LevelsModel", "tools/PathGeneratorClient"], function (Phaser, Clock, DetailsPlot, MessagesManager, Gauge, Scenario, Vehicle, Event, LevelsModel, PathGenerator) {
+define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "core/PhaserGauge", "models/ScenarioModel", "models/VehicleModel", "models/EventsModel", "tools/PathGeneratorClient"], function (Phaser, Clock, DetailsPlot, MessagesManager, Gauge, Scenario, Vehicle, Event, PathGenerator) {
 
 	console.log("Load scenes/Game");
 
@@ -51,6 +51,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			this.load.image('sante', "image/assets/heart.png");
 			this.load.image('pollution', "image/assets/earth.png");
 			this.load.image('money', "image/assets/money.png");
+			this.load.image('cloud', "image/assets/cloud.png");
 
 			// Load sprites of vehicles
 			var vehicles = ["autopartage", "bicycle", "bus", "car", "covoiturage", "feet", "metro", "mono", "taxi", "moto", "train", "tram", "trotinet"];
@@ -91,9 +92,11 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			this.add.image(1020, 650, 'sante').setDisplaySize(30, 30);
 			this.add.image(1020, 690, 'pollution').setDisplaySize(30, 30);
 			this.add.image(1020, 730, 'money').setDisplaySize(30, 30);
+			this.add.image(1170, 50, 'cloud').setDisplaySize(266, 114);
 
 			// Crete an instance of Clock in the game
-			var clock = new Clock(this, "clock_sprite", 1100, 50);
+			var clock = new Clock(this, "clock_sprite", 1120, 70);
+			//Create an instance of message buble in the game
 			var messages_manager = new MessagesManager(this, "bubble_sprite", "women_sprite", 1175, 220);
 
 			messages_manager.animate_bubble("green");
