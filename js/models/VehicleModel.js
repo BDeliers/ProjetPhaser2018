@@ -30,9 +30,12 @@ define(["jquery"], function() {
 	    }
 
 	    get name() {
-	        return this.vehicle.name;
+			return this.vehicle.name;
 	    }
-
+		get display_name(){
+			return this.vehicle.display_name;
+		}
+		
 	    get urlToImage(){
 	        return this.vehicle.url_to_image;
 	    }

@@ -65,6 +65,19 @@ define(["jquery"], function($) {
 	}
 
 	/**
+	 * @description return the display_name of the event
+	 * @param {String} event_name name of the event (field "name" of the JSON)
+	 */
+
+	Events.prototype.getDisplay_name = function(event_name){
+		for(let event of this.events_json_list){
+			if(event.name == event_name){
+				return event.display_name;
+			}
+		}
+	}
+
+	/**
 	 * @description add the event to the list of active events
 	 * @param {String} event_name name of the event (field "name" of the JSON)
 	 */

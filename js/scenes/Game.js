@@ -98,7 +98,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 
 			messages_manager.animate_bubble("green");
 			messages_manager.animate_women("super");
-			messages_manager.display_text(scenario_model.getDescription(), "#FF6600");
+			messages_manager.display_text("Scénario", scenario_model.getDescription(), "#000000");
 
 			var seconds = 0;
 			var schedule_task = setInterval(() => {
@@ -236,7 +236,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 
 							messages_manager.animate_bubble("blue");
 							messages_manager.animate_women("good");
-							messages_manager.display_text(vehicle_object.vehicle.description, "#000000");
+							messages_manager.display_text(vehicle_object.vehicle.display_name, vehicle_object.vehicle.description, "#000000");
 						});
 
 						// callback function for hover-out the vehicle image
@@ -250,7 +250,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 								money_gauge.draw();
 
 								messages_manager.animate_bubble("green");
-								messages_manager.display_text(scenario_model.getDescription(), "#000000");
+								messages_manager.display_text("Scénario", scenario_model.getDescription(), "#000000");
 							}
 						});
 
@@ -308,7 +308,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 						console.log(new_event.name);
 						const event_image = this.add.image(x_axis, y_axis, new_event.name).setDisplaySize(80, 80).setInteractive();
 						event_image.on("pointerover", () => {
-							messages_manager.display_text(new_event.description, "#000000");
+							messages_manager.display_text(new_event.display_name, new_event.description, "#000000");
 						});
 						x_axis += 150;
 					}
