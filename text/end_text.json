@@ -1,17 +1,17 @@
 {
     "pollution":{
         "bad": "cdsc dvds vdsvdsdcd vcdsvf fdsvfds dze feere vefvfdvfe vdvds cdscds cdcdsc cdzcdz cdzcdz cdzcdzcz cdz",
-        "medium": "",
-        "good": ""
+        "medium": "pol_med",
+        "good": "pol_good"
     },
     "money":{
-        "bad": "",
-        "medium": "",
-        "good": ""
+        "bad": "mon_bad",
+        "medium": "mon_med",
+        "good": "mon_good"
     },
     "exhaust":{
-        "bad": "",
-        "medium": "",
-        "good": ""
+        "bad": "exa_bad",
+        "medium": "exa_med",
+        "good": "exa_good"
     }
 }
