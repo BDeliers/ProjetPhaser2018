@@ -49,20 +49,24 @@ define(["jquery"], function() {
 	    }
 
 	    get pollutionCoeff(){
-	        return this.vehicle.pollution_coeff;
+	        return Number(this.vehicle.pollution_coeff);
 	    }
 
 	    get moneyCoeff(){
-	        return this.vehicle.money_coeff;
+	        return Number(this.vehicle.money_coeff);
 	    }
 
 	    get exhaustCoeff(){
-	        return this.vehicle.exhaust_coeff;
+	        return Number(this.vehicle.exhaust_coeff);
 	    }
 
 	    get timeCoeff(){
-	        return this.vehicle.time_coeff;
-	    }
+	        return Number(this.vehicle.time_coeff);
+		}
+		
+		get co2(){
+			return Number(this.vehicle.co2);
+		}
 
 	    get availableEvents(){
 	        return this.events;

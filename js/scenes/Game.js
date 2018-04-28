@@ -101,7 +101,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 
 			messages_manager.animate_bubble("green");
 			messages_manager.animate_women("super");
-			messages_manager.display_text("Scénario", scenario_model.getDescription(), "#000000");
+			messages_manager.display_text("Scénario :", scenario_model.getDescription(), "#000000");
 
 			var seconds = 0;
 			var schedule_task = setInterval(() => {
@@ -147,10 +147,11 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 				coeff: 0.70
 			});
 
-
+			var co2 = Number();
+			
 			// --- Plot stops ---
 			scenario_model.plotStops('stops_sprite');
-
+			
 			// main game function
 			var gameRoutine = function (phaser, stop_name) {
 
@@ -161,6 +162,8 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 					document.cookie += ",exhaust=" + String(exausth_level);
 					document.cookie += ",money=" + String(money_level);
 					document.cookie += ",time=" + String(clock.get_total_seconds());
+
+					document.cookie += ",co2=" + String(co2);
 
 					// launch end scenne 
 					phaser.scene.start("Win");
@@ -254,7 +257,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 							}
 						});
 
-						var delay_ms = 200;
+						var delay_ms = 10;
 						// callback function triggered when the image is clicked
 						vehicle_object.image.on('pointerdown', () => {
 							if (!vehicle_selected) {
@@ -272,6 +275,9 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 								exausth_level += 25 * vehicle_object.vehicle.exhaustCoeff * events.getExhaustPerturbativeCoeff();
 								money_level += 25 * vehicle_object.vehicle.moneyCoeff * events.getMoneyPerturbativeCoeff();
 
+								co2 += vehicle_object.vehicle.co2;
+
+								console.log(co2);
 								pollution_gauge.set_percentage(pollution_level).draw();
 								exhaust_gauge.set_percentage(exausth_level).draw();
 								money_gauge.set_percentage(money_level).draw();
@@ -311,7 +317,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 						x_axis += 150;
 					}
 				}
-			}, 1000);
+			}, 1000 * 10);
 
 			// --- Game routine here
 			gameRoutine(this, scenario_model.stop(0).name);

@@ -24,7 +24,10 @@ console.log("Load core/PhaserGauge");
 	}
 
 	Gauge.prototype.set_percentage = function(percentage) {
-		this.percentage = Math.abs(percentage) % 101;
+		if(percentage > 100){
+			percentage = 100;
+		}
+		this.percentage = Math.abs(percentage);
 
 		return this;
 	}
@@ -47,7 +50,10 @@ console.log("Load core/PhaserGauge");
 
 
 	Gauge.prototype.preview_draw = function(pre_percentage){
-		const preview_percentage = Math.abs(pre_percentage) % 101;
+		if(pre_percentage > 100){
+			pre_percentage = 100;
+		}
+		const preview_percentage = Math.abs(pre_percentage);
 
 		//Drawing the gauge's background
 		this.graphics.fillStyle(this.background_color)
