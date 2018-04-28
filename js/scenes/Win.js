@@ -4,21 +4,23 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 
 	var texts_JSON = undefined;
 
-	var blit_text = function(phaser, x, y, text){
-		var new_text = "";
-		var text = text.split(' ');
-		var line = "";
-		for (let word of text) {
-			if (line.length + word.length <= 30) {
-				line += word + ' ';
+	var blit_commentary = function(phaser, x, y, text){
+		var msg = text.split(' ');
+		var new_msg = "";
+
+		var lsize = 0;
+		for (let w of msg) {
+			if (lsize + w.length <= 30) {
+				new_msg += w + ' ';
+				lsize += w.length + 1;
 			}
 			else {
-				new_text += line + "\n";
-				line = word + ' ';
+				new_msg += "\n" + w + ' ';
+				lsize = w.length + 1;
 			}
-		}	
+		}
 
-		phaser.add.text(x, y, new_text, {fontSize: "15px", fill:"#000000"});
+		phaser.add.text(x, y, new_msg, {fontSize: "15px", fill:"#000000"});
 	}
 
 	var win_scene = {
@@ -57,7 +59,8 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 		create: function () {
 
 			this.add.image(683, 384, 'end').setDisplaySize(1366, 768);
-			var pollution_gauge = new Gauge(this, Number(document.cookie.split(',')[2].split('=')[1]), {
+			const pollution_level = Number(document.cookie.split(',')[2].split('=')[1]);
+			var pollution_gauge = new Gauge(this, pollution_level, {
 				background_color: "0x1B5E20",
 				color: "0x4CAF50",
 				x: 250,
@@ -66,7 +69,9 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 				width: 200,
 				coeff: 0.75
 			});
-			var exhaust_gauge = new Gauge(this, Number(document.cookie.split(',')[1].split('=')[1]), {
+
+			const exausth_level = Number(document.cookie.split(',')[1].split('=')[1]);
+			var exhaust_gauge = new Gauge(this, exausth_level, {
 				background_color: "0xB71C1C",
 				color: "0xF44336",
 				x: 250,
@@ -75,7 +80,9 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 				width: 200,
 				coeff: 0.75
 			});
-			var money_gauge = new Gauge(this, Number(document.cookie.split(',')[3].split('=')[1]), {
+
+			const money_level = Number(document.cookie.split(',')[3].split('=')[1]);
+			var money_gauge = new Gauge(this, money_level, {
 				background_color: "0x01579B",
 				color: "0x03A9F4",
 				x: 250,
@@ -116,9 +123,40 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 			});
 
 			//plot texts
-			blit_text(this, 500, 220, texts_JSON.pollution.bad);
+			var pollution_text = "";
+			if(pollution_level > 70){
+				pollution_text = texts_JSON.pollution.bad
+			}else if (pollution_level > 40){
+				pollution_text = texts_JSON.pollution.medium;
+			}else{
+				pollution_text = texts_JSON.pollution.good;
+			}
+			blit_commentary(this, 500, 340, pollution_text);
 
+			var exausth_text = "";
+			if(exausth_level > 80){
+				exausth_text = texts_JSON.exhaust.good;
+			}else if(exausth_level > 40){
+				exausth_text = texts_JSON.exhaust.medium;
+			}else{
+				exausth_text = texts_JSON.exhaust.bad;
+			}
+			blit_commentary(this, 500, 230, exausth_text);
 
+			var money_text = "";
+
+			console.log(texts_JSON.money.good);
+
+			if(money_level > 70){
+				money_text = texts_JSON.money.good;
+			}else if(money_level > 40){
+				money_text  =texts_JSON.money.medium;
+			}else{
+				money_text = texts_JSON.money.bad;
+			}
+			blit_commentary(this, 500, 450, money_text);
+
+			this.add.text(860, 500, `Sur l'ensemble de votre trajet les \ntransports que vous avez choisi ont \némient environ ${co2} Kg de CO2. Cela \ncorrespond à la quantité de CO2 que \n${Math.floor(co2 / 8)} arbres peuvent dissiper en 1 an !`, {fontSize: "18px", fill:"#000000"})
 		},
 		update: function () {
 
