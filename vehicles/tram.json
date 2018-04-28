@@ -8,5 +8,6 @@
 	"money_coeff" : "0.4",
 	"exhaust_coeff" : "0",
 	"time_coeff" : "0.4",
+	"co2": "30",
 	"available_events" : ["jam", "free_public_transport", "metro_roadworks"]
 }

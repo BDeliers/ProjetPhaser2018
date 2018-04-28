@@ -8,5 +8,6 @@
 	"money_coeff" : "0.2",
 	"exhaust_coeff" : "0",
 	"time_coeff" : "0.4",
+	"covoiturage": "50",
 	"available_events" : ["jam", "raim", "fuel_tax"]
 }
