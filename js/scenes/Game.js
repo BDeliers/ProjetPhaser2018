@@ -77,7 +77,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			}
 
 			// Load images of events
-			var events = ["free_public_transport", "fuel_taxi", "heat_wave", "jam", "metro_roadworks", "nuclear_war", "rain", "taxi_strike", "train_strike"];
+			var events = ["free_public_transport", "fuel_tax", "heat_wave", "jam", "metro_roadworks", "nuclear_war", "rain", "taxi_strike", "train_strike"];
 			for (let elt of events) {
 				this.load.image(elt, "events/images/" + elt + ".png");
 			}
@@ -303,7 +303,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			}
 
 			// add Events
-			const events = new Event(["free_public_transport", "fuel_taxi", "heat_wave", "jam", "metro_roadworks", "nuclear_war", "rain", "taxi_strike", "train_strike"]);
+			const events = new Event(["free_public_transport", "fuel_tax", "heat_wave", "jam", "metro_roadworks", "nuclear_war", "rain", "taxi_strike", "train_strike"]);
 			var x_axis = 100;
 			var y_axis = 55;
 			setInterval(() => {
