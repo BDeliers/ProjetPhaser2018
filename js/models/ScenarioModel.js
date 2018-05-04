@@ -92,28 +92,41 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 			this.already_plot = true;
 
 			this.phaser.anims.create({
-				key:'car',
+				key:'start',
 				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: -1, end: 0})
 			});
 			this.phaser.anims.create({
-				key:'bike',
+				key:'end',
 				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 0, end: 1})
 			});
 			this.phaser.anims.create({
-				key:'train',
+				key:'blue',
 				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 1, end: 2})
 			});
 			this.phaser.anims.create({
-				key:'bus',
+				key:'red',
 				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 2, end: 3})
 			});
 			this.phaser.anims.create({
-				key:'subway',
+				key:'green',
 				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 3, end: 4})
 			});
-	
+			this.phaser.anims.create({
+				key: "orange",
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 4, end: 5})
+			});
+			this.phaser.anims.create({
+				key:'yellow',
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 5, end: 6})
+			});
+			this.phaser.anims.create({
+				key:'purple',
+				frames: this.phaser.anims.generateFrameNumbers(stops_sprite, { start: 6, end: 7})
+			});
+
 		}
-		const keys = ['car', 'bike', 'train', 'bus', 'subway'];
+		const colors = ['blue', 'red', 'green', 'orange', 'yellow', "purple"];
+		var extreme_sprite_name = ["start", "end"];
 		var key_index = 0;
 
 		var stops = this.scenario_json.stops_list.slice(0);
@@ -121,19 +134,19 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 		extreme_stops.push(stops.pop());
 		
 		for (stop of extreme_stops) {
-			let curr = this.phaser.add.sprite(stop.x, stop.y -23, stops_sprite).setScale(1.5);
-			curr.anims.play(keys[key_index++ % 5], true);
+			let curr = this.phaser.add.sprite(stop.x, stop.y -15, stops_sprite).setScale(0.25);
+			curr.anims.play(extreme_sprite_name.shift(), true);
 
 			const graphics = this.phaser.add.graphics({ fillStyle: { color: 0xFFFFFF } });
 			const char_width = 9;
 			const box = graphics.fillRectShape(new Phaser.Geom.Rectangle(curr.x - stop.name.length * char_width /2, curr.y - 37, stop.name.length * char_width, 15));
-			const text = this.phaser.add.text(curr.x, curr.y-37, stop.name, {fontSize : "14px", fill:"#000000"});
+			const text = this.phaser.add.text(curr.x, curr.y-30, stop.name, {fontSize : "14px", fill:"#000000"});
 			text.x = text.x - text.width/2;
 		}
 
 		for (stop of stops) {
-			let curr = this.phaser.add.sprite(stop.x, stop.y -15, stops_sprite);
-			curr.anims.play(keys[key_index++ % 5], true);
+			let curr = this.phaser.add.sprite(stop.x, stop.y -15, stops_sprite).setScale(0.25);
+			curr.anims.play(colors[key_index++ % colors.length], true);
 
 			const graphics = this.phaser.add.graphics({ fillStyle: { color: 0xFFFFFF } });
 			const char_width = 8;

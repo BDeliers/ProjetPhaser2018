@@ -22,8 +22,8 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			// Load Sprite of Stops
 			this.load.spritesheet('stops_sprite',
 				'image/assets/stops_sprite.png', {
-					frameWidth: 30,
-					frameHeight: 30
+					frameWidth: 80,
+					frameHeight: 128
 				}
 			);
 
