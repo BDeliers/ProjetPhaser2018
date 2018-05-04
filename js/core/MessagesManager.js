@@ -239,6 +239,7 @@ define(["Phaser"], function() {
 		const y_axis_offset_body = 60 - 20 * nb_line_title;
 
 		this.last_title = this.phaser.add.text(this.x - 140, this.y - 90, new_title, {fontSize: "25px", fill:color});
+		this.last_title.fontWeight = "bold";
 		this.last_body = this.phaser.add.text(this.x - 140, this.y - y_axis_offset_body, new_msg, {fontSize : "16px", fill:color});
 	};
 

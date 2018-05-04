@@ -4,6 +4,13 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 
 	var texts_JSON = undefined;
 
+	/**
+	 * @description blit text ...
+	 * @param {Phaser} phaser current phaser instance 
+	 * @param {Number} x x axix position 
+	 * @param {Number} y y axis position 
+	 * @param {String} text text to blit  
+	 */
 	var blit_commentary = function(phaser, x, y, text){
 		var msg = text.split(' ');
 		var new_msg = "";
@@ -58,7 +65,10 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 		},
 		create: function () {
 
+			// add background
 			this.add.image(683, 384, 'end').setDisplaySize(1366, 768);
+
+			// add pollution gauge
 			const pollution_level = Number(document.cookie.split(',')[2].split('=')[1]);
 			var pollution_gauge = new Gauge(this, pollution_level, {
 				background_color: "0x1B5E20",
@@ -70,6 +80,7 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 				coeff: 0.75
 			});
 
+			// add exausth gauge
 			const exausth_level = Number(document.cookie.split(',')[1].split('=')[1]);
 			var exhaust_gauge = new Gauge(this, exausth_level, {
 				background_color: "0xB71C1C",
@@ -81,6 +92,7 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 				coeff: 0.75
 			});
 
+			// add money gauge
 			const money_level = Number(document.cookie.split(',')[3].split('=')[1]);
 			var money_gauge = new Gauge(this, money_level, {
 				background_color: "0x01579B",
@@ -92,14 +104,39 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 				coeff: 0.75
 			});
 
+			// add clock
 			var clock = new Clock(this, "clock_sprite", 270, 580);
 			clock.set_seconds(document.cookie.split(',')[4].split('=')[1]);
 			clock.update();
 
-			const co2 = Number(document.cookie.split(',')[5].split('=')[1]);
+			// -- add replay button --
+			// add earth sprite
+			var replay_sprite = this.add.sprite(1200, 300, "replay_sprite").setScale(0.6).setInteractive();
 
-			var women_sprite = this.add.sprite(1000, 284, "women_sprite");
+			// add inner text
+			var replay_text = this.add.text(1200, 300, "Rejouer", {
+				fontSize: "30px"
+			});
+			replay_text.x = replay_text.x - replay_text.width / 2;
+			replay_text.y = replay_text.y - replay_text.height / 2;
+			replay_text.fontWeight = "bold";
 
+			// add mouse event 
+			replay_sprite.on("pointerover", () => {
+				replay_sprite.anims.play("commencer_1", true);
+			});
+			replay_sprite.on("pointerout", () => {
+				replay_sprite.anims.play("commencer_0", true);
+			});
+			replay_sprite.on("pointerdown", () => {
+				this.scene.start("Home");
+				this.scene.stop("Win");
+			});
+
+
+			
+			// add woomen sprite
+			var women_sprite = this.add.sprite(950, 284, "women_sprite");
 			this.anims.create({
 				key: 'sad',
 				frames: this.anims.generateFrameNumbers("women_sprite", {
@@ -121,8 +158,9 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 					end: 2
 				})
 			});
-
-			//plot texts
+			
+			//plot gauge commentaries texts
+			// pollution
 			var pollution_text = "";
 			if(pollution_level > 70){
 				pollution_text = texts_JSON.pollution.bad
@@ -132,7 +170,8 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 				pollution_text = texts_JSON.pollution.good;
 			}
 			blit_commentary(this, 500, 340, pollution_text);
-
+			
+			//exausth
 			var exausth_text = "";
 			if(exausth_level > 80){
 				exausth_text = texts_JSON.exhaust.good;
@@ -142,11 +181,9 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 				exausth_text = texts_JSON.exhaust.bad;
 			}
 			blit_commentary(this, 500, 230, exausth_text);
-
+			
+			// money
 			var money_text = "";
-
-			console.log(texts_JSON.money.good);
-
 			if(money_level > 70){
 				money_text = texts_JSON.money.good;
 			}else if(money_level > 40){
@@ -155,11 +192,13 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 				money_text = texts_JSON.money.bad;
 			}
 			blit_commentary(this, 500, 450, money_text);
-
+			
+			// blit co2 commentary 
+			const co2 = Number(document.cookie.split(',')[5].split('=')[1]);
 			this.add.text(860, 500, `Sur l'ensemble de votre trajet les \ntransports que vous avez choisi ont \némient environ ${co2} Kg de CO2. Cela \ncorrespond à la quantité de CO2 que \n${Math.floor(co2 / 8)} arbres peuvent dissiper en 1 an !`, {fontSize: "18px", fill:"#000000"})
 		},
 		update: function () {
-
+			
 		}
 	}
 
