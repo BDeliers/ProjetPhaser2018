@@ -97,8 +97,8 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 			clock.update();
 
 			const co2 = Number(document.cookie.split(',')[5].split('=')[1]);
-			console.log(co2);
-			var women_sprite = this.add.sprite(1000, 384, "women_sprite");
+
+			var women_sprite = this.add.sprite(1000, 284, "women_sprite");
 
 			this.anims.create({
 				key: 'sad',

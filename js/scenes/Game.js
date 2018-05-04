@@ -257,7 +257,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 							}
 						});
 
-						var delay_ms = 10;
+						var delay_ms = 100;
 						// callback function triggered when the image is clicked
 						vehicle_object.image.on('pointerdown', () => {
 							if (!vehicle_selected) {
