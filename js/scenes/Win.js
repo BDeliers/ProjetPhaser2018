@@ -111,7 +111,7 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 
 			// -- add replay button --
 			// add earth sprite
-			var replay_sprite = this.add.sprite(1200, 300, "replay_sprite").setScale(0.6).setInteractive();
+			var replay_sprite = this.add.sprite(1200, 300, "start_sprite").setScale(0.6).setInteractive();
 
 			// add inner text
 			var replay_text = this.add.text(1200, 300, "Rejouer", {
@@ -129,8 +129,7 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 				replay_sprite.anims.play("commencer_0", true);
 			});
 			replay_sprite.on("pointerdown", () => {
-				this.scene.start("Home");
-				this.scene.stop("Win");
+				location.reload(true);
 			});
 
 

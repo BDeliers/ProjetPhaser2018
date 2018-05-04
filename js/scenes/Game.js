@@ -223,7 +223,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 							if (!vehicle_selected) {
 								scenario_model.plotPath(current_stop.name, vehicle_object.associated_stop_name, {
 									color: vehicle_object.vehicle.PathColor,
-									width: 4,
+									width: 5,
 									rounded_angles: true
 								});
 							}
