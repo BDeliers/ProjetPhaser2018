@@ -28,6 +28,7 @@ define(["Phaser"], function (Phaser) {
 						end: -1
 					})
 				});
+
 			}
 
 			this.load.spritesheet('start_sprite',
@@ -38,6 +39,7 @@ define(["Phaser"], function (Phaser) {
 			);
 		},
 		create: function () {
+
 			this.add.image(683, 384, 'home').setDisplaySize(1366, 768);
 			var start_sprite = this.add.sprite(683, 384, "start_sprite").setInteractive();
 

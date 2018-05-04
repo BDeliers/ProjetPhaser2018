@@ -81,9 +81,20 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			for (let elt of events) {
 				this.load.image(elt, "events/images/" + elt + ".png");
 			}
+
+			// load background music
+			this.load.audio('bo', [
+				'music/city-bo.mp3'
+			]);
 		},
 
 		create: function () {
+
+			var background_music = this.sound.add("bo");
+			background_music.play({
+				loop: true
+			});
+
 			// Blit statics image for background
 			this.add.image(683, 384, 'game').setDisplaySize(1366, 768);
 			this.add.image(500, 360, 'background').setDisplaySize(1000, 500);
@@ -111,7 +122,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			}, 1000);
 
 			// -- Plot Gauges
-			var pollution_level = 40;
+			var pollution_level = 100;
 			var pollution_gauge = new Gauge(this, pollution_level, {
 				background_color: "0x1B5E20",
 				preview_color: "0x81C784",
@@ -135,7 +146,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 				coeff: 0.70
 			});
 
-			var money_level = 70;
+			var money_level = 100;
 			var money_gauge = new Gauge(this, money_level, {
 				background_color: "0x01579B",
 				preview_color: "0x4FC3F7",
@@ -164,6 +175,9 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 					document.cookie += ",time=" + String(clock.get_total_seconds());
 
 					document.cookie += ",co2=" + String(co2);
+
+					// end music 
+					background_music.pause();
 
 					// launch end scenne 
 					phaser.scene.start("Win");

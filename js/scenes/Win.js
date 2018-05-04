@@ -111,7 +111,7 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 
 			// -- add replay button --
 			// add earth sprite
-			var replay_sprite = this.add.sprite(1200, 300, "replay_sprite").setScale(0.6).setInteractive();
+			var replay_sprite = this.add.sprite(1200, 300, "start_sprite").setScale(0.6).setInteractive();
 
 			// add inner text
 			var replay_text = this.add.text(1200, 300, "Rejouer", {
@@ -163,11 +163,11 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 			// pollution
 			var pollution_text = "";
 			if(pollution_level > 70){
-				pollution_text = texts_JSON.pollution.bad
+				pollution_text = texts_JSON.pollution.good
 			}else if (pollution_level > 40){
 				pollution_text = texts_JSON.pollution.medium;
 			}else{
-				pollution_text = texts_JSON.pollution.good;
+				pollution_text = texts_JSON.pollution.bad;
 			}
 			blit_commentary(this, 500, 340, pollution_text);
 			
