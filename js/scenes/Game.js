@@ -22,8 +22,8 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			// Load Sprite of Stops
 			this.load.spritesheet('stops_sprite',
 				'image/assets/stops_sprite.png', {
-					frameWidth: 30,
-					frameHeight: 30
+					frameWidth: 80,
+					frameHeight: 128
 				}
 			);
 
@@ -237,7 +237,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 							if (!vehicle_selected) {
 								scenario_model.plotPath(current_stop.name, vehicle_object.associated_stop_name, {
 									color: vehicle_object.vehicle.PathColor,
-									width: 4,
+									width: 5,
 									rounded_angles: true
 								});
 							}
@@ -271,7 +271,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 							}
 						});
 
-						var delay_ms = 10;
+						var delay_ms = 100;
 						// callback function triggered when the image is clicked
 						vehicle_object.image.on('pointerdown', () => {
 							if (!vehicle_selected) {

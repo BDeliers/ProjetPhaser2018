@@ -9,12 +9,12 @@
     "x": 923,
     "y": 203
   }, {
-    "name": "Tri-postal",
+    "name": "Restaurant",
     "available_vehicles": ["bus", "tram", "taxi"],
     "x": 624,
-    "y": 128
+    "y": 149
   }, {
-    "name": "Arrêt Lomme",
+    "name": "Hellemmes",
     "available_vehicles": ["bus", "tram", "feet"],
     "x": 871,
     "y": 409
@@ -24,17 +24,17 @@
     "x": 667,
     "y": 355
   }, {
-    "name": "Gare Lille Flandres",
+    "name": "Salle de sport",
     "available_vehicles": ["train", "metro", "covoiturage"],
     "x": 630,
     "y": 550
   }, {
-    "name": "Porte des Postes",
+    "name": "Citadelle",
     "available_vehicles": ["train", "metro", "covoiturage"],
     "x": 504,
     "y": 254
   }, {
-    "name": "Gambetta",
+    "name": "Port de Lille",
     "available_vehicles": ["mono", "bicycle", "taxi"],
     "x": 331,
     "y": 400
@@ -44,15 +44,15 @@
     "x": 264,
     "y": 507
   }, {
-    "name": "Cormontaigne",
+    "name": "Arrêt de bus",
     "available_vehicles": ["mono", "bicycle", "taxi"],
     "x": 139,
     "y": 276
   }, {
-    "name": "Gare de Porte de Douai",
+    "name": "Arrêt de covoiturage",
     "available_vehicles": ["train", "metro", "covoiturage"],
     "x": 398,
-    "y": 121
+    "y": 141
   }, {
     "name": "ISEN",
     "available_vehicles": ["", "", ""],
@@ -61,7 +61,7 @@
   }],
   "paths_list": [{
     "from": "Domicile familial",
-    "to": "Tri-postal",
+    "to": "Restaurant",
     "path": [
       [923, 203],
       [913, 198],
@@ -81,13 +81,13 @@
       [766, 188],
       [750, 183],
       [705, 141],
-      [624, 128]
+      [624, 149]
     ]
   }, {
-    "from": "Tri-postal",
-    "to": "Gare de Porte de Douai",
+    "from": "Restaurant",
+    "to": "Arrêt de covoiturage",
     "path": [
-      [623, 128],
+      [623, 149],
       [620, 138],
       [616, 150],
       [598, 153],
@@ -103,11 +103,11 @@
       [445, 171],
       [439, 165],
       [427, 156],
-      [398, 121]
+      [398, 141]
     ]
   }, {
     "from": "Domicile familial",
-    "to": "Arrêt Lomme",
+    "to": "Hellemmes",
     "path": [
       [925, 204],
       [928, 210],
@@ -157,7 +157,7 @@
     ]
   }, {
     "from": "Rue du Molinel",
-    "to": "Porte des Postes",
+    "to": "Citadelle",
     "path": [
       [663, 354],
       [655, 360],
@@ -176,10 +176,10 @@
       [504, 254]
     ]
   }, {
-    "from": "Gare de Porte de Douai",
-    "to": "Cormontaigne",
+    "from": "Arrêt de covoiturage",
+    "to": "Arrêt de bus",
     "path": [
-      [397, 119],
+      [397, 141],
       [385, 128],
       [371, 144],
       [359, 161],
@@ -201,8 +201,8 @@
       [139, 276]
     ]
   }, {
-    "from": "Porte des Postes",
-    "to": "Cormontaigne",
+    "from": "Citadelle",
+    "to": "Arrêt de bus",
     "path": [
       [506, 255],
       [496, 257],
@@ -229,8 +229,8 @@
       [139, 276]
     ]
   }, {
-    "from": "Arrêt Lomme",
-    "to": "Gare Lille Flandres",
+    "from": "Hellemmes",
+    "to": "Salle de sport",
     "path": [
       [872, 411],
       [874, 420],
@@ -269,7 +269,7 @@
       [630, 550]
     ]
   }, {
-    "from": "Gare Lille Flandres",
+    "from": "Salle de sport",
     "to": "République Beaux Arts",
     "path": [
       [628, 549],
@@ -306,7 +306,7 @@
       [264, 507]
     ]
   }, {
-    "from": "Cormontaigne",
+    "from": "Arrêt de bus",
     "to": "ISEN",
     "path": [
       [138, 277],
@@ -353,8 +353,8 @@
       [95, 464]
     ]
   }, {
-    "from": "Gare Lille Flandres",
-    "to": "Gambetta",
+    "from": "Salle de sport",
+    "to": "Port de Lille",
     "path": [
       [630, 550],
       [625, 544],
@@ -388,10 +388,10 @@
       [332, 401]
     ]
   }, {
-    "from": "Tri-postal",
-    "to": "Porte des Postes",
+    "from": "Restaurant",
+    "to": "Citadelle",
     "path": [
-      [624, 129],
+      [624, 149],
       [620, 141],
       [615, 152],
       [612, 162],
@@ -412,8 +412,8 @@
       [507, 256]
     ]
   }, {
-    "from": "Porte des Postes",
-    "to": "Gambetta",
+    "from": "Citadelle",
+    "to": "Port de Lille",
     "path": [
       [503, 257],
       [495, 259],
@@ -438,7 +438,7 @@
       [330, 400]
     ]
   }, {
-    "from": "Gambetta",
+    "from": "Port de Lille",
     "to": "ISEN",
     "path": [
       [332, 403],
@@ -465,7 +465,7 @@
     ]
   }, {
     "from": "Rue du Molinel",
-    "to": "Gare Lille Flandres",
+    "to": "Salle de sport",
     "path": [
       [667, 353],
       [654, 361],

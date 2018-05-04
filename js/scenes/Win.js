@@ -129,8 +129,7 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 				replay_sprite.anims.play("commencer_0", true);
 			});
 			replay_sprite.on("pointerdown", () => {
-				this.scene.start("Home");
-				this.scene.stop("Win");
+				location.reload(true);
 			});
 
 
