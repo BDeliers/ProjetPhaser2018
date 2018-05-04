@@ -4,10 +4,10 @@
 	"url_to_image" : "./vehicles/images/metro.png",
 	"path_color" : "0x76ddcf",
 	"description" : "L'usage du métro est pratique puisqu'il s'agit d'un chemin souterrain, il dessert l'ensemble des points stratégiques de la ville",
-	"pollution_coeff" : "0.1",
-	"money_coeff" : "0.4",
-	"exhaust_coeff" : "0",
+	"pollution_coeff" : "-0.1",
+	"money_coeff" : "-1.2",
+	"exhaust_coeff" : "-0.2",
 	"time_coeff" : "0.4",
-	"co2": "3.6",
+	"co2": "7",
 	"available_events" : ["jam", "metro_roadworks","free_public_transport"]
 }

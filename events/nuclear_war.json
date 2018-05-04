@@ -5,8 +5,8 @@
 	"blocked_vehicles": [],
 	"url_to_image" : "../events/images/nuclear_war.png",
 	"description" : "La troisième guerre modiale est déclarée ! Mieux vaut ne pas trop trainer dans les rues en ce moment ...",
-	"perturbative_pollution_coeff" : "0.0",
-	"perturbative_money_coeff" : "0.0",
-	"perturbative_exhaust_coeff" : "0.1",
+	"perturbative_pollution_coeff" : "1",
+	"perturbative_money_coeff" : "1",
+	"perturbative_exhaust_coeff" : "1.2",
 	"perturbative_time_coeff" : "0.8"
 }

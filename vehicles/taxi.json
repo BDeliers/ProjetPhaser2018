@@ -4,10 +4,10 @@
 	"url_to_image" : "./vehicles/images/taxi.png",
 	"path_color" : "0xf6ba02",
 	"description" : "Pas de tracas à chercher une place de parking, mais prévoyez de quoi payer",
-	"pollution_coeff" : "0.6",
-	"money_coeff" : "0.4",
-	"exhaust_coeff" : "0",
+	"pollution_coeff" : "-1",
+	"money_coeff" : "-1.5",
+	"exhaust_coeff" : "-0.2",
 	"time_coeff" : "0.5",
-	"co2": "220",
+	"co2": "120",
 	"available_events" : ["jam", "raim", "taxi_strike"]
 }

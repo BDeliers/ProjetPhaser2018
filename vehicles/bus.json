@@ -4,10 +4,10 @@
 	"url_to_image" : "./vehicles/images/bus.png",
 	"path_color" : "0xbddf48",
 	"description" : "Prendre le bus vous fera gagner du temps grâce à leurs voies spécialement réservées. De plus, il pollue peu : un seul moteur pour une trentaine de personnes",
-	"pollution_coeff" : "0.5",
-	"money_coeff" : "0.2",
-	"exhaust_coeff" : "0",
+	"pollution_coeff" : "-1",
+	"money_coeff" : "-1",
+	"exhaust_coeff" : "-0.2",
 	"time_coeff" : "0.4",
-	"co2": "111",
+	"co2": "80",
 	"available_events" : ["jam", "free_public_transport"]
 }

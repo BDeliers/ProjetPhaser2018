@@ -6,7 +6,7 @@
 	"description" : "Marcher donc, profiter des beaux jours pour vous sculter un corps de rêve",
 	"pollution_coeff" : "0",
 	"money_coeff" : "0",
-	"exhaust_coeff" : "0.5",
+	"exhaust_coeff" : "1.5",
 	"time_coeff" : "0.8",
 	"co2": "0",
 	"available_events" : ["raim", "nuclear_war", "heat_wave"]

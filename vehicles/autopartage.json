@@ -4,9 +4,9 @@
 	"url_to_image" : "./vehicles/images/autopartage.png",
 	"path_color" : "0x51b6e0",
 	"description" : "L'autopartage est un système qui permet à des abonnés de louer de façon ponctuelle une voiture en libre-service",
-	"pollution_coeff" : "0.4",
-	"money_coeff" : "0.2",
-	"exhaust_coeff" : "0",
+	"pollution_coeff" : "-0.5",
+	"money_coeff" : "-0.5",
+	"exhaust_coeff" : "-0.3",
 	"time_coeff" : "0.4",
 	"co2": "50",
 	"available_events" : ["jam", "raim"]
