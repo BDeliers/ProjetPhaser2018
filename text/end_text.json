@@ -1,17 +1,17 @@
 {
     "pollution":{
-        "bad": "cdsc dvds vdsvdsdcd vcdsvf fdsvfds dze feere vefvfdvfe vdvds cdscds cdcdsc cdzcdz cdzcdz cdzcdzcz cdz",
-        "medium": "pol_med",
-        "good": "pol_good"
+        "bad": "Vous êtes un verritable pollueur ! Couper une vingtaine d'arbre aurait eu le même impact que votre trajet sur l'environnement.",
+        "medium": "Votre trajet a été polluant, vous devriez songer à  emprunter des transports en commun ou à faire de l'exercice physique.",
+        "good": "Vous avez été exemplaire en terme de respect de l'environnement, la terre vous remercie !"
     },
     "money":{
-        "bad": "mon_bad",
-        "medium": "mon_med",
-        "good": "mon_good"
+        "bad": "Vous avez dépensé tout votre argent, songez à une solution plus économique comme la marche ou le vélo !",
+        "medium": "La prochaine fois tentez d'économiser un peu plus en vous essayant à l'exercice physique.",
+        "good": "Vous avez géré avec brio vos finances, fellicitations !"
     },
     "exhaust":{
-        "bad": "exa_bad",
-        "medium": "exa_med",
-        "good": "exa_good"
+        "bad": "Faire de l'exercice est excellent pour la santé, mais il faut veiller à ne pas trop se fatiguer tout de même, n'hésitez pas à emprunter des transport en commun.",
+        "medium": "Vous vous êtes peut être trop fatigué, tentez de trouver un meilleur équilibre pour ne pas trop vous épuiser la prochaine fois.",
+        "good": "Vous êtes en super forme, bravo !"
     }
 }
