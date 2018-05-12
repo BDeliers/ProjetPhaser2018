@@ -134,16 +134,17 @@ define(["jquery", "Phaser", "core/DrawLine"], function(jq, phaser, Line) {
 		extreme_stops.push(stops.pop());
 		
 		for (stop of extreme_stops) {
-			let curr = this.phaser.add.sprite(stop.x, stop.y -15, stops_sprite).setScale(0.25);
-			curr.anims.play(extreme_sprite_name.shift(), true);
+			let curr = this.phaser.add.sprite(stop.x + 7, stop.y -30, stops_sprite).setScale(0.5);
+			curr.anims.play(extreme_sprite_name[key_index++], true);
 
 			const graphics = this.phaser.add.graphics({ fillStyle: { color: 0xFFFFFF } });
 			const char_width = 9;
-			const box = graphics.fillRectShape(new Phaser.Geom.Rectangle(curr.x - stop.name.length * char_width /2, curr.y - 37, stop.name.length * char_width, 15));
-			const text = this.phaser.add.text(curr.x, curr.y-30, stop.name, {fontSize : "14px", fill:"#000000"});
+			const box = graphics.fillRectShape(new Phaser.Geom.Rectangle(curr.x + 7- stop.name.length * char_width /2, curr.y - 50, stop.name.length * char_width, 15));
+			const text = this.phaser.add.text(curr.x + 7, curr.y-50, stop.name, {fontSize : "14px", fill:"#000000"});
 			text.x = text.x - text.width/2;
 		}
 
+		key_index = 0;
 		for (stop of stops) {
 			let curr = this.phaser.add.sprite(stop.x, stop.y -15, stops_sprite).setScale(0.25);
 			curr.anims.play(colors[key_index++ % colors.length], true);

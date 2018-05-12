@@ -5,9 +5,9 @@
   "description": "Mercredi après midi, le temps est mossade, vous décidez de profiter de cet après-midi pour aller au cinéma avec des amis. Vous devez partir de chez vous, rejoindre vos amis et vous rendre au cinéma!",
   "stops_list": [{
     "name": "Villa",
-    "available_vehicles": ["car", "covoiturage", "train"],
+    "available_vehicles": ["car", "bicycle", "train"],
     "x": 375,
-    "y": 148
+    "y": 170
   }, {
     "name": "Rue des pommiers",
     "available_vehicles": ["bus", "autopartage", "trotinet"],
@@ -15,7 +15,7 @@
     "y": 280
   }, {
     "name": "Bord de mer",
-    "available_vehicles": ["bus", "car", "bicycle"],
+    "available_vehicles": ["bus", "car", "mono"],
     "x": 485,
     "y": 229
   }, {
@@ -25,7 +25,7 @@
     "y": 366
   }, {
     "name": "Place du Général",
-    "available_vehicles": ["feet", "mono", "bus"],
+    "available_vehicles": ["feet", "taxi", "bus"],
     "x": 489,
     "y": 408
   }, {
@@ -43,7 +43,7 @@
     "from": "Villa",
     "to": "Rue des pommiers",
     "path": [
-      [375, 148],
+      [375, 170],
       [374, 153],
       [374, 159],
       [374, 165],
@@ -245,7 +245,7 @@
     "from": "Villa",
     "to": "Bord de mer",
     "path": [
-      [377, 148],
+      [377, 170],
       [381, 150],
       [384, 152],
       [387, 155],

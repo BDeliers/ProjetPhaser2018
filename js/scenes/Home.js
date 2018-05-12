@@ -69,13 +69,14 @@ define(["Phaser"], function (Phaser) {
 				this.scene.stop("Home");
 			});
 
+			
 			var start_text = this.add.text(683, 384, "Démarrer", {
 				fontSize: "45px"
 			});
 			start_text.x = start_text.x - start_text.width / 2;
 			start_text.y = start_text.y - start_text.height / 2;
 			start_text.fontWeight = "bold";
-
+			
 			var vehicles = ["autopartage", "bicycle", "bus", "car", "covoiturage", "feet", "metro", "mono", "taxi", "moto", "train", "tram", "trotinet"];
 			var vehicles_sprites = [];
 			for (elt of vehicles) {
@@ -87,7 +88,11 @@ define(["Phaser"], function (Phaser) {
 				vehicles_sprites[i].x = origin;
 				origin += vehicles_sprites[i].displayWidth * 1.5;
 			}
-
+			
+			var title = this.add.text(350, 100, "Transport Fever", {
+				fontSize: "80px",
+				fill: "0xFFFFFF"
+			})
 		},
 		update: function () {
 

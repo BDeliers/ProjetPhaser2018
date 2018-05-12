@@ -5,7 +5,7 @@
   "description": "Il est 3 heures du matin, après avoir été la star de la soirée en montrant à tout le monde vos talents de danseur, vous devez rentrer chez vous !",
   "stops_list": [{
     "name": "Le Macumba",
-    "available_vehicles": ["feet", "trotinet", "bicycle"],
+    "available_vehicles": ["taxi", "feet", "bicycle"],
     "x": 927,
     "y": 564
   }, {
@@ -15,7 +15,7 @@
     "y": 192
   }, {
     "name": "Métro monarchie",
-    "available_vehicles": ["metro", "tram", "autopartage"],
+    "available_vehicles": ["metro", "mono", "autopartage"],
     "x": 492,
     "y": 290
   }, {
@@ -25,7 +25,7 @@
     "y": 559
   }, {
     "name": "Rue de la Paix",
-    "available_vehicles": ["tram", "train", "autopartage"],
+    "available_vehicles": ["feet", "train", "covoiturage"],
     "x": 371,
     "y": 442
   }, {
@@ -35,7 +35,7 @@
     "y": 297
   }, {
     "name": "Impasse Decoster",
-    "available_vehicles": ["feet", "bicycle", "trotinet"],
+    "available_vehicles": ["car", "bicycle", "trotinet"],
     "x": 116,
     "y": 407
   }, {

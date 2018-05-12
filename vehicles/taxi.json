@@ -3,7 +3,7 @@
 	"display_name": "Taxi",
 	"url_to_image" : "./vehicles/images/taxi.png",
 	"path_color" : "0xf6ba02",
-	"description" : "Pas de tracas à chercher une place de parking, mais prévoyez de quoi payer",
+	"description" : "Pas de tracas pour trouver une place de parking, mais prévoyez de quoi payer",
 	"pollution_coeff" : "-1",
 	"money_coeff" : "-1.5",
 	"exhaust_coeff" : "-0.2",

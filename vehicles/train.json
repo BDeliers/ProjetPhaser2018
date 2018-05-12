@@ -3,7 +3,7 @@
 	"display_name": "Train",
 	"url_to_image" : "./vehicles/images/train.png",
 	"path_color" : "0xccc8c7",
-	"description" : "Si votre devise est d'être jamais à l'heure, le train est fait pour vous! Cependant, transport pas polluant",
+	"description" : "les réseaux de train intercité et TER permettent aux citadins de parcourir la ville très vite à faible cout",
 	"pollution_coeff" : "-0.4",
 	"money_coeff" : "-1",
 	"exhaust_coeff" : "-0.2",
