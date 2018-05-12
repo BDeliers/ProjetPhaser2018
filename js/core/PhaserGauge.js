@@ -5,11 +5,12 @@ define(["Phaser"], function() {
 
 console.log("Load core/PhaserGauge");
 
-	var Gauge = function(phaser, percentage, config) {
+	var Gauge = function(phaser, percentage, config, fill_text) {
 	    this.set_percentage(percentage);
 		this.rect_width = config.width - config.height;
 		this.radius = config.height / 2;
 		this.graphics = phaser.add.graphics();
+		this.phaser = phaser;
 		this.circle_center = config.x + this.radius;
 		this.background_color = config.background_color;
 		this.width = config.width;
@@ -19,6 +20,12 @@ console.log("Load core/PhaserGauge");
 		this.y = config.y;
 		this.color = config.color;
 		this.preview_color = config.preview_color;
+
+		if(fill_text){
+			this.fill_text = fill_text;
+		}else{
+			this.fill_text = undefined;
+		}
 
 		this.draw();
 	}
@@ -46,6 +53,14 @@ console.log("Load core/PhaserGauge");
 		this.graphics.fillRect(this.circle_center, this.y + (((1 - this.coeff) * this.height) / 2), (this.percentage/100) * (this.rect_width), this.coeff * this.height);
 		this.graphics.fillCircle(this.circle_center, this.y + this.radius, this.coeff * this.height / 2);
 		this.graphics.fillCircle(this.x + ((this.percentage/100) * this.rect_width) + this.radius, this.y + this.radius, this.coeff * this.height / 2);
+
+		if(this.fill_text){
+			this.text = this.phaser.add.text(this.x + 20, this.y + 6, this.fill_text, {
+				fontSize: "15px",
+				color: "0xFFFFFF"
+			})
+		}
+
 	}
 
 

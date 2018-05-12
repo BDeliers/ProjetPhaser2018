@@ -69,7 +69,7 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 			this.add.image(683, 384, 'end').setDisplaySize(1366, 768);
 
 			// add pollution gauge
-			const pollution_level = Number(document.cookie.split(',')[2].split('=')[1]);
+			const pollution_level = Number(document.cookie.split(',')[1].split('=')[1]);
 			var pollution_gauge = new Gauge(this, pollution_level, {
 				background_color: "0x1B5E20",
 				color: "0x4CAF50",
@@ -81,7 +81,7 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 			});
 
 			// add exausth gauge
-			const exausth_level = Number(document.cookie.split(',')[1].split('=')[1]);
+			const exausth_level = Number(document.cookie.split(',')[2].split('=')[1]);
 			var exhaust_gauge = new Gauge(this, exausth_level, {
 				background_color: "0xB71C1C",
 				color: "0xF44336",

@@ -122,7 +122,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 			}, 1000);
 
 			// -- Plot Gauges
-			var pollution_level = 100;
+			var pollution_level = 60;
 			var pollution_gauge = new Gauge(this, pollution_level, {
 				background_color: "0x1B5E20",
 				preview_color: "0x81C784",
@@ -132,7 +132,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 				height: 30,
 				width: 250,
 				coeff: 0.70
-			});
+			}, "Qualité de l'air");
 			
 			var exausth_level = 50;
 			var exhaust_gauge = new Gauge(this, exausth_level, {
@@ -144,7 +144,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 				height: 30,
 				width: 250,
 				coeff: 0.70
-			});
+			}, "Condition physique");
 
 			var money_level = 100;
 			var money_gauge = new Gauge(this, money_level, {
@@ -156,7 +156,7 @@ define(["Phaser", "core/Clock", "core/DetailsPlot", "core/MessagesManager", "cor
 				height: 30,
 				width: 250,
 				coeff: 0.70
-			});
+			}, "Argent");
 
 			var co2 = Number();
 			
