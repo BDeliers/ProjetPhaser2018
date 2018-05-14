@@ -172,9 +172,9 @@ define(["Phaser","jquery", "core/Clock", "core/PhaserGauge"], function (Phaser, 
 
 			//exausth
 			var exausth_text = "";
-			if(exausth_level > 80){
+			if(exausth_level > 70){
 				exausth_text = texts_JSON.exhaust.good;
-			}else if(exausth_level > 40){
+			}else if(exausth_level > 50){
 				exausth_text = texts_JSON.exhaust.medium;
 			}else{
 				exausth_text = texts_JSON.exhaust.bad;
