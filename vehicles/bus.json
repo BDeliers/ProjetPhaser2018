@@ -3,7 +3,7 @@
 	"display_name": "Bus",
 	"url_to_image" : "./vehicles/images/bus.png",
 	"path_color" : "0xbddf48",
-	"description" : "Prendre le bus vous fera gagner du temps grâce à leurs voies spécialement réservées. De plus, il pollue moins que la voiture: un seul moteur pour une trentaine de personnes",
+	"description" : "Prendre le bus vous fera gagner du temps grâce à leurs voies réservées. De plus, il pollue moins que la voiture: un seul moteur pour une trentaine de personnes",
 	"pollution_coeff" : "-1",
 	"money_coeff" : "-1",
 	"exhaust_coeff" : "-0.2",

@@ -3,7 +3,7 @@
 	"display_name": "Segway",
 	"url_to_image" : "./vehicles/images/mono.png",
 	"path_color" : "0x3e3f44",
-	"description" : "Plus rapide que la marche, parcourez la ville rapidement avec un monopode",
+	"description" : "Plus rapide que la marche, parcourez la ville rapidement avec un Segway",
 	"pollution_coeff" : "-0.1",
 	"money_coeff" : "-0.1",
 	"exhaust_coeff" : "-0.2",

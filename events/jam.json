@@ -4,7 +4,7 @@
 	"apply_to": ["autopartage", "bus", "car", "covoiturage", "taxi"],
 	"blocked_vehicles": [],
 	"url_to_image" : "../events/images/jam.png",
-	"description" : "A cause du grand nombre de personnes qui prennent la voiture à cette heure, des bouchons se sont crées sur la route et ralentissent la circulation",
+	"description" : "Suite au grand nombre d'automobilistes à cette heure, des bouchons se sont créés sur la route et ralentissent la circulation",
 	"perturbative_pollution_coeff" : "1.5",
 	"perturbative_money_coeff" : "1",
 	"perturbative_exhaust_coeff" : "1",

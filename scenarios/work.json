@@ -2,7 +2,7 @@
   "name": "work",
   "url_to_image": "./image/scenario/work.png",
   "url_to_background": "./image/maps/paris.png",
-  "description": "Il est 7 heures, votre patron et vos collègues avez une réunion à 8h30. Rendez vous au travail.",
+  "description": "Il est 7 heures, votre patron, vos collègues et vous avez une réunion à 8h30. Rendez vous au travail.",
   "stops_list": [{
     "name": "Maison",
     "available_vehicles": ["car", "covoiturage", "train"],

@@ -3,7 +3,7 @@
 	"display_name": "Marcher",
 	"url_to_image" : "./vehicles/images/feet.png",
 	"path_color" : "0xcc040f",
-	"description" : "Pour les trajets courts, la marche permet de faire de l'exercice et de ne pas polluer",
+	"description" : "Pour les trajets courts, la marche permet de faire de l'exercice sans polluer",
 	"pollution_coeff" : "0",
 	"money_coeff" : "0",
 	"exhaust_coeff" : "1.5",

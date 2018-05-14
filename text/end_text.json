@@ -1,17 +1,17 @@
 {
     "pollution":{
-        "bad": "Vous êtes un verritable pollueur ! Couper une vingtaine d'arbre aurait eu le même impact que votre trajet sur l'environnement.",
+        "bad": "Vous êtes un véritable pollueur ! Couper une vingtaine d'arbres aurait eu le même impact sur l'environnement que votre trajet.",
         "medium": "Votre trajet a été polluant, vous devriez songer à emprunter des transports en commun ou à privilégier le vélo.",
-        "good": "Vous avez été exemplaire en terme de respect de l'environnement, la terre vous remercie !"
+        "good": "Vous avez été exemplaire en terme de respect de l'environnement, la Terre vous remercie !"
     },
     "money":{
         "bad": "Vous avez dépensé beaucoup d'argent, songez à une solution plus économique comme la marche ou le vélo !",
-        "medium": "La prochaine fois tentez d'économiser un peu plus en vous essayant aux transports alternatifs.",
-        "good": "Vous avez géré avec brio vos finances, fellicitations !"
+        "medium": "La prochaine fois, tentez d'économiser un peu en utilisant les transports alternatifs.",
+        "good": "Vous avez géré vos finances avec brio, félicitations!"
     },
     "exhaust":{
-        "bad": "Faire de l'exercice est excellent pour la santé, profiter de vos déplacements dans la ville pour faire de l'exercice",
-        "medium": "Vous vous êtes peut être trop fatigué, tentez de trouver un meilleur équilibre pour ne pas trop vous épuiser la prochaine fois.",
+        "bad": "Faire de l'exercice est excellent pour la santé, profitez de vos déplacements dans la ville pour en faire.",
+        "medium": "Ce trajet a été fatiguant, tentez de trouver un meilleur équilibre pour ne pas trop vous épuiser la prochaine fois.",
         "good": "Vous êtes en super forme, bravo !"
     }
 }

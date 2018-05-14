@@ -4,7 +4,7 @@
 	"apply_to": [],
 	"blocked_vehicles": ["train"],
 	"url_to_image" : "../events/images/train_strike.png",
-	"description" : "La SNCF a déclaré une grève générale, plus aucun train ne circulent",
+	"description" : "La SNCF a déclaré une grève générale, plus aucun train ne circule",
 	"perturbative_pollution_coeff" : "1",
 	"perturbative_money_coeff" : "1",
 	"perturbative_exhaust_coeff" : "1",

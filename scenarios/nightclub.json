@@ -2,7 +2,7 @@
   "name": "nightclub",
   "url_to_image": "./image/scenario/nightclub.png",
   "url_to_background": "./image/maps/paris_night.png",
-  "description": "Il est 3 heures du matin, après avoir été la star de la soirée en montrant à tout le monde vos talents de danseur, vous devez rentrer chez vous !",
+  "description": "Il est 3 heures du matin, après avoir été la star de la soirée en montrant à tout le monde vos talents de danseur.euse, vous devez rentrer chez vous !",
   "stops_list": [{
     "name": "Le Macumba",
     "available_vehicles": ["taxi", "feet", "bicycle"],

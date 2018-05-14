@@ -1,6 +1,6 @@
 {
 	"name" : "free_public_transport",
-	"display_name": "Transports public gratuits",
+	"display_name": "Transports publics gratuits",
 	"apply_to": ["bus", "metro", "mono", "train", "tram"],
 	"blocked_vehicles": [],
 	"url_to_image" : "../events/images/free_public_transport.png",
