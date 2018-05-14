@@ -39,7 +39,7 @@
     "x": 694,
     "y": 198
   }, {
-    "name": "Commission Européenne",
+    "name": "Musée",
     "available_vehicles": ["feet", "trotinet", "tram"],
     "x": 966,
     "y": 313
@@ -397,7 +397,7 @@
     ]
   }, {
     "from": "Cathédrale",
-    "to": "Commission Européenne",
+    "to": "Musée",
     "path": [
       [839, 418],
       [850, 420],
@@ -414,7 +414,7 @@
       [966, 313]
     ]
   }, {
-    "from": "Commission Européenne",
+    "from": "Musée",
     "to": "Shopping",
     "path": [
       [965, 315],
